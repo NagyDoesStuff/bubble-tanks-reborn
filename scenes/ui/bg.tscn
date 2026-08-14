@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://ed6xvuvjcmkd"]
+
+[ext_resource type="Texture2D" uid="uid://53sencjl08cp" path="res://img/bg.png" id="1_2xehu"]
+[ext_resource type="Texture2D" uid="uid://3of6wli6kjpb" path="res://img/bubbles/1818.png" id="2_psg4x"]
+
+[sub_resource type="Curve" id="Curve_ymrjv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, Vector2(0.6350515, 0.94), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="BG" type="CanvasLayer" unique_id=1923598303]
+layer = -99
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1901144759]
+position = Vector2(983, 558)
+scale = Vector2(0.3591958, 0.24948315)
+texture = ExtResource("1_2xehu")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1729752112]
+position = Vector2(1007, 540)
+amount = 20
+texture = ExtResource("2_psg4x")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 500)
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.03
+scale_amount_max = 0.06
+scale_amount_curve = SubResource("Curve_ymrjv")
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)

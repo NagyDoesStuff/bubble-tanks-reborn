@@ -1,0 +1,30 @@
+[gd_scene format=3 uid="uid://dekkmhg6m3680"]
+
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_0idu2"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="2_nwbjd"]
+[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="3_nq6md"]
+[ext_resource type="PackedScene" uid="uid://c8dvqqcb4fpq4" path="res://scenes/parts/egunpart/BasicGun.tscn" id="4_o3q8e"]
+
+[node name="Enemy" type="Area2D" unique_id=406105084]
+script = ExtResource("1_0idu2")
+team = 1
+speed = 8.0
+turn_rate = 8.0
+max_progress = 12
+
+[node name="Bubble02Normal" parent="." unique_id=878054447 instance=ExtResource("2_nwbjd")]
+scale = Vector2(0.99438155, 0.99438155)
+
+[node name="Bubble01Normal3" parent="." unique_id=1612306394 instance=ExtResource("3_nq6md")]
+position = Vector2(-11, -31)
+scale = Vector2(0.81543106, 0.81543106)
+
+[node name="Bubble01Normal4" parent="." unique_id=2082312182 instance=ExtResource("3_nq6md")]
+position = Vector2(-12, 31)
+scale = Vector2(0.81543106, 0.81543106)
+
+[node name="Bubble01Normal2" parent="." unique_id=1157247565 instance=ExtResource("3_nq6md")]
+position = Vector2(-38, 0)
+scale = Vector2(1.3165779, 1.3165779)
+
+[node name="BasicGun" parent="." unique_id=122091808 instance=ExtResource("4_o3q8e")]

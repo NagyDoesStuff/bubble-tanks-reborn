@@ -1,0 +1,126 @@
+[gd_scene format=3 uid="uid://b3wc4thnism81"]
+
+[ext_resource type="Script" uid="uid://b1cbif8iqoy4q" path="res://classes/ui/GameUI.gd" id="1_33h1x"]
+[ext_resource type="LabelSettings" uid="uid://crwwtp3l60tb7" path="res://resources/labelsettings/01.tres" id="2_nqx3d"]
+[ext_resource type="StyleBox" uid="uid://c8w544l3ckmgp" path="res://resources/stylebox/01.tres" id="3_nqx3d"]
+[ext_resource type="FontFile" uid="uid://b4r5bp1xanep7" path="res://fonts/131_Arial.ttf" id="4_bmdha"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_bmdha"]
+font = ExtResource("4_bmdha")
+font_size = 28
+
+[sub_resource type="LabelSettings" id="LabelSettings_5nrn4"]
+font = ExtResource("4_bmdha")
+font_size = 20
+
+[node name="UI" type="CanvasLayer" unique_id=668515769]
+script = ExtResource("1_33h1x")
+
+[node name="Control" type="Control" parent="." unique_id=1203754873]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="Control" unique_id=1823076109]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer" unique_id=865663949]
+layout_mode = 2
+
+[node name="FPS" type="Label" parent="Control/MarginContainer/VBoxContainer" unique_id=178788245]
+layout_mode = 2
+text = "FPS: ..."
+label_settings = ExtResource("2_nqx3d")
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer/VBoxContainer" unique_id=1300696643]
+custom_minimum_size = Vector2(300, 50)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/panel = ExtResource("3_nqx3d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer/VBoxContainer/Panel" unique_id=1835668209]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="ClusterSearch" type="LineEdit" parent="Control/MarginContainer/VBoxContainer/Panel/MarginContainer" unique_id=922841402]
+layout_mode = 2
+placeholder_text = "Insert cluster file name..."
+flat = true
+
+[node name="MarginContainer2" type="MarginContainer" parent="Control" unique_id=1795223712]
+custom_minimum_size = Vector2(0, 150)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_bottom = 150.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 100
+theme_override_constants/margin_bottom = 20
+
+[node name="Panel" type="Panel" parent="Control/MarginContainer2" unique_id=1503034373]
+layout_mode = 2
+theme_override_styles/panel = ExtResource("3_nqx3d")
+
+[node name="MarginContainer" type="MarginContainer" parent="Control/MarginContainer2/Panel" unique_id=836564092]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/MarginContainer2/Panel/MarginContainer" unique_id=1193961914]
+layout_mode = 2
+theme_override_constants/separation = 16
+
+[node name="Label" type="Label" parent="Control/MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1755963115]
+layout_mode = 2
+text = "Progress"
+label_settings = SubResource("LabelSettings_bmdha")
+horizontal_alignment = 1
+
+[node name="ProgressBar" type="ProgressBar" parent="Control/MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=1707085439]
+custom_minimum_size = Vector2(0, 36)
+layout_mode = 2
+show_percentage = false
+
+[node name="Numbers" type="Label" parent="Control/MarginContainer2/Panel/MarginContainer/VBoxContainer/ProgressBar" unique_id=1955894473]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "?/?"
+label_settings = SubResource("LabelSettings_5nrn4")
+horizontal_alignment = 1
+vertical_alignment = 1

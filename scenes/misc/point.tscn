@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ckebyrul4e710"]
+
+[ext_resource type="Script" uid="uid://ctch2b08fbctn" path="res://classes/game/BubblePoint.gd" id="1_8lryq"]
+[ext_resource type="Texture2D" uid="uid://dy64dhn0817qu" path="res://img/bubbles/1814.png" id="2_8lryq"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_8lryq"]
+radius = 32.0
+
+[node name="Point" type="Area2D" unique_id=1728407476]
+script = ExtResource("1_8lryq")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1466784837]
+scale = Vector2(0.5350565, 0.5350565)
+texture = ExtResource("2_8lryq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=2023630822]
+shape = SubResource("CircleShape2D_8lryq")

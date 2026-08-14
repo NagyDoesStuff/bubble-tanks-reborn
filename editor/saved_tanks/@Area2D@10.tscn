@@ -1,0 +1,80 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_qf1eg"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble03_normal.tscn" id="2_m0fl7"]
+[ext_resource type="Script" path="res://classes/parts/CollisionPart.gd" id="3_rshjs"]
+[ext_resource type="PackedScene" path="res://scenes/parts/pgunpart/3SpreadGun.tscn" id="4_acdkk"]
+[ext_resource type="Script" path="res://classes/parts/GunPart.gd" id="5_q2ylr"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="6_45cpq"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="7_33lle"]
+
+[node name="@Area2D@10" type="Area2D" unique_id=301686073]
+position = Vector2(820, 562.5)
+script = ExtResource("1_qf1eg")
+
+[node name="Large Bubble" type="Node2D" parent="." unique_id=878054447 instance=ExtResource("2_m0fl7")]
+z_index = 99
+position = Vector2(-21.557312, 5.012451)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="3 Spread Gun" type="Node2D" parent="." unique_id=122091808 instance=ExtResource("4_acdkk")]
+z_index = 100
+position = Vector2(-23.71521, 5.012451)
+script = ExtResource("5_q2ylr")
+cooldown = 0.25
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Medium Bubble" type="Node2D" parent="." unique_id=140264680 instance=ExtResource("6_45cpq")]
+z_index = 99
+position = Vector2(-14.004456, -60.801758)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@21" type="Node2D" parent="." unique_id=1756260466 instance=ExtResource("6_45cpq")]
+z_index = 99
+position = Vector2(-5.3726196, 78.37903)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@25" type="Node2D" parent="." unique_id=1366952158 instance=ExtResource("6_45cpq")]
+z_index = 99
+position = Vector2(-85.21692, 1.7756348)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Small Bubble" type="Node2D" parent="." unique_id=1363172780 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(-12.925476, -95.32721)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@32" type="Node2D" parent="." unique_id=1101027205 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(-15.083435, 109.667786)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@36" type="Node2D" parent="." unique_id=1732509138 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(15.12793, 82.69476)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@40" type="Node2D" parent="." unique_id=340078373 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(14.04895, -65.11743)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@44" type="Node2D" parent="." unique_id=2001285205 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(-102.48053, -23.03949)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@48" type="Node2D" parent="." unique_id=408434729 instance=ExtResource("7_33lle")]
+z_index = 99
+position = Vector2(-106.79645, 31.985474)
+script = ExtResource("3_rshjs")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"

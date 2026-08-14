@@ -1,0 +1,11 @@
+[gd_scene format=3 uid="uid://dylq1171myx2n"]
+
+[ext_resource type="Script" uid="uid://d3dacg0pksvhk" path="res://classes/game/Arena.gd" id="1_duu16"]
+[ext_resource type="Texture2D" uid="uid://dl2t42taqfdrl" path="res://img/bubble_wall.png" id="2_tsqnu"]
+
+[node name="Arena" type="Node2D" unique_id=1872830080]
+script = ExtResource("1_duu16")
+metadata/_custom_type_script = "uid://d3dacg0pksvhk"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2057220700]
+texture = ExtResource("2_tsqnu")
