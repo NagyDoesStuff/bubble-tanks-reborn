@@ -13,6 +13,7 @@ var is_hovered: bool = false
 			return null
 
 func _ready() -> void:
+	
 	if editor_mode:
 		z_index += 99
 		
@@ -28,6 +29,10 @@ func _ready() -> void:
 		e_area.add_child(e_col)
 	
 	_subready()
+	
+	await get_tree().process_frame
+	
+	owner = user
 
 func _subready() -> void:
 	pass

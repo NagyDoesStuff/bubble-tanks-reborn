@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bwyyy1cafhldn"]
+
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_w0f4h"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="2_ly0ay"]
+[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="4_30srr"]
+
+[node name="Bag O\' Bubbles" type="Area2D" unique_id=630319553]
+script = ExtResource("1_w0f4h")
+team = 1
+speed = 3.0
+drop_value = 4
+max_progress = 6
+
+[node name="Medium Bubble" parent="." unique_id=878054447 instance=ExtResource("2_ly0ay")]
+z_index = 99
+position = Vector2(0.68518066, -0.5534668)
+
+[node name="Small Bubble" parent="." unique_id=1586508917 instance=ExtResource("4_30srr")]
+z_index = 99
+position = Vector2(34.133484, -0.5534668)
+
+[node name="@Node2D@16" parent="." unique_id=1725730161 instance=ExtResource("4_30srr")]
+z_index = 99
+position = Vector2(-19.815369, -34)
+
+[node name="@Node2D@20" parent="." unique_id=1360406059 instance=ExtResource("4_30srr")]
+z_index = 99
+position = Vector2(-19.815369, 33.972046)
+
+[node name="@Node2D@24" parent="." unique_id=721975605 instance=ExtResource("4_30srr")]
+z_index = 99
+position = Vector2(-36, 0.52545166)

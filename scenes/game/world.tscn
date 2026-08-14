@@ -7,7 +7,6 @@
 [ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="4_qd3kh"]
 [ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="6_vn813"]
 [ext_resource type="PackedScene" uid="uid://cd4xnd1m3octc" path="res://scenes/parts/pgunpart/BasicGun.tscn" id="7_68iyn"]
-[ext_resource type="PackedScene" uid="uid://dekkmhg6m3680" path="res://scenes/clusters/enemy/enemy.tscn" id="7_vn813"]
 [ext_resource type="AudioStream" uid="uid://c1rv3ooid2gau" path="res://audio/ost/game.mp3" id="9_sexec"]
 
 [node name="World" type="Node2D" unique_id=1679681722]
@@ -18,7 +17,7 @@ script = ExtResource("1_g5t8f")
 [node name="UI" parent="." unique_id=668515769 instance=ExtResource("4_a33jj")]
 
 [node name="Arena" parent="." unique_id=1872830080 instance=ExtResource("3_d8brc")]
-scale = Vector2(0.4537163, 0.4537163)
+scale = Vector2(0.33, 0.33)
 
 [node name="Player" type="Area2D" parent="." unique_id=308567141]
 script = ExtResource("4_qd3kh")
@@ -28,18 +27,9 @@ scale = Vector2(1.2258205, 1.2258205)
 
 [node name="Basic Gun" parent="Player" unique_id=122091808 instance=ExtResource("7_68iyn")]
 
-[node name="Enemy" parent="." unique_id=406105084 instance=ExtResource("7_vn813")]
-position = Vector2(-1379, -1004)
-
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1605038604]
 stream = ExtResource("9_sexec")
 autoplay = true
 max_distance = inf
 attenuation = 1e-05
 panning_strength = 0.0
-
-[node name="Enemy2" parent="." unique_id=1369552211 instance=ExtResource("7_vn813")]
-position = Vector2(-1379, -1004)
-
-[node name="Enemy3" parent="." unique_id=374379340 instance=ExtResource("7_vn813")]
-position = Vector2(-1379, -1004)

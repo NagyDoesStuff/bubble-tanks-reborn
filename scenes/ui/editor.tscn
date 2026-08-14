@@ -28,9 +28,26 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkm6v"]
+bg_color = Color(1, 1, 1, 0.2509804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_fkm6v"]
+font = ExtResource("2_6d1h4")
+font_size = 24
+
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ct7"]
 
 [node name="Editor" type="Control" unique_id=1277885260 node_paths=PackedStringArray("debug_text")]
+modulate = Color(1, 1, 1, 0)
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -90,6 +107,7 @@ layout_mode = 2
 modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+tooltip_text = "Save & Close"
 texture_normal = ExtResource("3_uq5ih")
 texture_pressed = ExtResource("4_ceu0q")
 ignore_texture_size = true
@@ -98,6 +116,7 @@ stretch_mode = 5
 [node name="LoadButton" type="TextureButton" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=497677636]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
+tooltip_text = "Load cluster"
 texture_normal = ExtResource("5_fkm6v")
 texture_pressed = ExtResource("6_p70fw")
 ignore_texture_size = true
@@ -122,7 +141,7 @@ size_flags_horizontal = 3
 mouse_filter = 2
 
 [node name="ClusterName" type="LineEdit" parent="HBoxContainer/VBoxContainer" unique_id=2141000835]
-custom_minimum_size = Vector2(0, 40.995)
+custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
 size_flags_vertical = 4
 theme_override_fonts/font = ExtResource("6_oaaef")
@@ -130,6 +149,7 @@ theme_override_font_sizes/font_size = 26
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Enter cluster name..."
+alignment = 1
 
 [node name="Display" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=810456123]
 layout_mode = 2
@@ -163,6 +183,25 @@ texture = ExtResource("8_s0ct7")
 expand_mode = 1
 stretch_mode = 5
 
+[node name="Line2D" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=1232763946]
+position = Vector2(716.00006, 518)
+points = PackedVector2Array(0, 100, 0, -100)
+width = 2.0
+default_color = Color(1, 1, 1, 0.22745098)
+
+[node name="Options" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1806113826]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_fkm6v")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Options" unique_id=1520460020]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer" unique_id=1583175718]
+layout_mode = 2
+
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1811545078]
 layout_mode = 2
 
@@ -190,6 +229,66 @@ text = "TANK INFO"
 label_settings = ExtResource("3_coh7o")
 horizontal_alignment = 1
 vertical_alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer" unique_id=290042938]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1975540303]
+layout_mode = 2
+text = "Tank Info:"
+label_settings = SubResource("LabelSettings_fkm6v")
+horizontal_alignment = 1
+
+[node name="TeamEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=563232303]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Insert team (0 is player, 1 is enemy)"
+alignment = 1
+
+[node name="Spacer" type="Label" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1847625126]
+layout_mode = 2
+label_settings = SubResource("LabelSettings_fkm6v")
+horizontal_alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1912102750]
+layout_mode = 2
+text = "Parameters for enemies..."
+label_settings = SubResource("LabelSettings_fkm6v")
+horizontal_alignment = 1
+
+[node name="HPEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=605069671]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Enemy max health..."
+alignment = 1
+
+[node name="DropEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1943258716]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Enemy drop amount..."
+alignment = 1
+
+[node name="SpeedEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=753261379]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Enemy speed..."
+alignment = 1
+
+[node name="MinAvailableEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1285807492]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Minimum amount of arenas to appear..."
+alignment = 1
 
 [node name="DragAndDrop" type="Panel" parent="HBoxContainer/VBoxContainer2" unique_id=1690421690]
 custom_minimum_size = Vector2(400, 300)

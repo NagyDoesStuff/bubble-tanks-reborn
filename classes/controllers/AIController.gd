@@ -6,7 +6,7 @@ var max_freq: float = 2.0
 var turn_dir: int = 0
 var min_turn_time_ratio: float = 0.25
 var max_turn_time_ratio: float = 0.5
-var run_to_center_margin: float = GlobalClass.ESTIMATED_ARENA_RADIUS * 0.5
+var run_to_center_margin: float = GlobalClass.ESTIMATED_ARENA_RADIUS * 0.75
 
 func _subready() -> void:
 	ai_cycle()
@@ -22,6 +22,9 @@ func _process(_delta: float) -> void:
 		Vector2.from_angle(user.global_rotation) * user.speed,
 		_delta * user.acceleration
 	)
+	
+	if !user.in_arena: return
+	
 	if run_to_center_margin * user.in_arena.scale.x > user.dist_from_center:
 		user.global_rotation += user.turn_rate * turn_dir * _delta
 	else:

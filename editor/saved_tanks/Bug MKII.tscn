@@ -7,7 +7,6 @@
 [ext_resource type="PackedScene" uid="uid://c3my8qkoa4syr" path="res://scenes/parts/pgunpart/2ParallelGun.tscn" id="6_rsqkq"]
 
 [node name="Bug MKII" type="Area2D" unique_id=447358177]
-position = Vector2(820, 562.5)
 script = ExtResource("1_ovgyf")
 
 [node name="Large Bubble" parent="." unique_id=878054447 instance=ExtResource("2_g883l")]
