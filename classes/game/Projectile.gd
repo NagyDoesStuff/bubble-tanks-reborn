@@ -8,7 +8,6 @@ var in_arena: Arena
 var team: int = 0
 var velocity: Vector2 = Vector2.ZERO
 var prj_info: Dictionary = {}
-var can_hit: bool = true
 
 @export var prj_area: Area2D
 
@@ -32,20 +31,29 @@ func _process(delta: float) -> void:
 		queue_free()
 
 func on_hit(area: Area2D) -> void:
-	if !can_hit: queue_free()
-	
 	var cluster: Cluster
 	if area is Cluster: 
 		cluster = area
 	else: 
 		return
-	
 	if cluster.team != team:
-		can_hit = false
-		area.monitoring = false
 		cluster.recieve_hit(prj_info["dmg_info"])
+		
+		# VFX
 		cluster.blink()
+		
+		var fx: Node2D
+		if prj_info.has("hit_fx"):
+			fx = load(prj_info["hit_fx"]).instantiate()
+		else:
+			fx = GlobalClass.DEFAULT_HIT_FX.instantiate()
+		fx.global_position = global_position
+		fx.scale = scale
+		GlobalClass.world.add_child(fx)
+		
+		# SFX
 		GlobalClass.play_sound("uid://br055er0cj176")
+		
 		queue_free()
 
 func check_dist_to_center() -> void:

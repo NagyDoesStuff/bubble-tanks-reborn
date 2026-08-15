@@ -8,16 +8,18 @@ const BUBBLE_POINT: PackedScene = preload("uid://ckebyrul4e710")
 
 const ARENA_TEMPLATE: PackedScene = preload("uid://dylq1171myx2n")
 
+const DEFAULT_HIT_FX: PackedScene = preload("uid://bwddu713otuhv")
+
 # CONSTANTS
 const ARENA_PUSH_FORCE: int = 100
 const HIT_BLINK_TIME: int = 6
 const DISTANCE_BETWEEN_ARENAS: int = 200
-const DEFAULT_MAX_ENEMIES: int = 6
+const DEFAULT_MAX_ENEMIES: int = 3
 const MAX_CLASS: int = 6
 
 const CLUSTER_CHECK_DIST_FREQ: float = .25
 const ESTIMATED_ARENA_RADIUS: float = 8505.0 / 2.0
-const LAND_ON_ARENA_DIST: float = ESTIMATED_ARENA_RADIUS * 0.5
+const LAND_ON_ARENA_DIST: float = 0.9
 const MIN_BUBBLE_POINT_SIZE: float = 0.5
 const BUBBLE_POINT_GROW_SIZE: float = 0.025
 const MAX_ENEMIES_INCREMENT_PER_ARENA: float = 0.2
@@ -27,7 +29,7 @@ const EDITOR_SAVES_DIRECTORY: String = "res://editor/"
 
 const HIT_COLOR: Color = Color(1.164, 1.164, 1.164, 1.0)
 
-const DEFAULT_ARENA_SCALE: Vector2 = Vector2.ONE * 0.33
+const DEFAULT_ARENA_SCALE: Vector2 = Vector2.ONE * 0.25
 
 const PROGRESSION_REQUIREMENTS: Array[int] = [
 	50, # CLASS 2
@@ -72,7 +74,7 @@ func play_sound(
 	audio_node.stream = load(file_path)
 	audio_node.volume_db = vol
 	audio_node.pitch_scale = pitch
-	audio_node.max_distance = 999999
+	audio_node.max_distance = INF
 	audio_node.panning_strength = 0.0
 	audio_node.process_mode = Node.PROCESS_MODE_ALWAYS
 	audio_node.play()

@@ -10,45 +10,34 @@
 script = ExtResource("1_ukuue")
 
 [node name="Large Bubble" parent="." unique_id=878054447 instance=ExtResource("2_ghd3p")]
-z_index = 99
 position = Vector2(-21.557312, 5.012451)
 
 [node name="3 Spread Gun" parent="." unique_id=122091808 instance=ExtResource("4_qrfg5")]
-z_index = 100
 position = Vector2(-23.71521, 5.012451)
 
 [node name="Medium Bubble" parent="." unique_id=140264680 instance=ExtResource("6_ltvuh")]
-z_index = 99
 position = Vector2(-14.004456, -60.801758)
 
 [node name="@Node2D@21" parent="." unique_id=1756260466 instance=ExtResource("6_ltvuh")]
-z_index = 99
 position = Vector2(-5.3726196, 78.37903)
 
 [node name="@Node2D@25" parent="." unique_id=1366952158 instance=ExtResource("6_ltvuh")]
-z_index = 99
 position = Vector2(-85.21692, 1.7756348)
 
 [node name="Small Bubble" parent="." unique_id=1363172780 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(-12.925476, -95.32721)
 
 [node name="@Node2D@32" parent="." unique_id=1101027205 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(-15.083435, 109.667786)
 
 [node name="@Node2D@36" parent="." unique_id=1732509138 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(15.12793, 82.69476)
 
 [node name="@Node2D@40" parent="." unique_id=340078373 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(14.04895, -65.11743)
 
 [node name="@Node2D@44" parent="." unique_id=2001285205 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(-102.48053, -23.03949)
 
 [node name="@Node2D@48" parent="." unique_id=408434729 instance=ExtResource("7_coaef")]
-z_index = 99
 position = Vector2(-106.79645, 31.985474)

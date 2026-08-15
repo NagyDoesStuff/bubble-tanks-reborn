@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://dlksa068y211m"]
+
+[ext_resource type="Script" uid="uid://y2smhndmk7x3" path="res://classes/parts/CollisionPart.gd" id="1_sf0rn"]
+[ext_resource type="PackedScene" uid="uid://dsc3anm0wx63x" path="res://scenes/decorations/bubble31.tscn" id="2_sf0rn"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 64.070274
+
+[node name="Small Light Bubble" type="Node2D" unique_id=878054447]
+script = ExtResource("1_sf0rn")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320082955]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Bubble33" parent="." unique_id=1039353022 instance=ExtResource("2_sf0rn")]
+scale = Vector2(0.24807604, 0.24807604)

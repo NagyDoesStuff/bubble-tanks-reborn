@@ -10,65 +10,49 @@
 script = ExtResource("1_ovgyf")
 
 [node name="Large Bubble" parent="." unique_id=878054447 instance=ExtResource("2_g883l")]
-z_index = 297
 position = Vector2(-5.3726196, -3.6189575)
 
 [node name="Medium Bubble" parent="." unique_id=843409290 instance=ExtResource("4_rby28")]
-z_index = 297
 position = Vector2(71.23468, -1.4611206)
 
 [node name="Small Bubble" parent="." unique_id=753097784 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(96.05115, -20.881653)
 
 [node name="@Node2D@23" parent="." unique_id=458366621 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(96.05115, 22.275146)
 
 [node name="2 Parallel Gun" parent="." unique_id=122091808 instance=ExtResource("6_rsqkq")]
-z_index = 298
 position = Vector2(-16.162415, -64.03851)
 
 [node name="@Node2D@29" parent="." unique_id=625588055 instance=ExtResource("6_rsqkq")]
-z_index = 298
 position = Vector2(-20.478333, 54.64276)
 
 [node name="@Node2D@32" parent="." unique_id=1900266697 instance=ExtResource("4_rby28")]
-z_index = 297
 position = Vector2(-61.47943, 28.748657)
 
 [node name="@Node2D@36" parent="." unique_id=975439404 instance=ExtResource("4_rby28")]
-z_index = 297
 position = Vector2(-58.242493, -40.302246)
 
 [node name="@Node2D@40" parent="." unique_id=60074453 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-44.21582, -76.985596)
 
 [node name="@Node2D@44" parent="." unique_id=1618266162 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-20.478333, -87.77478)
 
 [node name="@Node2D@48" parent="." unique_id=893294793 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-49.610657, 67.58984)
 
 [node name="@Node2D@52" parent="." unique_id=1565628903 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-20.478333, 84.8526)
 
 [node name="@Node2D@56" parent="." unique_id=455035497 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-91.690735, -40.302246)
 
 [node name="@Node2D@60" parent="." unique_id=121196447 instance=ExtResource("5_38lyu")]
-z_index = 297
 position = Vector2(-91.690735, 33.064392)
 
 [node name="@Node2D@49" parent="." unique_id=2016022763 instance=ExtResource("6_rsqkq")]
-z_index = 199
 position = Vector2(50.73413, -48.933594)
 
 [node name="@Node2D@51" parent="." unique_id=1058948206 instance=ExtResource("6_rsqkq")]
-z_index = 100
 position = Vector2(49.65515, 46.011414)

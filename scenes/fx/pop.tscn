@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bwddu713otuhv"]
+
+[ext_resource type="Script" uid="uid://bdqqcca4fd1l6" path="res://classes/fx/ExplosionFX.gd" id="1_v3ppc"]
+[ext_resource type="Texture2D" uid="uid://bq0odm3b0oimo" path="res://img/fx/pop.png" id="2_4jhbo"]
+
+[node name="Pop" type="Node2D" unique_id=800833179]
+script = ExtResource("1_v3ppc")
+grow_rate = 20.0
+lifetime = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=329179966]
+position = Vector2(-15, -3.0000002)
+scale = Vector2(0.11883661, 0.11883661)
+texture = ExtResource("2_4jhbo")

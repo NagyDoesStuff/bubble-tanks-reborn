@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://djyqg6cpbkh0a"]
+
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_tqnu2"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="2_k28uw"]
+[ext_resource type="PackedScene" uid="uid://cd4xnd1m3octc" path="res://scenes/parts/pgunpart/BasicGun.tscn" id="3_68n0s"]
+
+[node name="Basic" type="Area2D" unique_id=493591574]
+monitoring = false
+script = ExtResource("1_tqnu2")
+max_progress = 50
+
+[node name="Bubble02Normal" parent="." unique_id=878054447 instance=ExtResource("2_k28uw")]
+scale = Vector2(1.25, 1.25)
+
+[node name="Basic Gun" parent="." unique_id=122091808 instance=ExtResource("3_68n0s")]
+scale = Vector2(0.9282861, 0.9282861)

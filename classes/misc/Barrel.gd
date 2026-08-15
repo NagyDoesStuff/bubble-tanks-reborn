@@ -9,7 +9,8 @@ var muted: bool = false
 		"amount": 1
 	},
 	"speed": 2000.0,
-	"size": 1.0
+	"size": 1.0,
+	"hit_fx": "uid://bwddu713otuhv"
 }
 
 @onready var gun: GunPart = get_parent()

@@ -59,7 +59,9 @@ func transform_player_into(cluster: Cluster) -> void:
 	for p in cluster.get_parts():
 		p.disabled = false
 	GlobalClass.player_cluster.queue_free()
+	await get_tree().process_frame
 	GlobalClass.player_cluster = cluster
+	cluster.name = str(randi())
 	add_child(cluster)
 	dynamic_cam.anchor = cluster
 
@@ -95,7 +97,7 @@ func transfer_player_to_next_arena(angle: float = 0.0) -> void:
 	await create_tween().tween_property(
 		GlobalClass.player_cluster, 
 		"global_position", 
-		new_arena.global_position + Vector2.LEFT.rotated(angle) * GlobalClass.ESTIMATED_ARENA_RADIUS / 4, 
+		new_arena.global_position + Vector2.LEFT.rotated(angle) * GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.DEFAULT_ARENA_SCALE * GlobalClass.LAND_ON_ARENA_DIST, 
 		1).set_trans(Tween.TRANS_CIRC).finished
 	
 	GlobalClass.player_cluster.in_arena.queue_free()
@@ -104,10 +106,15 @@ func transfer_player_to_next_arena(angle: float = 0.0) -> void:
 	await get_tree().create_timer(0.1).timeout
 	
 	GlobalClass.player_cluster.enabled = true
-	new_arena.spawn_enemies()
+	if new_arena: new_arena.spawn_enemies()
 	
 func upgrade_player() -> void:
 	player_max_class += 1
 	player_gun_points += 1
-	GlobalClass.player_cluster.progress = 0
-	ui.editor.toggle_editor(true)
+	GlobalClass.player_cluster.progress = 1
+	GlobalClass.player_cluster.enabled = false
+	ui.toggle_editor(true)
+	ui.hud.hide()
+	await get_tree().process_frame
+	ui.editor.create_edited_cluster(GlobalClass.player_cluster.duplicate())
+	GlobalClass.player_cluster.queue_free()

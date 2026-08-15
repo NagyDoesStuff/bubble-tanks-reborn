@@ -16,7 +16,6 @@ signal killed()
 
 @export_group("Spawn Settings")
 @export var min_to_available: int = 0
-@export var max_of_type: int = 2
 
 var dist_from_center: float = 0.0
 
@@ -41,14 +40,15 @@ var parts: Array[Part] = []
 
 func _ready() -> void:
 	modulate.a = 0.0
+	
+	await get_tree().process_frame
+	
 	create_tween().tween_property(self, "modulate:a", 1.0, 0.5)
 	
 	if !enabled: return
 	
 	parts = get_parts()
 	check_dist_to_center()
-	
-	await get_tree().process_frame
 	
 	if team == 0:
 		GlobalClass.player_cluster = self
@@ -79,13 +79,12 @@ func get_parts() -> Array[Part]:
 	return list
 
 func recieve_hit(dmg_info: Dictionary) -> void:
+	if !enabled: return
 	match dmg_info["type"]:
-		"dmg":
+		_:
 			progress -= dmg_info["amount"]
 			if team == 0:
 				GlobalClass.play_sound("uid://c2wjfumwdpyo")
-		_: 
-			pass
 
 func check_progress() -> void:
 	if progress == max_progress and team == 0:
@@ -123,14 +122,12 @@ func blink() -> void:
 	mid_blinking = false
 
 func drop_points() -> void:
-	var drop_list: Array[BubblePoint] = []
-	
 	var avaliable_value_to_convert: int = drop_value
-	for x in range(drop_value):
+	while avaliable_value_to_convert > 0:
 		var rand_pt_val: int = randi_range(1,10)
-		@warning_ignore("narrowing_conversion")
 		if rand_pt_val > avaliable_value_to_convert:
 			rand_pt_val = avaliable_value_to_convert
+		print("rand_pt_val: " + str(rand_pt_val))
 		
 		var pt: BubblePoint = GlobalClass.BUBBLE_POINT.instantiate()
 		pt.add_value = rand_pt_val
@@ -138,7 +135,5 @@ func drop_points() -> void:
 		pt.in_arena = in_arena
 		
 		avaliable_value_to_convert -= rand_pt_val
-		drop_list.append(pt)
-	
-	for pt in drop_list:
+		print("avaliable_value_to_convert: " + str(avaliable_value_to_convert))
 		GlobalClass.world.call_deferred("add_child", pt)

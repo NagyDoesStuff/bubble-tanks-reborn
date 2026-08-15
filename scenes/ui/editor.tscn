@@ -6,14 +6,16 @@
 [ext_resource type="LabelSettings" uid="uid://crwwtp3l60tb7" path="res://resources/labelsettings/01.tres" id="3_coh7o"]
 [ext_resource type="Texture2D" uid="uid://b1seh8lakjoii" path="res://img/ui/save_icon.png" id="3_uq5ih"]
 [ext_resource type="Texture2D" uid="uid://nw1278dx21c2" path="res://img/ui/save_icon_pressed.png" id="4_ceu0q"]
-[ext_resource type="PackedScene" uid="uid://ed6xvuvjcmkd" path="res://scenes/ui/bg.tscn" id="4_coh7o"]
 [ext_resource type="Texture2D" uid="uid://do2m1c8805n1c" path="res://img/ui/load_icon.png" id="5_fkm6v"]
 [ext_resource type="FontFile" uid="uid://dsidbosgdua0m" path="res://fonts/2457_Arial.ttf" id="6_oaaef"]
 [ext_resource type="Texture2D" uid="uid://rhfccj4ar03w" path="res://img/ui/load_icon_pressed.png" id="6_p70fw"]
 [ext_resource type="Texture2D" uid="uid://df721ch2y1e58" path="res://img/ui/816.png" id="8_s0ct7"]
-
-[sub_resource type="LabelSettings" id="LabelSettings_x4mk5"]
-font = ExtResource("2_6d1h4")
+[ext_resource type="Texture2D" uid="uid://dyx2323qtmbfc" path="res://img/ui/trash_icon.png" id="9_5mn78"]
+[ext_resource type="Texture2D" uid="uid://b16yl4phfy1pa" path="res://img/ui/trash_icon_pressed.png" id="10_nf4ht"]
+[ext_resource type="FontFile" uid="uid://c6qny5ft6citq" path="res://fonts/142_Arial.ttf" id="11_p70fw"]
+[ext_resource type="Texture2D" uid="uid://53sencjl08cp" path="res://img/bg.png" id="13_hrj1y"]
+[ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="13_xbjxy"]
+[ext_resource type="Texture2D" uid="uid://3of6wli6kjpb" path="res://img/bubbles/1818.png" id="14_m77bv"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4mk5"]
 bg_color = Color(1, 1, 1, 0.2509804)
@@ -40,14 +42,47 @@ corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 4
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p70fw"]
+bg_color = Color(1, 1, 1, 0.2509804)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_p70fw"]
+font = ExtResource("11_p70fw")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xbjxy"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 1, 1, 0.15686275)
+corner_radius_top_left = 4
+corner_radius_top_right = 4
+corner_radius_bottom_right = 4
+corner_radius_bottom_left = 4
+corner_detail = 6
+
 [sub_resource type="LabelSettings" id="LabelSettings_fkm6v"]
 font = ExtResource("2_6d1h4")
 font_size = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ct7"]
 
-[node name="Editor" type="Control" unique_id=1277885260 node_paths=PackedStringArray("debug_text")]
+[sub_resource type="Curve" id="Curve_ymrjv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, Vector2(0.6350515, 0.94), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
+
+[node name="Editor" type="Control" unique_id=1277885260]
 modulate = Color(1, 1, 1, 0)
+z_index = 1
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -56,7 +91,12 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_b1cmn")
-debug_text = [NodePath("HBoxContainer/Panel/Label"), NodePath("HBoxContainer/VBoxContainer/Display/Label"), NodePath("HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/Label"), NodePath("HBoxContainer/VBoxContainer2/List/MarginContainer/Label")]
+
+[node name="SelectIcon" type="Sprite2D" parent="." unique_id=99527726]
+z_index = 1
+position = Vector2(-79, 0)
+scale = Vector2(0.028812263, 0.028812263)
+texture = ExtResource("13_xbjxy")
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=958728597]
 layout_mode = 1
@@ -107,7 +147,7 @@ layout_mode = 2
 modulate = Color(1.2742168, 1.2742168, 1.2742168, 1)
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-tooltip_text = "Save & Close"
+tooltip_text = "Save & Close."
 texture_normal = ExtResource("3_uq5ih")
 texture_pressed = ExtResource("4_ceu0q")
 ignore_texture_size = true
@@ -116,24 +156,20 @@ stretch_mode = 5
 [node name="LoadButton" type="TextureButton" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=497677636]
 custom_minimum_size = Vector2(0, 50)
 layout_mode = 2
-tooltip_text = "Load cluster"
+tooltip_text = "Load cluster..."
 texture_normal = ExtResource("5_fkm6v")
 texture_pressed = ExtResource("6_p70fw")
 ignore_texture_size = true
 stretch_mode = 5
 
-[node name="Label" type="Label" parent="HBoxContainer/Panel" unique_id=802780116]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-text = "TOOLS"
-label_settings = SubResource("LabelSettings_x4mk5")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="ClearButton" type="TextureButton" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=436229321]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+tooltip_text = "Clear cluster..."
+texture_normal = ExtResource("9_5mn78")
+texture_pressed = ExtResource("10_nf4ht")
+ignore_texture_size = true
+stretch_mode = 5
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=525772376]
 layout_mode = 2
@@ -158,19 +194,6 @@ size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4mk5")
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Display" unique_id=577277409]
-layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-size_flags_vertical = 1
-text = "DISPLAY"
-label_settings = ExtResource("3_coh7o")
-horizontal_alignment = 1
-vertical_alignment = 1
-
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Display" unique_id=2095925782]
 layout_mode = 1
 anchors_preset = 15
@@ -184,7 +207,7 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Line2D" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=1232763946]
-position = Vector2(716.00006, 518)
+position = Vector2(716, 460)
 points = PackedVector2Array(0, 100, 0, -100)
 width = 2.0
 default_color = Color(1, 1, 1, 0.22745098)
@@ -195,12 +218,110 @@ layout_mode = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_fkm6v")
 
 [node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Options" unique_id=1520460020]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer" unique_id=1583175718]
 layout_mode = 2
+theme_override_constants/separation = 64
+alignment = 1
+
+[node name="DeleteButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=397122724]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
+text = "Delete"
+
+[node name="MoveUpButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=872084187]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
+text = "Move Up"
+
+[node name="MoveDownButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=699649665]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
+text = "Move Down"
+
+[node name="CenterPartButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=1462104845]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
+text = "Move To Center"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=498184119]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer" unique_id=87941632]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Scale"
+label_settings = SubResource("LabelSettings_p70fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ScaleSlider" type="HSlider" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer" unique_id=1619512024]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_xbjxy")
+min_value = 0.5
+max_value = 2.0
+step = 0.01
+value = 1.5
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=1190433751]
+layout_mode = 2
+alignment = 1
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=1194903434]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Rotation"
+label_settings = SubResource("LabelSettings_p70fw")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="RotationSlider" type="HSlider" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer2" unique_id=540462142]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+size_flags_vertical = 1
+theme_override_styles/slider = SubResource("StyleBoxFlat_xbjxy")
+max_value = 360.0
+step = 0.01
+value = 1.0
+
+[node name="SymmetryButton" type="CheckButton" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=1230439067]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_p70fw")
+button_pressed = true
+text = "Symmetry Mode"
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer" unique_id=1811545078]
 layout_mode = 2
@@ -221,14 +342,6 @@ theme_override_constants/margin_left = 30
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 30
 theme_override_constants/margin_bottom = 30
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer" unique_id=974742557]
-layout_mode = 2
-size_flags_vertical = 1
-text = "TANK INFO"
-label_settings = ExtResource("3_coh7o")
-horizontal_alignment = 1
-vertical_alignment = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer" unique_id=290042938]
 layout_mode = 2
@@ -280,6 +393,14 @@ theme_override_fonts/font = ExtResource("6_oaaef")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Enemy speed..."
+alignment = 1
+
+[node name="TurnRateEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1197637285]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Turn rate..."
 alignment = 1
 
 [node name="MinAvailableEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1285807492]
@@ -363,12 +484,28 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/List/MarginContainer" unique_id=1593657293]
-layout_mode = 2
-size_flags_vertical = 1
-text = "AVALIABLE PARTS LIST"
-label_settings = ExtResource("3_coh7o")
-horizontal_alignment = 1
-vertical_alignment = 1
+[node name="BG" type="Control" parent="." unique_id=1739210535]
+z_index = -1
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
 
-[node name="BG" parent="." unique_id=1923598303 instance=ExtResource("4_coh7o")]
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1901144759]
+position = Vector2(983, 558)
+scale = Vector2(0.3591958, 0.24948315)
+texture = ExtResource("13_hrj1y")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BG" unique_id=1729752112]
+position = Vector2(1007, 540)
+amount = 20
+texture = ExtResource("14_m77bv")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 500)
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+scale_amount_min = 0.03
+scale_amount_max = 0.06
+scale_amount_curve = SubResource("Curve_ymrjv")
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)

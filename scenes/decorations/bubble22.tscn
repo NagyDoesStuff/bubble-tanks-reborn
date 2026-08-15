@@ -1,13 +1,13 @@
 [gd_scene format=3 uid="uid://blruipx4x78ku"]
 
 [ext_resource type="Script" uid="uid://cve0rm03lq2s7" path="res://classes/misc/Bubble.gd" id="1_xr3wf"]
-[ext_resource type="Texture2D" uid="uid://c80o4dekl0hgb" path="res://img/bubbles/679.png" id="2_iwixw"]
+[ext_resource type="Texture2D" uid="uid://besmfbfj2xuk6" path="res://img/bubbles/40.png" id="2_xr3wf"]
 
-[node name="Bubble01" type="Node2D" unique_id=1039353022]
+[node name="Bubble21" type="Node2D" unique_id=1039353022]
 script = ExtResource("1_xr3wf")
 metadata/_custom_type_script = "uid://y2smhndmk7x3"
 metadata/_edit_horizontal_guides_ = [-64.0]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=457257888]
-scale = Vector2(0.9060424, 0.9060424)
-texture = ExtResource("2_iwixw")
+scale = Vector2(0.5071937, 0.5071937)
+texture = ExtResource("2_xr3wf")

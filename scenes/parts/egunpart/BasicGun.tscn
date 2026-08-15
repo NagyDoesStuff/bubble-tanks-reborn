@@ -5,7 +5,6 @@
 [ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_a06yl"]
 
 [node name="Enemy Basic Gun" type="Node2D" unique_id=122091808]
-z_index = 1
 script = ExtResource("1_ls0uj")
 cooldown = 2.0
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"

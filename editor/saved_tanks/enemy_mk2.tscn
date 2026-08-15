@@ -12,8 +12,8 @@ cluster_class = 15
 speed = 12.0
 turn_rate = 10.0
 drop_value = 15
-min_to_available = 8
-max_progress = 18
+min_to_available = 15
+max_progress = 16
 
 [node name="Bubble02Normal" parent="." unique_id=878054447 instance=ExtResource("2_fq50g")]
 scale = Vector2(0.99438155, 0.99438155)

@@ -10,9 +10,9 @@ radius = 64.070274
 script = ExtResource("1_048ai")
 metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="Bubble02" parent="." unique_id=1039353022 instance=ExtResource("2_048ai")]
-scale = Vector2(0.5, 0.5)
-
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320082955]
 scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Bubble02" parent="." unique_id=1039353022 instance=ExtResource("2_048ai")]
+scale = Vector2(0.48878646, 0.48878646)

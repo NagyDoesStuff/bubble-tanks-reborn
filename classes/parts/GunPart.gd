@@ -10,7 +10,7 @@ func _subready() -> void:
 	barrels = get_barrels()
 
 func _process(_delta: float) -> void:
-	if !user or disabled: return
+	if !user or disabled or !user.enabled: return
 	
 	if user.team == 0:
 		if user.cluster_class >= 4:
