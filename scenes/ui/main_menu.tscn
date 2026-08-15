@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bkalqiq76isn0"]
+
+[ext_resource type="Script" uid="uid://b38hsd5exxpdm" path="res://classes/ui/MainMenu.gd" id="1_sl1te"]
+[ext_resource type="PackedScene" uid="uid://ed6xvuvjcmkd" path="res://scenes/ui/bg.tscn" id="2_fe2o3"]
+[ext_resource type="FontFile" uid="uid://cxtddjit6snrw" path="res://fonts/361_Billo.ttf" id="3_1g8jr"]
+[ext_resource type="AudioStream" uid="uid://3sftrdrd2f3h" path="res://audio/ost/menu.mp3" id="4_m1kxf"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_ymrjv"]
+font = ExtResource("3_1g8jr")
+font_size = 100
+
+[node name="MainMenu" type="Control" unique_id=1014022432]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_sl1te")
+
+[node name="BG" parent="." unique_id=1923598303 instance=ExtResource("2_fe2o3")]
+
+[node name="Label" type="Label" parent="." unique_id=1339856788]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -11.5
+offset_right = 0.5
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Bubble Tanks: Reborn !"
+label_settings = SubResource("LabelSettings_ymrjv")
+
+[node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1661090512]
+stream = ExtResource("4_m1kxf")
+volume_db = 6.0
+autoplay = true

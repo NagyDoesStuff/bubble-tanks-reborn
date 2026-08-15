@@ -1,0 +1,40 @@
+[gd_scene format=3 uid="uid://bwfqiw4jcf1mj"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_g1wnw"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_vjjxn"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_72v3j"]
+
+[node name="Seeker Launcher" type="Node2D" unique_id=122091808]
+script = ExtResource("1_g1wnw")
+cooldown = 2.0
+keybind = "space"
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble02" parent="." unique_id=1039353022 instance=ExtResource("2_vjjxn")]
+position = Vector2(13, -12.000001)
+scale = Vector2(0.15239756, 0.15239756)
+
+[node name="Bubble03" parent="." unique_id=1176472043 instance=ExtResource("2_vjjxn")]
+position = Vector2(13.000001, 12.000001)
+scale = Vector2(0.15239756, 0.15239756)
+
+[node name="Bubble01" parent="." unique_id=1017794866 instance=ExtResource("2_vjjxn")]
+scale = Vector2(0.15239756, 0.15239756)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(14, 0)
+script = ExtResource("3_72v3j")
+prj_info = {
+"dmg_info": {
+"amount": 10,
+"type": "dmg"
+},
+"hit_fx": "uid://dqbky1rhsnesm",
+"homing": true,
+"size": 1.0,
+"speed": 1500.0,
+"template": "uid://gvpn411w207d",
+"turn_rate": 10.0
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

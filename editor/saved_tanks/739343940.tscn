@@ -1,6 +1,0 @@
-[gd_scene format=3]
-
-[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_8ybl2"]
-
-[node name="@Area2D@18" type="Area2D" unique_id=440315734]
-script = ExtResource("1_8ybl2")

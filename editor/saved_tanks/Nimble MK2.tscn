@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="3_s8jtk"]
 [ext_resource type="PackedScene" uid="uid://c8dvqqcb4fpq4" path="res://scenes/parts/egunpart/BasicGun.tscn" id="4_uvfpi"]
 
-[node name="Enemy" type="Area2D" unique_id=406105084]
+[node name="Nimble MK2" type="Area2D" unique_id=406105084]
 script = ExtResource("1_t27qs")
 team = 1
 cluster_class = 15

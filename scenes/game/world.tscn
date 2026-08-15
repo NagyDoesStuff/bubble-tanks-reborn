@@ -1,11 +1,10 @@
-[gd_scene format=3 uid="uid://ptnxprw8wc7t"]
+[gd_scene format=3 uid="uid://cr1hv48vvi5cd"]
 
 [ext_resource type="Script" uid="uid://ybvqsnmu26e5" path="res://classes/game/World.gd" id="1_g5t8f"]
 [ext_resource type="PackedScene" uid="uid://dylq1171myx2n" path="res://scenes/game/arena.tscn" id="3_d8brc"]
 [ext_resource type="PackedScene" uid="uid://ed6xvuvjcmkd" path="res://scenes/ui/bg.tscn" id="3_qd3kh"]
 [ext_resource type="PackedScene" uid="uid://b3wc4thnism81" path="res://scenes/ui/gameui.tscn" id="4_a33jj"]
-[ext_resource type="PackedScene" uid="uid://djyqg6cpbkh0a" path="res://editor/saved_tanks/Basic.tscn" id="5_q5tta"]
-[ext_resource type="PackedScene" path="res://editor/saved_tanks/Swift.tscn" id="7_vn813"]
+[ext_resource type="PackedScene" uid="uid://ca5xoi8esggy4" path="res://editor/saved_tanks/Basic.tscn" id="5_q5tta"]
 [ext_resource type="AudioStream" uid="uid://c1rv3ooid2gau" path="res://audio/ost/game.mp3" id="9_sexec"]
 
 [node name="World" type="Node2D" unique_id=1679681722]
@@ -26,27 +25,3 @@ autoplay = true
 max_distance = inf
 attenuation = 1e-05
 panning_strength = 0.0
-
-[node name="Swift" parent="." unique_id=163674908 instance=ExtResource("7_vn813")]
-
-[node name="Swift2" parent="." unique_id=348767305 instance=ExtResource("7_vn813")]
-
-[node name="Swift3" parent="." unique_id=857273013 instance=ExtResource("7_vn813")]
-
-[node name="Swift4" parent="." unique_id=908544453 instance=ExtResource("7_vn813")]
-
-[node name="Swift5" parent="." unique_id=1428352977 instance=ExtResource("7_vn813")]
-
-[node name="Swift6" parent="." unique_id=137883355 instance=ExtResource("7_vn813")]
-
-[node name="Swift7" parent="." unique_id=932449550 instance=ExtResource("7_vn813")]
-
-[node name="Swift8" parent="." unique_id=1386604241 instance=ExtResource("7_vn813")]
-
-[node name="Swift9" parent="." unique_id=21597636 instance=ExtResource("7_vn813")]
-
-[node name="Swift10" parent="." unique_id=1003627767 instance=ExtResource("7_vn813")]
-
-[node name="Swift11" parent="." unique_id=113753510 instance=ExtResource("7_vn813")]
-
-[node name="Swift12" parent="." unique_id=37278344 instance=ExtResource("7_vn813")]

@@ -1,7 +1,7 @@
 extends Control
 class_name Editor
 
-@export var debug: bool = false
+@export var debug: bool = true
 
 const MIRROR_Y: int = 515
 
@@ -16,6 +16,7 @@ var symmetry: bool = true
 @onready var drag_and_drop_container: MarginContainer = $HBoxContainer/VBoxContainer2/DragAndDrop/MarginContainer
 
 @onready var cluster_display_container: Panel = $HBoxContainer/VBoxContainer/Display
+@onready var tank_info_container: Panel = $HBoxContainer/VBoxContainer2/TankInfo
 
 @onready var drag_button: Button = $HBoxContainer/VBoxContainer2/DragAndDrop/Button
 @onready var delete_button: Button = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/DeleteButton
@@ -41,6 +42,8 @@ var symmetry: bool = true
 
 @onready var symmetry_button: CheckButton = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/SymmetryButton
 
+@onready var info_label: Label = $HBoxContainer/VBoxContainer/Display/MarginContainer/Label
+
 var selected_part_path: String:
 	set(value):
 		selected_part_path = value
@@ -62,15 +65,16 @@ var last_dragged: Part
 var edited_cluster: Cluster
 
 func _ready() -> void:
+	await get_tree().process_frame
+	
 	if debug:
 		enabled = true
 		modulate.a = 1.0
+		tank_info_container.show()
 	else:
 		modulate.a = 0.0
 	
 	retrieve_avaliable_parts(GlobalClass.PARTS_DIRECTORY)
-	
-	await get_tree().process_frame
 	
 	create_edited_cluster(Cluster.new())
 	
@@ -165,19 +169,22 @@ func save_cluster() -> void:
 	
 	edited_cluster.global_position = init_cluster_pos
 	
-	if !debug:
-		GlobalClass.world.ui.toggle_editor(false)
-		GlobalClass.world.ui.hud.show()
-		GlobalClass.world.transform_player_into(edited_cluster)
-	
-	if FileAccess.file_exists(GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn"):
+	var full_path: String = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn"
+	if FileAccess.file_exists(full_path):
 		randomize()
 		edited_cluster.name += str(randi())
-	var error = ResourceSaver.save(saved, GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn")
+		full_path = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn"
+	var error = ResourceSaver.save(saved, full_path)
 	if error == OK:
-		print("Saved " + str(saved) + "at path: " + GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn")
+		print("Saved " + str(saved) + "at path: " + full_path)
 	else:
 		print("Saving failed.")
+	
+	if !debug:
+		GlobalClass.player_cluster_filename = edited_cluster.name
+		GlobalClass.world.ui.toggle_editor(false)
+		GlobalClass.world.ui.hud.show()
+		GlobalClass.world.transform_player_into(load(full_path).instantiate())
 
 func update_cluster_name(text: String) -> void:
 	edited_cluster.name = text
@@ -186,6 +193,11 @@ func create_edited_cluster(cluster: Cluster) -> void:
 	if edited_cluster:
 		edited_cluster.queue_free()
 	edited_cluster = cluster
+	for p in edited_cluster.get_parts():
+		print(p)
+		p.disabled = true
+		p.editor_mode = true
+	add_child(edited_cluster)
 	edited_cluster.global_rotation = 0.0
 	edited_cluster.enabled = false
 	edited_cluster.global_position = cluster_display_container.global_position + cluster_display_container.size / 2
@@ -196,18 +208,16 @@ func create_edited_cluster(cluster: Cluster) -> void:
 	cluster_drop_edit.text = str(edited_cluster.drop_value)
 	cluster_min_available_edit.text = str(edited_cluster.min_to_available)
 	cluster_turn_rate_edit.text = str(edited_cluster.turn_rate)
-	
-	for p in edited_cluster.get_parts():
-		p.disabled = true
-		p.editor_mode = true
-	call_deferred("add_child", edited_cluster)
 
 func load_cluster(text: String) -> void:
 	if !enabled: return
 	var full_path: String = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + text + ".tscn"
 	if FileAccess.file_exists(full_path):
 		create_edited_cluster(load(full_path).instantiate())
+		print("Loaded cluster from: " + full_path)
 		load_cluster_input.hide()
+	if !debug and GlobalClass.player_cluster:
+		update_tank_info()
 
 func toggle_load_input() -> void:
 	if !enabled: return
@@ -278,3 +288,9 @@ func center_last_dragged() -> void:
 
 func clear_cluster() -> void:
 	create_edited_cluster(Cluster.new())
+
+func update_tank_info() -> void:
+	info_label.text = ""
+	info_label.text += "GP: " + str(GlobalClass.world.player_max_gun_points) + "\n"
+	info_label.text += "Max Class: " + str(GlobalClass.world.player_max_class) + "\n"
+	info_label.text += "Class: " + str(edited_cluster.cluster_class)

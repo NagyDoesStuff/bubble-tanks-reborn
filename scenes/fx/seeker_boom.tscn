@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dqbky1rhsnesm"]
+
+[ext_resource type="Script" uid="uid://bdqqcca4fd1l6" path="res://classes/fx/ExplosionFX.gd" id="1_5mrfx"]
+[ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="2_5mrfx"]
+
+[node name="SeekerBoom" type="Node2D" unique_id=800833179]
+script = ExtResource("1_5mrfx")
+grow_rate = 120.0
+lifetime = 0.1
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=329179966]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_5mrfx")

@@ -9,6 +9,5 @@ script = ExtResource("1_33h1x")
 
 [node name="Editor" parent="." unique_id=1277885260 instance=ExtResource("2_nqx3d")]
 z_index = 0
-debug = null
 
 [node name="HUD" parent="." unique_id=838158567 instance=ExtResource("2_33h1x")]

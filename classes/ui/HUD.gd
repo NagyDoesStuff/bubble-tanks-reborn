@@ -3,6 +3,7 @@ class_name HUD
 
 @onready var fps_label: Label = $MarginContainer/VBoxContainer/FPS
 @onready var progression_num: Label = $MarginContainer2/Panel/MarginContainer/VBoxContainer/ProgressBar/Numbers
+@onready var arenas_travelled_label: Label = $MarginContainer/VBoxContainer/ArenasTravelled
 
 @onready var cluster_search_input: LineEdit = $MarginContainer/VBoxContainer/Panel/MarginContainer/ClusterSearch
 
@@ -18,10 +19,10 @@ func _ready() -> void:
 		await get_tree().process_frame
 	
 	update_progression_bar()
-	GlobalClass.player_cluster.progress_changed.connect(update_progression_bar)
 
 func _process(_delta: float) -> void:
 	fps_label.text = "FPS: " + str(Engine.get_frames_per_second())
+	arenas_travelled_label.text = "Arenas Travelled: " + str(GlobalClass.world.arenas_travelled)
 	
 	if Input.is_action_just_pressed("enter") and !cluster_search_input.text.is_empty():
 		search_for_cluster(cluster_search_input.text)

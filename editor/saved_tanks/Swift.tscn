@@ -1,45 +1,33 @@
-[gd_scene format=3]
+[gd_scene format=3 uid="uid://dqijgbpaq5q8h"]
 
-[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_abu6t"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="2_snmti"]
-[ext_resource type="Script" path="res://classes/parts/CollisionPart.gd" id="3_rotwc"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="4_25cci"]
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_abu6t"]
+[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="2_snmti"]
+[ext_resource type="PackedScene" uid="uid://dc1ruuaqakf21" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="4_25cci"]
 
 [node name="Swift" type="Area2D" unique_id=163674908]
 script = ExtResource("1_abu6t")
 team = 1
-speed = 2.0
+speed = 6.0
+turn_rate = 4.0
 drop_value = 4
 max_progress = 4
 
-[node name="Small Bubble" type="Node2D" parent="." unique_id=878054447 instance=ExtResource("2_snmti")]
+[node name="Small Bubble" parent="." unique_id=878054447 instance=ExtResource("2_snmti")]
 position = Vector2(-21.557312, -32.72235)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="@Node2D@72" type="Node2D" parent="." unique_id=1771333672 instance=ExtResource("2_snmti")]
+[node name="@Node2D@72" parent="." unique_id=1771333672 instance=ExtResource("2_snmti")]
 position = Vector2(-20.478333, 29.855103)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="_Node2D_84" type="Node2D" parent="." unique_id=721519910 instance=ExtResource("2_snmti")]
+[node name="_Node2D_84" parent="." unique_id=721519910 instance=ExtResource("2_snmti")]
 position = Vector2(1.1011963, 32.01294)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="@Node2D@84" type="Node2D" parent="." unique_id=1851320657 instance=ExtResource("2_snmti")]
+[node name="@Node2D@84" parent="." unique_id=1851320657 instance=ExtResource("2_snmti")]
 position = Vector2(1.1011963, -32.72235)
 scale = Vector2(0.5, 0.5)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="Medium Dark Bubble" type="Node2D" parent="." unique_id=275077302 instance=ExtResource("4_25cci")]
+[node name="Medium Dark Bubble" parent="." unique_id=275077302 instance=ExtResource("4_25cci")]
 position = Vector2(0.022277832, 0)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
-[node name="@Node2D@77" type="Node2D" parent="." unique_id=1126081729 instance=ExtResource("2_snmti")]
+[node name="@Node2D@77" parent="." unique_id=1126081729 instance=ExtResource("2_snmti")]
 position = Vector2(32.39154, 0)
-script = ExtResource("3_rotwc")
-metadata/_custom_type_script = "uid://y2smhndmk7x3"

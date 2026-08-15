@@ -23,8 +23,6 @@ var velocity: Vector2 = Vector2.ZERO
 
 var mid_blinking: bool = false
 
-var in_arena: Arena
-
 var enabled: bool = true
 
 ## For player tanks, this serves as the progression variable for unlocking the next class.
@@ -48,10 +46,10 @@ func _ready() -> void:
 	if !enabled: return
 	
 	parts = get_parts()
-	check_dist_to_center()
 	
 	if team == 0:
 		GlobalClass.player_cluster = self
+		progress_changed.connect(GlobalClass.world.ui.hud.update_progression_bar)
 		add_child(PlayerController.new())
 		max_progress = GlobalClass.world.player_progression_requirement
 	else:
@@ -59,17 +57,25 @@ func _ready() -> void:
 		add_child(AIController.new())
 	
 	killed.connect(GlobalClass.world.check_battle_state)
+	
+	var check_dist_center_timer: Timer = Timer.new()
+	check_dist_center_timer.autostart = true
+	check_dist_center_timer.wait_time = 0.1
+	check_dist_center_timer.timeout.connect(func () -> void:
+		if GlobalClass.current_arena: 
+			dist_from_center = global_position.distance_to(GlobalClass.current_arena.global_position)
+	)
+	add_child(check_dist_center_timer)
 
 func _process(_delta: float) -> void:
 	if !enabled: return
 	
 	global_position += velocity
-	if in_arena and dist_from_center > GlobalClass.ESTIMATED_ARENA_RADIUS * in_arena.scale.x:
+	if GlobalClass.current_arena and dist_from_center > GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.current_arena.scale.x:
 		if team != 0:
 			kill()
 		else:
-			print("OUTSIDE ARENA, TRANSFERING TO NEW ONE")
-			GlobalClass.world.transfer_player_to_next_arena((global_position - in_arena.global_position).angle())
+			GlobalClass.world.transfer_player_to_next_arena((global_position - GlobalClass.current_arena.global_position).angle())
 	
 func get_parts() -> Array[Part]:
 	var list: Array[Part]
@@ -99,41 +105,24 @@ func check_progress() -> void:
 		else:
 			kill()
 
-func check_dist_to_center() -> void:
-	if in_arena: dist_from_center = global_position.distance_to(in_arena.global_position)
-	get_tree().create_timer(GlobalClass.CLUSTER_CHECK_DIST_FREQ).timeout.connect(check_dist_to_center)
-
 func kill() -> void:
 	GlobalClass.play_sound("uid://dq4v7w25xntxg")
 	killed.emit()
 	drop_points()
+	if get_parent():
+		get_parent().remove_child(self)
 	queue_free()
-
-func blink() -> void:
-	if mid_blinking: return
-	mid_blinking = true
-	
-	var color: Color = modulate
-	modulate = GlobalClass.HIT_COLOR
-	for x in range(GlobalClass.HIT_BLINK_TIME):
-		await get_tree().process_frame
-	
-	modulate = color
-	mid_blinking = false
 
 func drop_points() -> void:
 	var avaliable_value_to_convert: int = drop_value
 	while avaliable_value_to_convert > 0:
-		var rand_pt_val: int = randi_range(1,10)
+		var rand_pt_val: int = randi_range(1,100)
 		if rand_pt_val > avaliable_value_to_convert:
 			rand_pt_val = avaliable_value_to_convert
-		print("rand_pt_val: " + str(rand_pt_val))
 		
 		var pt: BubblePoint = GlobalClass.BUBBLE_POINT.instantiate()
 		pt.add_value = rand_pt_val
 		pt.global_position = global_position
-		pt.in_arena = in_arena
 		
 		avaliable_value_to_convert -= rand_pt_val
-		print("avaliable_value_to_convert: " + str(avaliable_value_to_convert))
 		GlobalClass.world.call_deferred("add_child", pt)

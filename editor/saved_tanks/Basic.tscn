@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://djyqg6cpbkh0a"]
+[gd_scene format=3 uid="uid://ca5xoi8esggy4"]
 
 [ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_tqnu2"]
 [ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="2_k28uw"]

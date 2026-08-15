@@ -5,8 +5,9 @@ var mid_battle: bool = false
 
 var arenas_travelled: int = 0
 var player_max_class: int = 1
-var player_gun_points: int = 1
+var player_max_gun_points: int = 1
 var player_progression_requirement: int = GlobalClass.PROGRESSION_REQUIREMENTS[0]
+var last_player_position: Vector2
 
 @onready var start_arena: Arena = $Arena
 
@@ -16,17 +17,17 @@ var dynamic_cam: DynamicCamera = DynamicCamera.new()
 
 func _ready() -> void:
 	GlobalClass.world = self
+	GlobalClass.current_arena = start_arena
 	
 	generate_arena()
 	
 	add_child(dynamic_cam)
 	
 	for c in get_clusters():
-		c.in_arena = start_arena
 		if c.team == 0:
 			dynamic_cam.anchor = c
 	
-	mid_battle = true
+	ui.editor.debug = false
 
 func generate_arena() -> void:
 	pass
@@ -50,26 +51,24 @@ func get_arenas() -> Array[Arena]:
 	return list
 
 func transform_player_into(cluster: Cluster) -> void:
-	cluster.global_position = GlobalClass.player_cluster.global_position
-	cluster.global_rotation = GlobalClass.player_cluster.global_rotation
-	cluster.velocity = GlobalClass.player_cluster.velocity
-	cluster.in_arena = GlobalClass.player_cluster.in_arena
-	cluster.team = 0
-	cluster.max_progress = player_progression_requirement
+	if GlobalClass.player_cluster: GlobalClass.player_cluster.queue_free()
+	GlobalClass.player_cluster = cluster
 	for p in cluster.get_parts():
 		p.disabled = false
-	GlobalClass.player_cluster.queue_free()
+		p.editor_mode = false
+	call_deferred("add_child", GlobalClass.player_cluster)
 	await get_tree().process_frame
-	GlobalClass.player_cluster = cluster
-	cluster.name = str(randi())
-	add_child(cluster)
-	dynamic_cam.anchor = cluster
+	GlobalClass.player_cluster.global_position = last_player_position
+	GlobalClass.player_cluster.max_progress = player_progression_requirement
+	GlobalClass.player_cluster.enabled = true
+	dynamic_cam.anchor = GlobalClass.player_cluster
+	GlobalClass.player_cluster.team = 0
 
 func spawn_as_enemy(cluster: Cluster) -> void:
 	cluster.team = 1
-	cluster.in_arena = GlobalClass.player_cluster.in_arena
 	for p in cluster.get_parts():
 		p.disabled = false
+		p.editor_mode = false
 	add_child(cluster)
 
 func check_battle_state() -> void:
@@ -89,7 +88,7 @@ func transfer_player_to_next_arena(angle: float = 0.0) -> void:
 			c.queue_free()
 	
 	var new_arena: Arena = GlobalClass.ARENA_TEMPLATE.instantiate()
-	new_arena.global_position = GlobalClass.player_cluster.in_arena.global_position + Vector2.RIGHT.rotated(angle) * GlobalClass.ESTIMATED_ARENA_RADIUS + Vector2.RIGHT.rotated(angle) * GlobalClass.DISTANCE_BETWEEN_ARENAS
+	new_arena.global_position = GlobalClass.current_arena.global_position + Vector2.RIGHT.rotated(angle) * GlobalClass.ESTIMATED_ARENA_RADIUS + Vector2.RIGHT.rotated(angle) * GlobalClass.DISTANCE_BETWEEN_ARENAS
 	new_arena.scale = GlobalClass.DEFAULT_ARENA_SCALE
 	add_child(new_arena)
 	
@@ -100,8 +99,8 @@ func transfer_player_to_next_arena(angle: float = 0.0) -> void:
 		new_arena.global_position + Vector2.LEFT.rotated(angle) * GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.DEFAULT_ARENA_SCALE * GlobalClass.LAND_ON_ARENA_DIST, 
 		1).set_trans(Tween.TRANS_CIRC).finished
 	
-	GlobalClass.player_cluster.in_arena.queue_free()
-	GlobalClass.player_cluster.in_arena = new_arena
+	GlobalClass.current_arena.queue_free()
+	GlobalClass.current_arena = new_arena
 	
 	await get_tree().create_timer(0.1).timeout
 	
@@ -109,12 +108,15 @@ func transfer_player_to_next_arena(angle: float = 0.0) -> void:
 	if new_arena: new_arena.spawn_enemies()
 	
 func upgrade_player() -> void:
+	if player_max_class == GlobalClass.MAX_CLASS: return
+	
 	player_max_class += 1
-	player_gun_points += 1
+	player_max_gun_points += 1
+	if len(GlobalClass.PROGRESSION_REQUIREMENTS) > player_max_class - 1:
+		player_progression_requirement = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
+	last_player_position = GlobalClass.player_cluster.global_position
 	GlobalClass.player_cluster.progress = 1
 	GlobalClass.player_cluster.enabled = false
 	ui.toggle_editor(true)
 	ui.hud.hide()
-	await get_tree().process_frame
-	ui.editor.create_edited_cluster(GlobalClass.player_cluster.duplicate())
-	GlobalClass.player_cluster.queue_free()
+	ui.editor.load_cluster(GlobalClass.player_cluster_filename)

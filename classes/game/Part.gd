@@ -1,9 +1,10 @@
 extends Node2D
 class_name Part
 
-var disabled: bool = false
-var editor_mode: bool = false
-var is_hovered: bool = false
+@export var disabled: bool = false
+@export var editor_mode: bool = false
+@export var is_hovered: bool = false
+@export var gp_usage: int = 0
 
 @onready var user: Cluster:
 	get:
@@ -13,6 +14,7 @@ var is_hovered: bool = false
 			return null
 
 func _ready() -> void:
+	owner = user
 	
 	if editor_mode:
 		var e_area: Area2D = Area2D.new()
@@ -27,10 +29,6 @@ func _ready() -> void:
 		e_area.add_child(e_col)
 	
 	_subready()
-	
-	await get_tree().process_frame
-	
-	owner = user
 
 func _subready() -> void:
 	pass

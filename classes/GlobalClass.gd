@@ -12,7 +12,6 @@ const DEFAULT_HIT_FX: PackedScene = preload("uid://bwddu713otuhv")
 
 # CONSTANTS
 const ARENA_PUSH_FORCE: int = 100
-const HIT_BLINK_TIME: int = 6
 const DISTANCE_BETWEEN_ARENAS: int = 200
 const DEFAULT_MAX_ENEMIES: int = 3
 const MAX_CLASS: int = 6
@@ -21,8 +20,9 @@ const CLUSTER_CHECK_DIST_FREQ: float = .25
 const ESTIMATED_ARENA_RADIUS: float = 8505.0 / 2.0
 const LAND_ON_ARENA_DIST: float = 0.9
 const MIN_BUBBLE_POINT_SIZE: float = 0.5
-const BUBBLE_POINT_GROW_SIZE: float = 0.025
+const BUBBLE_POINT_GROW_SIZE: float = 0.02
 const MAX_ENEMIES_INCREMENT_PER_ARENA: float = 0.2
+const HIT_BLINK_TIME: float = 0.1
 
 const PARTS_DIRECTORY: String = "res://scenes/parts/"
 const EDITOR_SAVES_DIRECTORY: String = "res://editor/"
@@ -44,6 +44,10 @@ const PROGRESSION_REQUIREMENTS: Array[int] = [
 var world: World
 var player_cluster: Cluster
 var loaded_clusters: Array[Cluster]
+var current_arena: Arena
+
+# VARIABLE
+var player_cluster_filename: String = "Basic"
 
 func _ready() -> void:
 	load_clusters()
@@ -60,10 +64,8 @@ func get_closest(from: Node2D, list: Array) -> Node2D:
 	return best
 
 func play_sound(
-	file_path: String, 
-	volume_db: float = 0.0, 
-	pitch_scale: float = 1.0, 
-	pitch_variation: float = 0.0, 
+	file_path: String, volume_db: float = 0.0, 
+	pitch_scale: float = 1.0, pitch_variation: float = 0.0, 
 	volume_variation: float = 0.0, 
 ) -> AudioStreamPlayer2D:
 	if file_path.is_empty(): return

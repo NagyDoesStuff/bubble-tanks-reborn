@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://c0mkcbwtb63xv"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_wmgo3"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_msngw"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_ct5vw"]
+
+[node name="Super Machine Gun" type="Node2D" unique_id=122091808]
+script = ExtResource("1_wmgo3")
+cooldown = 0.125
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_msngw")]
+scale = Vector2(0.28184378, 0.28184378)
+
+[node name="Bubble02" parent="." unique_id=1278923371 instance=ExtResource("2_msngw")]
+position = Vector2(19, 0)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble03" parent="." unique_id=1999600052 instance=ExtResource("2_msngw")]
+position = Vector2(-11.999999, -19)
+scale = Vector2(0.15568385, 0.15568385)
+
+[node name="Bubble05" parent="." unique_id=398260374 instance=ExtResource("2_msngw")]
+position = Vector2(-21, 0)
+scale = Vector2(0.15568385, 0.15568385)
+
+[node name="Bubble04" parent="." unique_id=357848560 instance=ExtResource("2_msngw")]
+position = Vector2(-10.999999, 19)
+scale = Vector2(0.15568385, 0.15568385)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(28, 0)
+script = ExtResource("3_ct5vw")
+prj_info = {
+"dmg_info": {
+"amount": 2,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 2000.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

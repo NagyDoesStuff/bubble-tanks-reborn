@@ -8,7 +8,7 @@ class_name ExplosionFX
 
 func _ready() -> void:
 	if random_rotation: global_rotation = randf_range(0, TAU)
-	get_tree().create_timer(lifetime).timeout.connect(queue_free)
+	create_tween().tween_property(self, "modulate:a", 0.0, lifetime).finished.connect(queue_free)
 
 func _process(delta: float) -> void:
 	scale += Vector2.ONE * grow_rate * delta

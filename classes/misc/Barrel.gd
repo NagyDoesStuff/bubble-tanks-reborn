@@ -10,7 +10,8 @@ var muted: bool = false
 	},
 	"speed": 2000.0,
 	"size": 1.0,
-	"hit_fx": "uid://bwddu713otuhv"
+	"hit_fx": "uid://bwddu713otuhv",
+	"homing": false
 }
 
 @onready var gun: GunPart = get_parent()
@@ -29,6 +30,5 @@ func shoot() -> void:
 	prj.global_position = global_position
 	prj.global_rotation = global_rotation
 	prj.prj_info = prj_info
-	prj.in_arena = gun.user.in_arena
 	prj.team = gun.user.team
 	GlobalClass.world.add_child(prj)

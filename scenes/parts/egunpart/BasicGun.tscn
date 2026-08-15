@@ -7,6 +7,7 @@
 [node name="Enemy Basic Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_ls0uj")
 cooldown = 2.0
+gp_usage = 1
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_sty6c")]

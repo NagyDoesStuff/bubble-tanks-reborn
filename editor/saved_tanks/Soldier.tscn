@@ -1,0 +1,89 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_g3q56"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="2_pr2gk"]
+[ext_resource type="Script" path="res://classes/parts/CollisionPart.gd" id="3_wvggs"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="4_s15rb"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="5_byn48"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_light.tscn" id="6_kvqk4"]
+[ext_resource type="PackedScene" path="res://scenes/parts/pgunpart/MachineGun.tscn" id="7_qwttd"]
+[ext_resource type="Script" path="res://classes/parts/GunPart.gd" id="8_1fm53"]
+
+[node name="Soldier" type="Area2D" unique_id=493591574]
+monitoring = false
+script = ExtResource("1_g3q56")
+max_progress = 50
+
+[node name="@Node2D@713" type="Node2D" parent="." unique_id=878054447 instance=ExtResource("2_pr2gk")]
+position = Vector2(-17.241394, 36.328613)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Medium Dark Bubble" type="Node2D" parent="." unique_id=325299682 instance=ExtResource("2_pr2gk")]
+position = Vector2(-16.162415, -33.80127)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Medium Bubble" type="Node2D" parent="." unique_id=109762346 instance=ExtResource("4_s15rb")]
+position = Vector2(1.1011963, 0)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Small Bubble" type="Node2D" parent="." unique_id=1260476280 instance=ExtResource("5_byn48")]
+position = Vector2(11.890991, -49.985046)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@720" type="Node2D" parent="." unique_id=2058137092 instance=ExtResource("5_byn48")]
+position = Vector2(11.890991, 49.985046)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@725" type="Node2D" parent="." unique_id=1308785596 instance=ExtResource("5_byn48")]
+position = Vector2(-42.05786, -48.906128)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="_Node2D_725" type="Node2D" parent="." unique_id=32154523 instance=ExtResource("5_byn48")]
+position = Vector2(-42.05786, 48.906128)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Small Light Bubble" type="Node2D" parent="." unique_id=593186749 instance=ExtResource("6_kvqk4")]
+position = Vector2(26.996643, -18.69635)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@734" type="Node2D" parent="." unique_id=684372058 instance=ExtResource("6_kvqk4")]
+position = Vector2(28.075623, 16.90802)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("3_wvggs")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@741" type="Node2D" parent="." unique_id=122091808 instance=ExtResource("7_qwttd")]
+position = Vector2(1.1011963, 0.72424316)
+script = ExtResource("8_1fm53")
+cooldown = 0.125
+disabled = true
+editor_mode = true
+gp_usage = 2
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"

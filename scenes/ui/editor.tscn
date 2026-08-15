@@ -12,6 +12,7 @@
 [ext_resource type="Texture2D" uid="uid://df721ch2y1e58" path="res://img/ui/816.png" id="8_s0ct7"]
 [ext_resource type="Texture2D" uid="uid://dyx2323qtmbfc" path="res://img/ui/trash_icon.png" id="9_5mn78"]
 [ext_resource type="Texture2D" uid="uid://b16yl4phfy1pa" path="res://img/ui/trash_icon_pressed.png" id="10_nf4ht"]
+[ext_resource type="FontFile" uid="uid://bwgg2r262hgg5" path="res://fonts/449_Verdana_11pt_st.ttf" id="11_nf4ht"]
 [ext_resource type="FontFile" uid="uid://c6qny5ft6citq" path="res://fonts/142_Arial.ttf" id="11_p70fw"]
 [ext_resource type="Texture2D" uid="uid://53sencjl08cp" path="res://img/bg.png" id="13_hrj1y"]
 [ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="13_xbjxy"]
@@ -29,6 +30,10 @@ corner_radius_top_right = 10
 corner_radius_bottom_right = 10
 corner_radius_bottom_left = 10
 corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_bvmyq"]
+font = ExtResource("11_nf4ht")
+font_size = 32
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_fkm6v"]
 bg_color = Color(1, 1, 1, 0.2509804)
@@ -81,7 +86,6 @@ _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, 
 point_count = 4
 
 [node name="Editor" type="Control" unique_id=1277885260]
-modulate = Color(1, 1, 1, 0)
 z_index = 1
 layout_mode = 3
 anchors_preset = 15
@@ -193,6 +197,26 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_x4mk5")
+
+[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer/Display" unique_id=975398457]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 50
+theme_override_constants/margin_right = 50
+theme_override_constants/margin_bottom = 50
+
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer/Display/MarginContainer" unique_id=916738258]
+layout_mode = 2
+size_flags_vertical = 1
+text = "GP: 0
+Max Class: 1
+Class: 1"
+label_settings = SubResource("LabelSettings_bvmyq")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Display" unique_id=2095925782]
 layout_mode = 1
