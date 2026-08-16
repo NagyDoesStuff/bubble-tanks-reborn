@@ -13,4 +13,4 @@ Notes:
 - Enemies you create on the debug editor (the one at the main menu) appear in-game.
 - There is currently a really rare but unfixable bug that causes the game to crash when killing an enemy.
 
-Feel free to contact me (nagydoesstuff) on discord for part suggestions.
+Feel free to contact me (nagydoesstuff) on discord for part and tank suggestions.
