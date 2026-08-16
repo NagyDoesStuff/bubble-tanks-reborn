@@ -7,9 +7,9 @@ var velocity: Vector2 = Vector2.ZERO
 
 var min_spread_force: float = 20.0
 var max_spread_force: float = 30.0
-var follow_speed: float = 10.0
+var follow_speed: float = 4.0
 var dist_from_center: float = 0.0
-var accel: float = 0.8
+var accel: float = 0.9
 var add_value: float = 1.0
 
 func _ready() -> void:
@@ -19,16 +19,18 @@ func _ready() -> void:
 		spr.texture = load("uid://3of6wli6kjpb")
 	
 	var check_dist_center_timer: Timer = Timer.new()
-	add_child(check_dist_center_timer)
 	check_dist_center_timer.autostart = true
+	check_dist_center_timer.wait_time = 0.1
 	check_dist_center_timer.timeout.connect(func () -> void:
-		if GlobalClass.current_arena: dist_from_center = global_position.distance_to(GlobalClass.current_arena.global_position)
+		if GlobalClass.current_arena: 
+			dist_from_center = global_position.distance_to(GlobalClass.current_arena.global_position)
 	)
+	add_child(check_dist_center_timer)
 	
 	area_entered.connect(on_area_entered, ConnectFlags.CONNECT_DEFERRED)
 	
 func _process(_delta: float) -> void:
-	if GlobalClass.player_cluster and !GlobalClass.world.mid_battle: velocity += (GlobalClass.player_cluster.global_position - global_position).normalized() * follow_speed
+	if GlobalClass.player_cluster and !GlobalClass.world.mid_battle and GlobalClass.player_cluster.enabled: velocity += (GlobalClass.player_cluster.global_position - global_position).normalized() * follow_speed
 	global_position += velocity
 	velocity *= accel
 	if GlobalClass.current_arena and dist_from_center > GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.current_arena.scale.x:

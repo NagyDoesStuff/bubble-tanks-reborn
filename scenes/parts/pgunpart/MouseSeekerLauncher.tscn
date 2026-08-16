@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://cnje8ft6r33aj"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_xv705"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_fke5l"]
+[ext_resource type="PackedScene" uid="uid://rikf2j1ak5v6" path="res://scenes/decorations/bubble12.tscn" id="3_fs42b"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_ibvhc"]
+
+[node name="Mouse Seeker Launcher" type="Node2D" unique_id=122091808]
+script = ExtResource("1_xv705")
+cooldown = 1.5
+keybind = "space"
+fixed = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(32.26886, 0)
+scale = Vector2(2.3049185, 2.3049185)
+script = ExtResource("3_ibvhc")
+prj_info = {
+"dmg_info": {
+"amount": 10,
+"type": "dmg"
+},
+"hit_fx": "uid://dqbky1rhsnesm",
+"homing": true,
+"size": 1.0,
+"speed": 1500.0,
+"targ_mode": "mouse",
+"template": "uid://cfbybhf5v32mb",
+"turn_rate": 10.0
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble12" parent="." unique_id=1039353022 instance=ExtResource("3_fs42b")]
+scale = Vector2(0.32311857, 0.32311857)
+
+[node name="Bubble18" parent="." unique_id=296673333 instance=ExtResource("3_fs42b")]
+position = Vector2(2.3049185, -25.354107)
+scale = Vector2(0.10766564, 0.10766564)
+
+[node name="Bubble19" parent="." unique_id=901729850 instance=ExtResource("3_fs42b")]
+position = Vector2(2.3049185, 25.354101)
+scale = Vector2(0.10766564, 0.10766564)
+
+[node name="Bubble15" parent="." unique_id=28589610 instance=ExtResource("2_fke5l")]
+position = Vector2(-4.609837, 16.134428)
+scale = Vector2(0.13415723, 0.13415723)
+
+[node name="Bubble11" parent="." unique_id=2016974096 instance=ExtResource("2_fke5l")]
+position = Vector2(13.82951, -16.13443)
+scale = Vector2(0.18718395, 0.18718395)
+
+[node name="Bubble13" parent="." unique_id=966467073 instance=ExtResource("2_fke5l")]
+position = Vector2(13.829513, 16.134428)
+scale = Vector2(0.18718395, 0.18718395)
+
+[node name="Bubble14" parent="." unique_id=1461342041 instance=ExtResource("2_fke5l")]
+position = Vector2(-4.609835, -16.134426)
+scale = Vector2(0.13415723, 0.13415723)
+
+[node name="Bubble20" parent="." unique_id=1958234704 instance=ExtResource("2_fke5l")]
+position = Vector2(-16.134428, -13.829507)
+scale = Vector2(0.07466594, 0.07466594)
+
+[node name="Bubble21" parent="." unique_id=1372169288 instance=ExtResource("2_fke5l")]
+position = Vector2(-16.134428, 13.829513)
+scale = Vector2(0.07466594, 0.07466594)
+
+[node name="Bubble16" parent="." unique_id=1144700784 instance=ExtResource("2_fke5l")]
+position = Vector2(27.65902, -29.963942)
+scale = Vector2(0.13415723, 0.13415723)
+
+[node name="Bubble17" parent="." unique_id=1102934041 instance=ExtResource("2_fke5l")]
+position = Vector2(27.659025, 29.963936)
+scale = Vector2(0.13415723, 0.13415723)
+
+[node name="Bubble22" parent="." unique_id=2097588696 instance=ExtResource("2_fke5l")]
+position = Vector2(0, -2.1981416e-06)
+scale = Vector2(0.20562585, 0.20562585)

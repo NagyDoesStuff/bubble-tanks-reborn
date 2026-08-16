@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cve0rm03lq2s7" path="res://classes/misc/Bubble.gd" id="1_yyeam"]
 [ext_resource type="Texture2D" uid="uid://b453pomydndfb" path="res://img/bubbles/16.png" id="2_yyeam"]
 
-[node name="Bubble01" type="Node2D" unique_id=1039353022]
+[node name="Bubble11" type="Node2D" unique_id=1039353022]
 script = ExtResource("1_yyeam")
 metadata/_custom_type_script = "uid://y2smhndmk7x3"
 metadata/_edit_horizontal_guides_ = [-64.0]

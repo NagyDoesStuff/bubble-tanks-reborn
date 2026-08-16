@@ -4,6 +4,7 @@
 [ext_resource type="FontFile" uid="uid://b4r5bp1xanep7" path="res://fonts/131_Arial.ttf" id="2_6d1h4"]
 [ext_resource type="StyleBox" uid="uid://c8w544l3ckmgp" path="res://resources/stylebox/01.tres" id="2_x4mk5"]
 [ext_resource type="LabelSettings" uid="uid://crwwtp3l60tb7" path="res://resources/labelsettings/01.tres" id="3_coh7o"]
+[ext_resource type="Texture2D" uid="uid://dy64dhn0817qu" path="res://img/bubbles/1814.png" id="3_p2r2s"]
 [ext_resource type="Texture2D" uid="uid://b1seh8lakjoii" path="res://img/ui/save_icon.png" id="3_uq5ih"]
 [ext_resource type="Texture2D" uid="uid://nw1278dx21c2" path="res://img/ui/save_icon_pressed.png" id="4_ceu0q"]
 [ext_resource type="Texture2D" uid="uid://do2m1c8805n1c" path="res://img/ui/load_icon.png" id="5_fkm6v"]
@@ -12,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://df721ch2y1e58" path="res://img/ui/816.png" id="8_s0ct7"]
 [ext_resource type="Texture2D" uid="uid://dyx2323qtmbfc" path="res://img/ui/trash_icon.png" id="9_5mn78"]
 [ext_resource type="Texture2D" uid="uid://b16yl4phfy1pa" path="res://img/ui/trash_icon_pressed.png" id="10_nf4ht"]
+[ext_resource type="Texture2D" uid="uid://k5y3g81me0r5" path="res://img/ui/exit_button.png" id="11_bvmyq"]
 [ext_resource type="FontFile" uid="uid://bwgg2r262hgg5" path="res://fonts/449_Verdana_11pt_st.ttf" id="11_nf4ht"]
 [ext_resource type="FontFile" uid="uid://c6qny5ft6citq" path="res://fonts/142_Arial.ttf" id="11_p70fw"]
 [ext_resource type="Texture2D" uid="uid://53sencjl08cp" path="res://img/bg.png" id="13_hrj1y"]
@@ -102,6 +104,12 @@ position = Vector2(-79, 0)
 scale = Vector2(0.028812263, 0.028812263)
 texture = ExtResource("13_xbjxy")
 
+[node name="SelectMirrorIcon" type="Sprite2D" parent="." unique_id=1976459366]
+z_index = 1
+position = Vector2(-71, 0)
+scale = Vector2(0.05364772, 0.05364772)
+texture = ExtResource("3_p2r2s")
+
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=958728597]
 layout_mode = 1
 anchors_preset = 15
@@ -139,6 +147,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 10
 theme_override_constants/margin_top = 30
 theme_override_constants/margin_right = 10
@@ -175,6 +184,18 @@ texture_pressed = ExtResource("10_nf4ht")
 ignore_texture_size = true
 stretch_mode = 5
 
+[node name="Control" type="Control" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=625401847]
+custom_minimum_size = Vector2(0, 820)
+layout_mode = 2
+
+[node name="ExitButton" type="TextureButton" parent="HBoxContainer/Panel/MarginContainer/VBoxContainer" unique_id=407337934]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 2
+tooltip_text = "Clear cluster..."
+texture_normal = ExtResource("11_bvmyq")
+ignore_texture_size = true
+stretch_mode = 5
+
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer" unique_id=525772376]
 layout_mode = 2
 size_flags_horizontal = 3
@@ -205,6 +226,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+mouse_filter = 2
 theme_override_constants/margin_left = 50
 theme_override_constants/margin_top = 50
 theme_override_constants/margin_right = 50

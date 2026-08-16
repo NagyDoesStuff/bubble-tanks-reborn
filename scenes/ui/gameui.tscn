@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://b1cbif8iqoy4q" path="res://classes/ui/GameUI.gd" id="1_33h1x"]
 [ext_resource type="PackedScene" uid="uid://c6f0i75buol5k" path="res://scenes/ui/hud.tscn" id="2_33h1x"]
 [ext_resource type="PackedScene" uid="uid://dwgmerdems35x" path="res://scenes/ui/editor.tscn" id="2_nqx3d"]
+[ext_resource type="PackedScene" uid="uid://mqapcm6iitw0" path="res://scenes/ui/editor_confirm_dialog.tscn" id="4_bmdha"]
+[ext_resource type="PackedScene" uid="uid://dfwq6ptb4qeks" path="res://scenes/ui/pause_menu.tscn" id="5_5nrn4"]
 
 [node name="UI" type="CanvasLayer" unique_id=668515769]
 script = ExtResource("1_33h1x")
@@ -11,3 +13,7 @@ script = ExtResource("1_33h1x")
 z_index = 0
 
 [node name="HUD" parent="." unique_id=838158567 instance=ExtResource("2_33h1x")]
+
+[node name="EditorConfirmDialog" parent="." unique_id=84990243 instance=ExtResource("4_bmdha")]
+
+[node name="PauseMenu" parent="." unique_id=83336586 instance=ExtResource("5_5nrn4")]

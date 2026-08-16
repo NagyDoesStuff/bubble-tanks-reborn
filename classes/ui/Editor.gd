@@ -27,6 +27,7 @@ var symmetry: bool = true
 @onready var save_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/SaveButton
 @onready var load_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/LoadButton
 @onready var clear_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/ClearButton
+@onready var exit_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/ExitButton
 
 @onready var cluster_name_input: LineEdit = $HBoxContainer/VBoxContainer/ClusterName
 @onready var load_cluster_input: LineEdit = $HBoxContainer/Panel/LoadClusterName
@@ -70,22 +71,23 @@ func _ready() -> void:
 	if debug:
 		enabled = true
 		modulate.a = 1.0
-		tank_info_container.show()
 	else:
 		modulate.a = 0.0
+		tank_info_container.hide()
+		exit_button.hide()
 	
 	retrieve_avaliable_parts(GlobalClass.PARTS_DIRECTORY)
 	
 	create_edited_cluster(Cluster.new())
-	
-	editor_dir_analysis()
 	
 	configure_signals()
 	
 func _process(_delta: float) -> void:
 	if !enabled: return
 	
-	if dragged_part:
+	last_dragged_part_indicator.visible = is_instance_valid(dragged_part)
+	
+	if dragged_part and !Input.is_action_pressed("ctrl"):
 		dragged_part.global_position = get_global_mouse_position()
 		if symmetry and mirror_part:
 			mirror_part.global_position.x = dragged_part.global_position.x
@@ -154,10 +156,6 @@ func update_dragged_part_path() -> void:
 	if !enabled: return
 	if !selected_part_path: return
 	dragged_part_path = selected_part_path
-
-func editor_dir_analysis() -> void: 
-	if !DirAccess.dir_exists_absolute(GlobalClass.EDITOR_SAVES_DIRECTORY):
-		DirAccess.make_dir_absolute(GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/")
 	
 func save_cluster() -> void:
 	if !enabled: return
@@ -170,7 +168,7 @@ func save_cluster() -> void:
 	edited_cluster.global_position = init_cluster_pos
 	
 	var full_path: String = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn"
-	if FileAccess.file_exists(full_path):
+	if FileAccess.file_exists(full_path) and GlobalClass.UNOVERWRITTABLE_TANK_NAMES.has(edited_cluster.name):
 		randomize()
 		edited_cluster.name += str(randi())
 		full_path = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + edited_cluster.name + ".tscn"
@@ -240,6 +238,7 @@ func configure_signals() -> void:
 	save_button.pressed.connect(save_cluster)
 	load_button.pressed.connect(toggle_load_input)
 	clear_button.pressed.connect(clear_cluster)
+	exit_button.pressed.connect(get_tree().change_scene_to_file.bind("uid://bkalqiq76isn0"))
 	
 	delete_button.pressed.connect(delete_last_dragged)
 	move_up_button.pressed.connect(move_last_dragged_up)

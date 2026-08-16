@@ -8,6 +8,7 @@ class_name GunPart
 	"lmb",
 	"space"
 ) var keybind: String = "lmb"
+@export var fixed: bool = false
 var can_shoot: bool = true
 
 var barrels: Array[GunBarrel]
@@ -19,14 +20,13 @@ func _process(_delta: float) -> void:
 	if !user or disabled or !user.enabled: return
 	
 	if user.team == 0:
-		if user.cluster_class >= 4:
+		if user.cluster_class >= 4 and !fixed:
 			look_at(get_global_mouse_position())
 		if can_shoot and Input.is_action_pressed(keybind):
 			fire_all_barrels()
 	elif GlobalClass.player_cluster:
-		look_at(GlobalClass.player_cluster.global_position)
-		if can_shoot:
-			fire_all_barrels()
+		if !fixed: look_at(GlobalClass.player_cluster.global_position)
+		if can_shoot: fire_all_barrels()
 
 func get_barrels() -> Array[GunBarrel]:
 	var list: Array[GunBarrel] = []

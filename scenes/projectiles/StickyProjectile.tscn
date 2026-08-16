@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://gq1lwpkox3ry"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_klrk2"]
+[ext_resource type="Texture2D" uid="uid://tfwp1lsx0kiu" path="res://img/bubbles/1.png" id="2_gfygs"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 16.0
+
+[node name="StickProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_klrk2")
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+scale = Vector2(0.36909926, 0.36909926)
+texture = ExtResource("2_gfygs")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+scale = Vector2(0.37153488, 0.37153488)
+texture = ExtResource("2_gfygs")

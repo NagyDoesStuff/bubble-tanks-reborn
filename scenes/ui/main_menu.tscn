@@ -4,10 +4,19 @@
 [ext_resource type="PackedScene" uid="uid://ed6xvuvjcmkd" path="res://scenes/ui/bg.tscn" id="2_fe2o3"]
 [ext_resource type="FontFile" uid="uid://cxtddjit6snrw" path="res://fonts/361_Billo.ttf" id="3_1g8jr"]
 [ext_resource type="AudioStream" uid="uid://3sftrdrd2f3h" path="res://audio/ost/menu.mp3" id="4_m1kxf"]
+[ext_resource type="FontFile" uid="uid://csbqmkfc22gpk" path="res://fonts/484_uni 05_54.ttf" id="4_q85j6"]
+[ext_resource type="Texture2D" uid="uid://bb7jtvevhvfds" path="res://img/ui/play_button.png" id="5_x2yvf"]
+[ext_resource type="Texture2D" uid="uid://cjkl8chdx3r1a" path="res://img/ui/editor_button.png" id="6_uhagc"]
+[ext_resource type="Texture2D" uid="uid://k5y3g81me0r5" path="res://img/ui/exit_button.png" id="7_wb0q5"]
+[ext_resource type="Texture2D" uid="uid://b6y4ekborjb13" path="res://img/ui/credits_button.png" id="8_q85j6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymrjv"]
 font = ExtResource("3_1g8jr")
 font_size = 100
+
+[sub_resource type="LabelSettings" id="LabelSettings_8g5eo"]
+font = ExtResource("4_q85j6")
+font_size = 32
 
 [node name="MainMenu" type="Control" unique_id=1014022432]
 layout_mode = 3
@@ -20,23 +29,109 @@ script = ExtResource("1_sl1te")
 
 [node name="BG" parent="." unique_id=1923598303 instance=ExtResource("2_fe2o3")]
 
-[node name="Label" type="Label" parent="." unique_id=1339856788]
+[node name="Title" type="Label" parent="." unique_id=1339856788]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -0.5
-offset_top = -11.5
-offset_right = 0.5
-offset_bottom = 11.5
+offset_left = -512.5
+offset_top = 677.0
+offset_right = 512.5
+offset_bottom = 813.0
 grow_horizontal = 2
 grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
 text = "Bubble Tanks: Reborn !"
 label_settings = SubResource("LabelSettings_ymrjv")
+
+[node name="Version" type="Label" parent="Title" unique_id=393154167]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -512.5
+offset_top = 44.0
+offset_right = 512.5
+offset_bottom = 180.0
+grow_horizontal = 2
+grow_vertical = 2
+pivot_offset_ratio = Vector2(0.5, 0.5)
+text = "v1.0 beta"
+label_settings = SubResource("LabelSettings_8g5eo")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1661090512]
 stream = ExtResource("4_m1kxf")
 volume_db = 6.0
 autoplay = true
+
+[node name="Buttons" type="Control" parent="." unique_id=1937422543]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="PlayButton" type="TextureButton" parent="Buttons" unique_id=205896272]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -83.49994
+offset_right = 100.5
+offset_bottom = 83.50006
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(2, 2)
+pivot_offset_ratio = Vector2(0.5, 0.5)
+texture_normal = ExtResource("5_x2yvf")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Buttons" unique_id=657444011]
+custom_minimum_size = Vector2(0, 50)
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 720.0
+offset_top = -391.0
+offset_right = -720.0
+offset_bottom = -316.0
+grow_horizontal = 2
+grow_vertical = 0
+pivot_offset_ratio = Vector2(0.5, 0.5)
+mouse_filter = 2
+theme_override_constants/separation = 100
+alignment = 1
+
+[node name="DebugEditorButton" type="TextureButton" parent="Buttons/HBoxContainer" unique_id=24744236]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("6_uhagc")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="ExitButton" type="TextureButton" parent="Buttons/HBoxContainer" unique_id=1022313057]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("7_wb0q5")
+ignore_texture_size = true
+stretch_mode = 5
+
+[node name="CreditsButton" type="TextureButton" parent="Buttons/HBoxContainer" unique_id=890417537]
+custom_minimum_size = Vector2(75, 0)
+layout_mode = 2
+size_flags_horizontal = 0
+texture_normal = ExtResource("8_q85j6")
+ignore_texture_size = true
+stretch_mode = 5

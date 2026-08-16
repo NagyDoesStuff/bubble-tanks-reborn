@@ -1,13 +1,40 @@
 [gd_scene format=3 uid="uid://c6f0i75buol5k"]
 
 [ext_resource type="Script" uid="uid://b2huxr7sws2km" path="res://classes/ui/HUD.gd" id="1_8qguk"]
-[ext_resource type="LabelSettings" uid="uid://crwwtp3l60tb7" path="res://resources/labelsettings/01.tres" id="1_bo48s"]
 [ext_resource type="StyleBox" uid="uid://c8w544l3ckmgp" path="res://resources/stylebox/01.tres" id="2_8qguk"]
+[ext_resource type="FontFile" uid="uid://csbqmkfc22gpk" path="res://fonts/484_uni 05_54.ttf" id="2_136eg"]
 [ext_resource type="FontFile" uid="uid://b4r5bp1xanep7" path="res://fonts/131_Arial.ttf" id="3_136eg"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_oj5la"]
+font = ExtResource("2_136eg")
 
 [sub_resource type="LabelSettings" id="LabelSettings_bmdha"]
 font = ExtResource("3_136eg")
 font_size = 28
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8qguk"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(0, 0, 0, 0.0627451)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_136eg"]
+content_margin_left = 2.0
+content_margin_top = 2.0
+content_margin_right = 2.0
+content_margin_bottom = 2.0
+bg_color = Color(1, 1, 1, 0.5019608)
+corner_radius_top_left = 6
+corner_radius_top_right = 6
+corner_radius_bottom_right = 6
+corner_radius_bottom_left = 6
+corner_detail = 6
 
 [sub_resource type="LabelSettings" id="LabelSettings_5nrn4"]
 font = ExtResource("3_136eg")
@@ -40,12 +67,12 @@ layout_mode = 2
 [node name="FPS" type="Label" parent="MarginContainer/VBoxContainer" unique_id=682846583]
 layout_mode = 2
 text = "FPS: ..."
-label_settings = ExtResource("1_bo48s")
+label_settings = SubResource("LabelSettings_oj5la")
 
 [node name="ArenasTravelled" type="Label" parent="MarginContainer/VBoxContainer" unique_id=132927787]
 layout_mode = 2
 text = "Arenas Travelled: ..."
-label_settings = ExtResource("1_bo48s")
+label_settings = SubResource("LabelSettings_oj5la")
 
 [node name="Panel" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1019900122]
 visible = false
@@ -115,6 +142,8 @@ horizontal_alignment = 1
 [node name="ProgressBar" type="ProgressBar" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer" unique_id=179941916]
 custom_minimum_size = Vector2(0, 36)
 layout_mode = 2
+theme_override_styles/background = SubResource("StyleBoxFlat_8qguk")
+theme_override_styles/fill = SubResource("StyleBoxFlat_136eg")
 show_percentage = false
 
 [node name="Numbers" type="Label" parent="MarginContainer2/Panel/MarginContainer/VBoxContainer/ProgressBar" unique_id=748384154]

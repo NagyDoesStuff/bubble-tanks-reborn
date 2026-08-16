@@ -27,7 +27,7 @@ func spawn_enemies() -> void:
 		for x in randi_range(min_enemy_amount, max_enemy_amount):
 			if enemies_left_to_spawn == 0: return
 			var deployable_enemy: Cluster = rand_enemy.duplicate()
-			deployable_enemy.global_position = global_position + Vector2.from_angle(randf_range(0, TAU)) * randf_range(0, GlobalClass.ESTIMATED_ARENA_RADIUS * 0.5 * scale.length() / 2)
+			deployable_enemy.global_position = global_position + Vector2.from_angle(randf_range(0, TAU)) * randf_range(0, GlobalClass.ESTIMATED_ARENA_RADIUS * 0.8 * scale.length() / 2)
 			deployable_enemy.global_rotation = randf_range(0, TAU)
 			for p in deployable_enemy.get_parts():
 				p.editor_mode = false

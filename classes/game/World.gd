@@ -19,15 +19,21 @@ func _ready() -> void:
 	GlobalClass.world = self
 	GlobalClass.current_arena = start_arena
 	
+	ui.editor.debug = false
+	
 	generate_arena()
 	
 	add_child(dynamic_cam)
 	
-	for c in get_clusters():
-		if c.team == 0:
-			dynamic_cam.anchor = c
+	var flash: ScreenFlash = GlobalClass.SCREEN_FLASH.instantiate()
+	flash.color = Color(1.0, 1.0, 1.0, 0.784)
+	flash.flash_duration = 2.0
+	ui.add_child(flash)
+	flash.flash()
 	
-	ui.editor.debug = false
+	await get_tree().process_frame
+	
+	dynamic_cam.anchor = GlobalClass.player_cluster
 
 func generate_arena() -> void:
 	pass
@@ -114,9 +120,5 @@ func upgrade_player() -> void:
 	player_max_gun_points += 1
 	if len(GlobalClass.PROGRESSION_REQUIREMENTS) > player_max_class - 1:
 		player_progression_requirement = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
-	last_player_position = GlobalClass.player_cluster.global_position
 	GlobalClass.player_cluster.progress = 1
-	GlobalClass.player_cluster.enabled = false
-	ui.toggle_editor(true)
-	ui.hud.hide()
-	ui.editor.load_cluster(GlobalClass.player_cluster_filename)
+	ui.editor_confirm_dialog.activate()

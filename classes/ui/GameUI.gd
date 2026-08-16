@@ -3,6 +3,7 @@ class_name GameUI
 
 @onready var hud: HUD = $HUD
 @onready var editor: Editor = $Editor
+@onready var editor_confirm_dialog: EditorConfirmDialog = $EditorConfirmDialog
 
 func toggle_editor(value: bool) -> void:
 	if editor.mid_transition: return

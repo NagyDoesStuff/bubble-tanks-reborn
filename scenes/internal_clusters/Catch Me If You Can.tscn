@@ -12,13 +12,25 @@ turn_rate = 20.0
 drop_value = 2
 
 [node name="Small Light Bubble" parent="." unique_id=878054447 instance=ExtResource("2_j0hdr")]
-position = Vector2(-7, -12)
+position = Vector2(-7, -15)
 scale = Vector2(0.5, 0.5)
 disabled = true
 editor_mode = true
 
 [node name="@Node2D@81" parent="." unique_id=441778341 instance=ExtResource("2_j0hdr")]
-position = Vector2(-7, 12)
+position = Vector2(-7, 15)
+scale = Vector2(0.5, 0.5)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_82" parent="." unique_id=577464485 instance=ExtResource("2_j0hdr")]
+position = Vector2(26, 0)
+scale = Vector2(0.30486506, 0.30486506)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_81" parent="." unique_id=445655978 instance=ExtResource("2_j0hdr")]
+position = Vector2(19, 0)
 scale = Vector2(0.5, 0.5)
 disabled = true
 editor_mode = true
@@ -29,7 +41,7 @@ disabled = true
 editor_mode = true
 
 [node name="_Node2D_107" parent="." unique_id=779194339 instance=ExtResource("2_j0hdr")]
-position = Vector2(-14.004456, 0)
+position = Vector2(-16.004456, 0)
 scale = Vector2(0.59, 0.59)
 disabled = true
 editor_mode = true

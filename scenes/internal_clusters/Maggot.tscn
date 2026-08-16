@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_opg6g"]
 [ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="2_87xfr"]
-[ext_resource type="PackedScene" uid="uid://bxek8hxos1ywv" path="res://scenes/parts/collisionpart/bubble01_dark.tscn" id="4_dpowt"]
+[ext_resource type="Script" uid="uid://y2smhndmk7x3" path="res://classes/parts/CollisionPart.gd" id="3_opg6g"]
+[ext_resource type="PackedScene" uid="uid://c6wess785oki8" path="res://scenes/decorations/bubble21.tscn" id="4_87xfr"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 64.070274
 
 [node name="Maggot" type="Area2D" unique_id=477806159]
 script = ExtResource("1_opg6g")
@@ -22,5 +26,15 @@ scale = Vector2(0.5, 0.5)
 position = Vector2(-6, -12)
 scale = Vector2(0.5, 0.5)
 
-[node name="@Node2D@33" parent="." unique_id=185352061 instance=ExtResource("4_dpowt")]
+[node name="@Node2D@33" type="Node2D" parent="." unique_id=185352061]
 position = Vector2(1.1011963, 0)
+script = ExtResource("3_opg6g")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="@Node2D@33" unique_id=1320082955]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_ymrjv")
+disabled = true
+
+[node name="Bubble21" parent="@Node2D@33" unique_id=1039353022 instance=ExtResource("4_87xfr")]
+scale = Vector2(0.24881755, 0.24881755)

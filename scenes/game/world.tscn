@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://dylq1171myx2n" path="res://scenes/game/arena.tscn" id="3_d8brc"]
 [ext_resource type="PackedScene" uid="uid://ed6xvuvjcmkd" path="res://scenes/ui/bg.tscn" id="3_qd3kh"]
 [ext_resource type="PackedScene" uid="uid://b3wc4thnism81" path="res://scenes/ui/gameui.tscn" id="4_a33jj"]
-[ext_resource type="PackedScene" uid="uid://ca5xoi8esggy4" path="res://editor/saved_tanks/Basic.tscn" id="5_q5tta"]
+[ext_resource type="PackedScene" uid="uid://ca5xoi8esggy4" path="res://scenes/internal_clusters/Basic.tscn" id="5_q5tta"]
 [ext_resource type="AudioStream" uid="uid://c1rv3ooid2gau" path="res://audio/ost/game.mp3" id="9_sexec"]
 
 [node name="World" type="Node2D" unique_id=1679681722]
@@ -15,7 +15,7 @@ script = ExtResource("1_g5t8f")
 [node name="UI" parent="." unique_id=668515769 instance=ExtResource("4_a33jj")]
 
 [node name="Arena" parent="." unique_id=1872830080 instance=ExtResource("3_d8brc")]
-scale = Vector2(0.25, 0.25)
+scale = Vector2(0.5, 0.5)
 
 [node name="Basic" parent="." unique_id=493591574 instance=ExtResource("5_q5tta")]
 

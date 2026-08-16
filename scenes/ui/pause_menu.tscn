@@ -1,0 +1,143 @@
+[gd_scene format=3 uid="uid://dfwq6ptb4qeks"]
+
+[ext_resource type="Script" uid="uid://daba0td05hvxq" path="res://classes/ui/PauseMenu.gd" id="1_f6eus"]
+[ext_resource type="FontFile" uid="uid://c6qny5ft6citq" path="res://fonts/142_Arial.ttf" id="2_8uki6"]
+[ext_resource type="FontFile" uid="uid://b4r5bp1xanep7" path="res://fonts/131_Arial.ttf" id="3_0bnpd"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_4foi6"]
+bg_color = Color(1, 1, 1, 0.2509804)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[sub_resource type="LabelSettings" id="LabelSettings_l0ufu"]
+font = ExtResource("2_8uki6")
+font_size = 32
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ngtk0"]
+bg_color = Color(1, 1, 1, 0.2509804)
+draw_center = false
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 4
+
+[node name="PauseMenu" type="Control" unique_id=84990243]
+process_mode = 3
+z_index = 1
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_f6eus")
+
+[node name="ColorRect" type="ColorRect" parent="." unique_id=17478542]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+color = Color(0, 0, 0, 0.2509804)
+
+[node name="MarginContainer" type="MarginContainer" parent="." unique_id=4158643]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 400
+theme_override_constants/margin_top = 200
+theme_override_constants/margin_right = 400
+theme_override_constants/margin_bottom = 200
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer" unique_id=932701910]
+layout_mode = 2
+
+[node name="Context" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=888988411]
+custom_minimum_size = Vector2(0, 500)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_4foi6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Context" unique_id=2136279944]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 70
+theme_override_constants/margin_top = 70
+theme_override_constants/margin_right = 70
+theme_override_constants/margin_bottom = 70
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer/Context/MarginContainer" unique_id=1915443150]
+layout_mode = 2
+size_flags_vertical = 1
+text = "Paused."
+label_settings = SubResource("LabelSettings_l0ufu")
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Options" type="Panel" parent="MarginContainer/VBoxContainer" unique_id=1930246498]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_4foi6")
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/Options" unique_id=1263773961]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 40
+theme_override_constants/margin_top = 40
+theme_override_constants/margin_right = 40
+theme_override_constants/margin_bottom = 40
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Options/MarginContainer" unique_id=198702999]
+layout_mode = 2
+theme_override_constants/separation = 200
+alignment = 1
+
+[node name="Resume" type="Button" parent="MarginContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=2130616759]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("3_0bnpd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ngtk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4foi6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4foi6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4foi6")
+text = "Resume"
+
+[node name="MainMenu" type="Button" parent="MarginContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=2108641367]
+layout_mode = 2
+theme_override_constants/h_separation = 4
+theme_override_constants/icon_max_width = 0
+theme_override_fonts/font = ExtResource("3_0bnpd")
+theme_override_font_sizes/font_size = 32
+theme_override_styles/normal = SubResource("StyleBoxFlat_ngtk0")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_4foi6")
+theme_override_styles/hover = SubResource("StyleBoxFlat_4foi6")
+theme_override_styles/focus = SubResource("StyleBoxFlat_4foi6")
+text = "Main Menu"

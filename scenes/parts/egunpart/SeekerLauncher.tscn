@@ -1,0 +1,61 @@
+[gd_scene format=3 uid="uid://2fp82y2qu0kh"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_3owo6"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_l1rx5"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_lk3rw"]
+
+[node name="Enemy Seeker Launcher" type="Node2D" unique_id=122091808]
+script = ExtResource("1_3owo6")
+cooldown = 3.0
+keybind = "space"
+fixed = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble04" parent="." unique_id=1535454042 instance=ExtResource("2_l1rx5")]
+position = Vector2(25.999998, 12.999999)
+scale = Vector2(0.14327615, 0.14327615)
+
+[node name="Bubble05" parent="." unique_id=471696156 instance=ExtResource("2_l1rx5")]
+position = Vector2(25.999998, -12.999999)
+scale = Vector2(0.14327615, 0.14327615)
+
+[node name="Bubble06" parent="." unique_id=126263598 instance=ExtResource("2_l1rx5")]
+position = Vector2(39, -11.000001)
+scale = Vector2(0.14327615, 0.14327615)
+
+[node name="Bubble08" parent="." unique_id=1057963483 instance=ExtResource("2_l1rx5")]
+position = Vector2(39.000004, 0)
+scale = Vector2(0.14327615, 0.14327615)
+
+[node name="Bubble07" parent="." unique_id=758881192 instance=ExtResource("2_l1rx5")]
+position = Vector2(39, 11.000001)
+scale = Vector2(0.14327615, 0.14327615)
+
+[node name="Bubble02" parent="." unique_id=1039353022 instance=ExtResource("2_l1rx5")]
+position = Vector2(11.000001, -14.000001)
+scale = Vector2(0.18611045, 0.18611045)
+
+[node name="Bubble03" parent="." unique_id=1176472043 instance=ExtResource("2_l1rx5")]
+position = Vector2(11, 14.000001)
+scale = Vector2(0.18611045, 0.18611045)
+
+[node name="Bubble01" parent="." unique_id=1017794866 instance=ExtResource("2_l1rx5")]
+scale = Vector2(0.18611045, 0.18611045)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(24, 0)
+script = ExtResource("3_lk3rw")
+prj_info = {
+"dmg_info": {
+"amount": 3,
+"type": "dmg"
+},
+"hit_fx": "uid://dqbky1rhsnesm",
+"homing": true,
+"size": 1.0,
+"speed": 1000.0,
+"template": "uid://gvpn411w207d",
+"turn_rate": 7.5
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

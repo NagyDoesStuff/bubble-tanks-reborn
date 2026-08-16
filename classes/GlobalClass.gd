@@ -10,6 +10,8 @@ const ARENA_TEMPLATE: PackedScene = preload("uid://dylq1171myx2n")
 
 const DEFAULT_HIT_FX: PackedScene = preload("uid://bwddu713otuhv")
 
+const SCREEN_FLASH: PackedScene = preload("uid://cays5co474q6y")
+
 # CONSTANTS
 const ARENA_PUSH_FORCE: int = 100
 const DISTANCE_BETWEEN_ARENAS: int = 200
@@ -25,9 +27,12 @@ const MAX_ENEMIES_INCREMENT_PER_ARENA: float = 0.2
 const HIT_BLINK_TIME: float = 0.1
 
 const PARTS_DIRECTORY: String = "res://scenes/parts/"
-const EDITOR_SAVES_DIRECTORY: String = "res://editor/"
+const INTERNAL_CLUSTERS_DIRECTORY: String = "res://scenes/internal_clusters/"
+const EDITOR_SAVES_DIRECTORY: String = "user://editor/"
 
 const HIT_COLOR: Color = Color(1.164, 1.164, 1.164, 1.0)
+const SLOWN_DOWN_COLOR: Color = Color(0.937, 0.8, 1.0, 1.0)
+const JAMMED_COLOR: Color = Color(0.8, 1.0, 0.833, 1.0)
 
 const DEFAULT_ARENA_SCALE: Vector2 = Vector2.ONE * 0.25
 
@@ -40,6 +45,10 @@ const PROGRESSION_REQUIREMENTS: Array[int] = [
 	1000 # MAX
 ]
 
+const UNOVERWRITTABLE_TANK_NAMES: Array[String] = [
+	"Basic"
+]
+
 # NODES
 var world: World
 var player_cluster: Cluster
@@ -50,6 +59,7 @@ var current_arena: Arena
 var player_cluster_filename: String = "Basic"
 
 func _ready() -> void:
+	create_directories()
 	load_clusters()
 
 func get_closest(from: Node2D, list: Array) -> Node2D:
@@ -107,3 +117,10 @@ func load_clusters() -> void:
 	for file in ResourceLoader.list_directory(EDITOR_SAVES_DIRECTORY + "saved_tanks/"):
 		var cluster: Cluster = load(EDITOR_SAVES_DIRECTORY + "saved_tanks/" + file).instantiate()
 		loaded_clusters.append(cluster)
+
+func create_directories() -> void: 
+	if !DirAccess.dir_exists_absolute(GlobalClass.EDITOR_SAVES_DIRECTORY):
+		DirAccess.make_dir_absolute(GlobalClass.EDITOR_SAVES_DIRECTORY)
+		DirAccess.make_dir_absolute(GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/")
+		for file in ResourceLoader.list_directory(INTERNAL_CLUSTERS_DIRECTORY):
+			ResourceSaver.save(load(INTERNAL_CLUSTERS_DIRECTORY + file), GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + file)

@@ -1,0 +1,113 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_38yae"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="2_2ler1"]
+[ext_resource type="Script" path="res://classes/parts/CollisionPart.gd" id="3_mxicm"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble03_dark.tscn" id="4_vpxjt"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="5_sougn"]
+[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_light.tscn" id="6_ocssr"]
+[ext_resource type="PackedScene" path="res://scenes/parts/pgunpart/SeekerLauncher.tscn" id="7_04de7"]
+[ext_resource type="Script" path="res://classes/parts/GunPart.gd" id="8_mr15l"]
+[ext_resource type="PackedScene" path="res://scenes/parts/pgunpart/HeavyGun.tscn" id="9_3es10"]
+
+[node name="Mech" type="Area2D" unique_id=306893485]
+script = ExtResource("1_38yae")
+
+[node name="Medium Dark Bubble" type="Node2D" parent="." unique_id=878054447 instance=ExtResource("2_2ler1")]
+position = Vector2(-51.768616, -47.82721)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@686" type="Node2D" parent="." unique_id=1126687439 instance=ExtResource("2_2ler1")]
+position = Vector2(-51.768616, 47.82721)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@692" type="Node2D" parent="." unique_id=1545337860 instance=ExtResource("4_vpxjt")]
+position = Vector2(3.2591553, 0)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Medium Bubble" type="Node2D" parent="." unique_id=617769314 instance=ExtResource("5_sougn")]
+position = Vector2(-4.29364, -72.642395)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@700" type="Node2D" parent="." unique_id=1445893669 instance=ExtResource("5_sougn")]
+position = Vector2(-4.29364, 72.642395)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Medium Light Bubble" type="Node2D" parent="." unique_id=1834179815 instance=ExtResource("6_ocssr")]
+position = Vector2(63.681885, -39.19586)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="@Node2D@707" type="Node2D" parent="." unique_id=1899675188 instance=ExtResource("6_ocssr")]
+position = Vector2(63.681885, 39.19586)
+script = ExtResource("3_mxicm")
+disabled = true
+editor_mode = true
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="Seeker Launcher" type="Node2D" parent="." unique_id=122091808 instance=ExtResource("7_04de7")]
+position = Vector2(25.917664, -75.87915)
+script = ExtResource("8_mr15l")
+cooldown = 2.0
+keybind = "space"
+disabled = true
+editor_mode = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="@Node2D@714" type="Node2D" parent="." unique_id=1839950501 instance=ExtResource("7_04de7")]
+position = Vector2(25.917664, 75.87915)
+script = ExtResource("8_mr15l")
+cooldown = 2.0
+keybind = "space"
+disabled = true
+editor_mode = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="@Node2D@717" type="Node2D" parent="." unique_id=1979632027 instance=ExtResource("7_04de7")]
+position = Vector2(96.05115, -43.511536)
+script = ExtResource("8_mr15l")
+cooldown = 2.0
+keybind = "space"
+disabled = true
+editor_mode = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="_Node2D_717" type="Node2D" parent="." unique_id=844128066 instance=ExtResource("7_04de7")]
+position = Vector2(96.05115, 43.511536)
+script = ExtResource("8_mr15l")
+cooldown = 2.0
+keybind = "space"
+disabled = true
+editor_mode = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="@Node2D@724" type="Node2D" parent="." unique_id=695951626 instance=ExtResource("9_3es10")]
+position = Vector2(1.1011963, 0)
+scale = Vector2(1.34, 1.34)
+script = ExtResource("8_mr15l")
+cooldown = 0.65
+disabled = true
+editor_mode = true
+gp_usage = 2
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"

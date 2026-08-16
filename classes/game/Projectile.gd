@@ -37,28 +37,22 @@ func _process(delta: float) -> void:
 	velocity = Vector2.from_angle(global_rotation) * prj_info["speed"] * delta
 	global_position += velocity
 	
-	if targ and prj_info.has("turn_rate"):
-		global_rotation = move_toward(
-			global_rotation,
-		 	(targ.global_position - global_position).angle(),
-			delta * prj_info["turn_rate"]
-		)
+	if targ and prj_info.has("turn_rate") and prj_info.has("targ_mode"):
+		follow_targ(prj_info["targ_mode"], delta)
+	elif targ and prj_info.has("turn_rate"):
+		follow_targ("default", delta)
 	
 	if GlobalClass.current_arena and dist_from_center > GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.current_arena.scale.x:
 		destroy()
 
 func on_hit(area: Area2D) -> void:
-	var cluster: Cluster
-	if area is Cluster: 
-		cluster = area
-	else: 
-		return
-	if cluster.team != team:
-		cluster.recieve_hit(prj_info["dmg_info"])
-		# SFX
+	if area is Cluster and area.team != team: 
+		area.recieve_hit(prj_info["dmg_info"])
 		GlobalClass.play_sound("uid://br055er0cj176")
-		
 		destroy()
+	if area.get_parent() is Projectile and area.get_parent().team != team and area.get_parent().prj_info.has("homing") and area.get_parent().prj_info["homing"]:
+		area.get_parent().destroy()
+		destroy() 
 
 func destroy() -> void:
 	var fx: Node2D
@@ -75,7 +69,7 @@ func search_for_target() -> void:
 	var enemies: Array[Cluster] = []
 	
 	for c in GlobalClass.world.get_clusters():
-		if c.team != 0:
+		if c.team != team:
 			enemies.append(c)
 	
 	if enemies.is_empty(): 
@@ -84,3 +78,18 @@ func search_for_target() -> void:
 	
 	targ = enemies.pick_random()
 	targ.killed.connect(search_for_target, ConnectFlags.CONNECT_ONE_SHOT)
+
+func follow_targ(mode: String, delta: float) -> void:
+	match mode:
+		"default":
+			global_rotation = lerp_angle(
+				global_rotation,
+				(targ.global_position - global_position).angle(),
+				delta * prj_info["turn_rate"]
+			)
+		"mouse":
+			global_rotation = lerp_angle(
+				global_rotation,
+				(get_global_mouse_position() - global_position).angle(),
+				delta * prj_info["turn_rate"]
+			)

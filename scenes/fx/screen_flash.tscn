@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://cays5co474q6y"]
+
+[ext_resource type="Script" uid="uid://c6vh1dc0vulaa" path="res://classes/ui/ScreenFlash.gd" id="1_wwwi5"]
+
+[node name="ScreenFlash" type="ColorRect" unique_id=1975855944]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wwwi5")

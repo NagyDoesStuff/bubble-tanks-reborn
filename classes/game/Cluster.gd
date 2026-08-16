@@ -22,8 +22,9 @@ var dist_from_center: float = 0.0
 var velocity: Vector2 = Vector2.ZERO
 
 var mid_blinking: bool = false
-
 var enabled: bool = true
+var is_slown_down: bool = false
+var is_jammed: bool = false
 
 ## For player tanks, this serves as the progression variable for unlocking the next class.
 ## For enemy tanks, this serves as the health variable.
@@ -87,10 +88,15 @@ func get_parts() -> Array[Part]:
 func recieve_hit(dmg_info: Dictionary) -> void:
 	if !enabled: return
 	match dmg_info["type"]:
+		"slowdown":
+			slow_down(dmg_info["amount"], dmg_info["duration"])
+		"jam":
+			jam_weapons(dmg_info["duration"])
 		_:
 			progress -= dmg_info["amount"]
-			if team == 0:
-				GlobalClass.play_sound("uid://c2wjfumwdpyo")
+		
+	if team == 0:
+		GlobalClass.play_sound("uid://c2wjfumwdpyo")
 
 func check_progress() -> void:
 	if progress == max_progress and team == 0:
@@ -126,3 +132,34 @@ func drop_points() -> void:
 		
 		avaliable_value_to_convert -= rand_pt_val
 		GlobalClass.world.call_deferred("add_child", pt)
+
+func slow_down(mult: float, duration: float) -> void:
+	if is_slown_down: return
+	is_slown_down = true
+	
+	var init_speed: float = speed
+	var init_turn_rate: float = turn_rate
+	speed *= mult
+	turn_rate *= mult
+	
+	modulate = GlobalClass.SLOWN_DOWN_COLOR
+	
+	await get_tree().create_timer(duration).timeout
+	
+	modulate = Color.WHITE
+	
+	speed = init_speed
+	turn_rate = init_turn_rate
+	is_slown_down = false
+
+func jam_weapons(duration: float) -> void:
+	if is_jammed: return
+	is_jammed = true
+	
+	modulate = GlobalClass.JAMMED_COLOR
+	
+	await get_tree().create_timer(duration).timeout
+	
+	modulate = Color.WHITE
+	
+	is_jammed = false
