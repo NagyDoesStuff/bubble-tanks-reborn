@@ -12,7 +12,7 @@
 script = ExtResource("1_a5fcs")
 team = 1
 speed = 2.0
-turn_rate = 1.0
+turn_rate = 1.5
 drop_value = 4
 max_progress = 8
 min_to_available = 6
