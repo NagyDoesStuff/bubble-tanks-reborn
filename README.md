@@ -1,4 +1,4 @@
-# Bubble Tanks: Reborn
+# OpenBT
 
 ## An open-source recreation and extension of the discontinued Flash game "Bubble Tanks 3" on Godot Engine.
 
