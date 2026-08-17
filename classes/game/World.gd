@@ -117,7 +117,7 @@ func upgrade_player() -> void:
 	if player_max_class == GlobalClass.MAX_CLASS: return
 	
 	player_max_class += 1
-	player_max_gun_points += 1
+	player_max_gun_points += 2
 	if len(GlobalClass.PROGRESSION_REQUIREMENTS) > player_max_class - 1:
 		player_progression_requirement = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
 	GlobalClass.player_cluster.progress = 1

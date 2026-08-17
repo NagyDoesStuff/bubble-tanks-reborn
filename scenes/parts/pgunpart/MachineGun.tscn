@@ -7,7 +7,8 @@
 [node name="Machine Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_d7upl")
 cooldown = 0.125
-gp_usage = 2
+spread = 0.1
+gp_usage = 1
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_qc2ba")]
@@ -18,11 +19,11 @@ position = Vector2(19, 0)
 scale = Vector2(0.125, 0.125)
 
 [node name="Bubble03" parent="." unique_id=1999600052 instance=ExtResource("2_qc2ba")]
-position = Vector2(-15, -16)
+position = Vector2(-17, -14)
 scale = Vector2(0.15568385, 0.15568385)
 
 [node name="Bubble04" parent="." unique_id=357848560 instance=ExtResource("2_qc2ba")]
-position = Vector2(-14, 16)
+position = Vector2(-16, 14)
 scale = Vector2(0.15568385, 0.15568385)
 
 [node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]

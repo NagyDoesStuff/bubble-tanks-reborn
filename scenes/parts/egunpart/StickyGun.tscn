@@ -7,7 +7,7 @@
 [node name="Sticky Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_d2s80")
 cooldown = 2.6
-gp_usage = 2
+gp_usage = 1
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble02" parent="." unique_id=1278923371 instance=ExtResource("2_7y3dk")]
@@ -62,7 +62,7 @@ position = Vector2(28, 0)
 script = ExtResource("3_yc1di")
 prj_info = {
 "dmg_info": {
-"amount": 0.25,
+"amount": 0.1,
 "duration": 4.0,
 "type": "slowdown"
 },

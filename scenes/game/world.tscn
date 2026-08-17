@@ -15,7 +15,7 @@ script = ExtResource("1_g5t8f")
 [node name="UI" parent="." unique_id=668515769 instance=ExtResource("4_a33jj")]
 
 [node name="Arena" parent="." unique_id=1872830080 instance=ExtResource("3_d8brc")]
-scale = Vector2(0.5, 0.5)
+scale = Vector2(0.4, 0.4)
 
 [node name="Basic" parent="." unique_id=493591574 instance=ExtResource("5_q5tta")]
 

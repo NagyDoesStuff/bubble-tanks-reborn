@@ -1,0 +1,24 @@
+[gd_scene format=3 uid="uid://cbgk7c7pbefan"]
+
+[ext_resource type="Script" uid="uid://diohxedvg3l0h" path="res://classes/parts/PoppablePart.gd" id="1_ydq4l"]
+[ext_resource type="PackedScene" uid="uid://kn47h2fiv8ps" path="res://scenes/projectiles/PreStatsSeeker.tscn" id="2_bhx1n"]
+[ext_resource type="Texture2D" uid="uid://c1rddjgao4o4p" path="res://img/bubbles/694.png" id="2_slp0b"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 47.26521
+
+[node name="Seeker Carrier" type="Node2D" unique_id=640133807]
+script = ExtResource("1_ydq4l")
+split_into = ExtResource("2_bhx1n")
+split_radius = 30.0
+split_amount = 6
+gp_usage = 1
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1551408143]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=986999211]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=282460136]
+scale = Vector2(0.11471234, 0.11471234)
+texture = ExtResource("2_slp0b")

@@ -9,7 +9,7 @@ script = ExtResource("1_3owo6")
 cooldown = 3.0
 keybind = "space"
 fixed = true
-gp_usage = 1
+gp_usage = 2
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble04" parent="." unique_id=1535454042 instance=ExtResource("2_l1rx5")]
@@ -54,7 +54,7 @@ prj_info = {
 "hit_fx": "uid://dqbky1rhsnesm",
 "homing": true,
 "size": 1.0,
-"speed": 1000.0,
+"speed": 500.0,
 "template": "uid://gvpn411w207d",
 "turn_rate": 7.5
 }

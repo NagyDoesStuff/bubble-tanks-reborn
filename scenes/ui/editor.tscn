@@ -253,7 +253,14 @@ expand_mode = 1
 stretch_mode = 5
 
 [node name="Line2D" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=1232763946]
-position = Vector2(716, 460)
+position = Vector2(716, 461)
+points = PackedVector2Array(0, 100, 0, -100)
+width = 2.0
+default_color = Color(1, 1, 1, 0.22745098)
+
+[node name="Line2D2" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=2016576108]
+position = Vector2(716, 461)
+rotation = -1.5707964
 points = PackedVector2Array(0, 100, 0, -100)
 width = 2.0
 default_color = Color(1, 1, 1, 0.22745098)
@@ -277,12 +284,12 @@ theme_override_constants/margin_bottom = 20
 
 [node name="HBoxContainer" type="HBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer" unique_id=1583175718]
 layout_mode = 2
-theme_override_constants/separation = 64
+theme_override_constants/separation = 50
 alignment = 1
 
 [node name="DeleteButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=397122724]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
@@ -292,7 +299,7 @@ text = "Delete"
 
 [node name="MoveUpButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=872084187]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
@@ -302,23 +309,36 @@ text = "Move Up"
 
 [node name="MoveDownButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=699649665]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
-text = "Move Down"
+text = "Move 
+Down"
+
+[node name="MoveTopButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=136437718]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_p70fw")
+theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
+theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
+text = "Move To
+Top"
 
 [node name="CenterPartButton" type="Button" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=1462104845]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/hover = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/disabled = SubResource("StyleBoxFlat_p70fw")
 theme_override_styles/focus = SubResource("StyleBoxFlat_p70fw")
-text = "Move To Center"
+text = "Move To
+Center"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer" unique_id=498184119]
 layout_mode = 2

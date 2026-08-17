@@ -5,7 +5,7 @@ var dist_from_center: float = 0.0
 
 var team: int = 0
 var velocity: Vector2 = Vector2.ZERO
-var prj_info: Dictionary = {}
+@export var prj_info: Dictionary = {}
 var targ: Cluster
 
 @export var prj_area: Area2D
@@ -52,7 +52,10 @@ func on_hit(area: Area2D) -> void:
 		destroy()
 	if area.get_parent() is Projectile and area.get_parent().team != team and area.get_parent().prj_info.has("homing") and area.get_parent().prj_info["homing"]:
 		area.get_parent().destroy()
-		destroy() 
+		destroy()
+	if area.get_parent() is PoppablePart and area.get_parent().user.team != team:
+		area.get_parent().destroy()
+		destroy()
 
 func destroy() -> void:
 	var fx: Node2D

@@ -1,0 +1,240 @@
+[gd_scene format=3 uid="uid://cxufqvldvjxup"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_kkjqo"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_8anst"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_ag0n7"]
+
+[node name="Enemy 360 Spread Gun" type="Node2D" unique_id=122091808]
+script = ExtResource("1_kkjqo")
+cooldown = 2.0
+gp_usage = 2
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_8anst")]
+scale = Vector2(0.37336063, 0.37336063)
+
+[node name="Node2D2" type="Node2D" parent="." unique_id=670149717]
+rotation = -0.7853982
+
+[node name="Node2D3" type="Node2D" parent="." unique_id=751588381]
+rotation = -1.5707964
+
+[node name="Node2D4" type="Node2D" parent="." unique_id=284618512]
+rotation = -2.3561945
+
+[node name="Node2D5" type="Node2D" parent="." unique_id=255429401]
+rotation = -3.1415927
+
+[node name="Node2D6" type="Node2D" parent="." unique_id=202160365]
+rotation = -3.926991
+
+[node name="Node2D7" type="Node2D" parent="." unique_id=1149586943]
+rotation = -4.712389
+
+[node name="Node2D8" type="Node2D" parent="." unique_id=2044033686]
+rotation = -5.4977875
+
+[node name="Bubble06" parent="." unique_id=1584074684 instance=ExtResource("2_8anst")]
+position = Vector2(20, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble09" parent="." unique_id=1569250656 instance=ExtResource("2_8anst")]
+position = Vector2(31, -31)
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel2" type="Node2D" parent="." unique_id=1357681824]
+position = Vector2(37, -37)
+rotation = -0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble07" parent="." unique_id=1341883330 instance=ExtResource("2_8anst")]
+position = Vector2(0, -28.284271)
+rotation = -0.7853982
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="Bubble10" parent="." unique_id=1549790489 instance=ExtResource("2_8anst")]
+position = Vector2(0, -43.84062)
+rotation = -0.7853982
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="GunBarrel3" type="Node2D" parent="." unique_id=329278578]
+position = Vector2(0, -52.3259)
+rotation = -1.5707964
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble08" parent="." unique_id=469758323 instance=ExtResource("2_8anst")]
+position = Vector2(-20, -20)
+rotation = -1.5707964
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble11" parent="." unique_id=1503699701 instance=ExtResource("2_8anst")]
+position = Vector2(-31.000002, -30.999998)
+rotation = -1.5707964
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel4" type="Node2D" parent="." unique_id=993384819]
+position = Vector2(-37, -37)
+rotation = -2.3561945
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble12" parent="." unique_id=1252262071 instance=ExtResource("2_8anst")]
+position = Vector2(-28.284271, 0)
+rotation = -2.3561945
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="Bubble13" parent="." unique_id=1283168145 instance=ExtResource("2_8anst")]
+position = Vector2(-43.84062, 0)
+rotation = -2.3561945
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="GunBarrel5" type="Node2D" parent="." unique_id=917622101]
+position = Vector2(-52.3259, 0)
+rotation = 3.1415927
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble14" parent="." unique_id=1901561175 instance=ExtResource("2_8anst")]
+position = Vector2(-19.999998, 20.000002)
+rotation = 3.1415925
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble15" parent="." unique_id=274992621 instance=ExtResource("2_8anst")]
+position = Vector2(-30.999998, 31.000002)
+rotation = 3.1415925
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel6" type="Node2D" parent="." unique_id=1547956821]
+position = Vector2(-36.999996, 37.000004)
+rotation = 2.3561945
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble16" parent="." unique_id=1159369414 instance=ExtResource("2_8anst")]
+position = Vector2(4.7683716e-06, 28.284271)
+rotation = 2.3561943
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble17" parent="." unique_id=845318836 instance=ExtResource("2_8anst")]
+position = Vector2(7.6293945e-06, 43.84062)
+rotation = 2.3561943
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel7" type="Node2D" parent="." unique_id=1945890170]
+position = Vector2(7.6293945e-06, 52.3259)
+rotation = 1.5707961
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble18" parent="." unique_id=1175787519 instance=ExtResource("2_8anst")]
+position = Vector2(20, 20)
+rotation = 1.5707964
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble19" parent="." unique_id=1377041331 instance=ExtResource("2_8anst")]
+position = Vector2(31, 31)
+rotation = 1.5707964
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel8" type="Node2D" parent="." unique_id=341444056]
+position = Vector2(37, 37)
+rotation = 0.7853982
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble20" parent="." unique_id=955949554 instance=ExtResource("2_8anst")]
+position = Vector2(28.284271, -9.536743e-06)
+rotation = 0.7853978
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="Bubble21" parent="." unique_id=1876775120 instance=ExtResource("2_8anst")]
+position = Vector2(43.840622, -1.335144e-05)
+rotation = 0.7853978
+scale = Vector2(0.12499999, 0.12499999)
+
+[node name="GunBarrel9" type="Node2D" parent="." unique_id=49691953]
+position = Vector2(52.3259, -1.9073486e-05)
+scale = Vector2(0.9999999, 0.9999999)
+script = ExtResource("3_ag0n7")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

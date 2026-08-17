@@ -7,6 +7,7 @@
 [node name="Super Machine Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_wmgo3")
 cooldown = 0.125
+spread = 0.15
 gp_usage = 1
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

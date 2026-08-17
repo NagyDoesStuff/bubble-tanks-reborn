@@ -13,9 +13,11 @@ signal killed()
 @export var acceleration: float = 6.0
 @export var turn_rate: float = 2.0
 @export var drop_value: int = 10
+@export var max_progress: int = 1
 
 @export_group("Spawn Settings")
 @export var min_to_available: int = 0
+@export var max_spawn_amount: int = 3
 
 var dist_from_center: float = 0.0
 
@@ -33,7 +35,6 @@ var progress: int = 1:
 		progress = clampi(value, 0, max_progress)
 		progress_changed.emit()
 		check_progress()
-@export var max_progress: int = 1
 
 var parts: Array[Part] = []
 
@@ -163,3 +164,9 @@ func jam_weapons(duration: float) -> void:
 	modulate = Color.WHITE
 	
 	is_jammed = false
+
+func get_used_gp() -> int:
+	var gp: int = 0
+	for p in get_parts():
+		gp += p.gp_usage
+	return gp

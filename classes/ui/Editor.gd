@@ -1,14 +1,6 @@
 extends Control
 class_name Editor
 
-@export var debug: bool = true
-
-const MIRROR_Y: int = 515
-
-var enabled: bool = false
-var mid_transition: bool = false
-var symmetry: bool = true
-
 @onready var last_dragged_part_indicator: Sprite2D = $SelectIcon
 
 @onready var part_list_display_container: VBoxContainer = $HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer/VBoxContainer
@@ -23,6 +15,7 @@ var symmetry: bool = true
 @onready var move_up_button: Button = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/MoveUpButton
 @onready var move_down_button: Button = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/MoveDownButton
 @onready var center_part_button: Button = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/CenterPartButton
+@onready var move_top_button: Button = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/MoveTopButton
 
 @onready var save_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/SaveButton
 @onready var load_button: TextureButton = $HBoxContainer/Panel/MarginContainer/VBoxContainer/LoadButton
@@ -45,6 +38,14 @@ var symmetry: bool = true
 
 @onready var info_label: Label = $HBoxContainer/VBoxContainer/Display/MarginContainer/Label
 
+@export var debug: bool = true
+
+const MIRROR_Y: int = 515
+
+var enabled: bool = false
+var mid_transition: bool = false
+var symmetry: bool = true
+
 var selected_part_path: String:
 	set(value):
 		selected_part_path = value
@@ -58,8 +59,6 @@ var dragged_part_path: String:
 		create_dragged_part(dragged_part_path)
 
 var dragged_part: Part
-
-var mirror_part: Part
 
 var last_dragged: Part
 
@@ -78,7 +77,7 @@ func _ready() -> void:
 	
 	retrieve_avaliable_parts(GlobalClass.PARTS_DIRECTORY)
 	
-	create_edited_cluster(Cluster.new())
+	create_template()
 	
 	configure_signals()
 	
@@ -89,9 +88,9 @@ func _process(_delta: float) -> void:
 	
 	if dragged_part and !Input.is_action_pressed("ctrl"):
 		dragged_part.global_position = get_global_mouse_position()
-		if symmetry and mirror_part:
-			mirror_part.global_position.x = dragged_part.global_position.x
-			mirror_part.global_position.y = MIRROR_Y * 2 - dragged_part.global_position.y
+		if symmetry and dragged_part.linked_via_editor:
+			dragged_part.linked_via_editor.global_position.x = dragged_part.global_position.x
+			dragged_part.linked_via_editor.global_position.y = MIRROR_Y * 2 - dragged_part.global_position.y
 	
 	if last_dragged:
 		last_dragged_part_indicator.global_position = last_dragged.global_position
@@ -101,7 +100,6 @@ func _process(_delta: float) -> void:
 	
 	if Input.is_action_just_released("lmb"):
 		dragged_part = null
-		mirror_part = null
 	
 	if Input.is_action_just_pressed("enter") and !load_cluster_input.text.is_empty() and load_cluster_input.visible:
 		load_cluster_input.hide()
@@ -144,11 +142,12 @@ func create_dragged_part(part_path: String) -> Part:
 	part.owner = edited_cluster
 	
 	if symmetry:
-		var part2: Part = dragged_part.duplicate()
-		part2.editor_mode = true
-		part2.disabled = true
-		mirror_part = part2
-		edited_cluster.add_child(part2)
+		var mirror_part: Part = dragged_part.duplicate()
+		mirror_part.editor_mode = true
+		mirror_part.disabled = true
+		edited_cluster.add_child(mirror_part)
+		part.linked_via_editor = mirror_part
+		mirror_part.linked_via_editor = part
 	
 	return part
 
@@ -237,13 +236,14 @@ func configure_signals() -> void:
 	drag_button.button_down.connect(update_dragged_part_path)
 	save_button.pressed.connect(save_cluster)
 	load_button.pressed.connect(toggle_load_input)
-	clear_button.pressed.connect(clear_cluster)
+	clear_button.pressed.connect(create_template)
 	exit_button.pressed.connect(get_tree().change_scene_to_file.bind("uid://bkalqiq76isn0"))
 	
 	delete_button.pressed.connect(delete_last_dragged)
-	move_up_button.pressed.connect(move_last_dragged_up)
-	move_down_button.pressed.connect(move_last_dragged_down)
+	move_up_button.pressed.connect(move_last_dragged.bind(1))
+	move_down_button.pressed.connect(move_last_dragged.bind(-1))
 	center_part_button.pressed.connect(center_last_dragged)
+	move_top_button.pressed.connect(move_last_dragged_to_top)
 	
 	cluster_name_input.text_changed.connect(update_cluster_name)
 	cluster_team_edit.text_changed.connect(
@@ -265,31 +265,51 @@ func configure_signals() -> void:
 	symmetry_button.pressed.connect(toggle_symmetry)
 
 func delete_last_dragged() -> void:
-	if last_dragged: last_dragged.queue_free()
+	if !last_dragged: return
+	if symmetry and last_dragged.linked_via_editor: 
+		last_dragged.linked_via_editor.queue_free()
+	last_dragged.queue_free()
 
-func move_last_dragged_up() -> void:
-	if last_dragged: edited_cluster.move_child(last_dragged, last_dragged.get_index() + 1)
+func move_last_dragged(value: int) -> void:
+	if !last_dragged: return
+	if symmetry and last_dragged.linked_via_editor: 
+		edited_cluster.move_child(last_dragged.linked_via_editor, last_dragged.linked_via_editor.get_index() + 1)
+	edited_cluster.move_child(last_dragged, last_dragged.get_index() + value)
 
-func move_last_dragged_down() -> void:
-	if last_dragged: edited_cluster.move_child(last_dragged,last_dragged .get_index() - 1)
-
+func move_last_dragged_to_top() -> void:
+	if !last_dragged: return
+	last_dragged.move_to_front()
+	if symmetry and last_dragged.linked_via_editor: 
+		last_dragged.linked_via_editor.move_to_front()
+	
 func scale_last_dragged(value: float) -> void:
-	if last_dragged: last_dragged.scale = Vector2.ONE * value
+	if !last_dragged: return
+	if symmetry and last_dragged.linked_via_editor: 
+		last_dragged.linked_via_editor.scale = Vector2.ONE * value
+	last_dragged.scale = Vector2.ONE * value
 
 func rotate_last_dragged(value: float) -> void:
-	if last_dragged: last_dragged.rotation_degrees = value
+	if !last_dragged: return
+	if symmetry and last_dragged.linked_via_editor: 
+		last_dragged.linked_via_editor.rotation_degrees = value
+	last_dragged.rotation_degrees = value
 
 func toggle_symmetry() -> void:
 	symmetry = !symmetry
 
 func center_last_dragged() -> void:
-	if last_dragged: last_dragged.global_position.y = MIRROR_Y
-
-func clear_cluster() -> void:
-	create_edited_cluster(Cluster.new())
+	if !last_dragged: return
+	if symmetry and last_dragged.linked_via_editor: 
+		last_dragged.linked_via_editor.global_position.y = MIRROR_Y
+	last_dragged.global_position.y = MIRROR_Y
 
 func update_tank_info() -> void:
 	info_label.text = ""
 	info_label.text += "GP: " + str(GlobalClass.world.player_max_gun_points) + "\n"
 	info_label.text += "Max Class: " + str(GlobalClass.world.player_max_class) + "\n"
 	info_label.text += "Class: " + str(edited_cluster.cluster_class)
+
+func create_template() -> void:
+	var temp: Cluster = Cluster.new()
+	temp.name = "Tank"
+	create_edited_cluster(temp)

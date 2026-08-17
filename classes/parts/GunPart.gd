@@ -2,8 +2,9 @@ extends Part
 class_name GunPart
 
 @export var cooldown: float = 0.5
+@export var spread: float = 0.0
 @export var amount_per_salvo: int = 1
-@export var salvo_interval: float = 0.1
+@export var salvo_interval: float = 0.0
 @export_enum(
 	"lmb",
 	"space"
@@ -39,11 +40,6 @@ func get_barrels() -> Array[GunBarrel]:
 
 func fire_all_barrels() -> void:
 	for b in barrels:
-		if amount_per_salvo <= 1:
-			b.shoot()
-		else:
-			for x in range(amount_per_salvo):
-				b.shoot()
-				await get_tree().create_timer(salvo_interval).timeout
+		b.shoot()
 	can_shoot = false
 	get_tree().create_timer(cooldown).timeout.connect(set.bind("can_shoot", true))

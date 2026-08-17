@@ -1,0 +1,65 @@
+[gd_scene format=3 uid="uid://dxg8olun18ccm"]
+
+[ext_resource type="Script" uid="uid://diohxedvg3l0h" path="res://classes/parts/PoppablePart.gd" id="1_v03ob"]
+[ext_resource type="PackedScene" uid="uid://kn47h2fiv8ps" path="res://scenes/projectiles/PreStatsSeeker.tscn" id="2_tg6js"]
+[ext_resource type="Texture2D" uid="uid://c1rddjgao4o4p" path="res://img/bubbles/694.png" id="3_whc5x"]
+[ext_resource type="Texture2D" uid="uid://b02of0c1cdvr3" path="res://img/bubbles/14124.png" id="4_tg6js"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 79.22752
+
+[node name="Seeker Super Carrier" type="Node2D" unique_id=640133807]
+script = ExtResource("1_v03ob")
+split_into = ExtResource("2_tg6js")
+split_radius = 40.0
+split_amount = 12
+gp_usage = 2
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1551408143]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=986999211]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=282460136]
+scale = Vector2(0.19225585, 0.19225585)
+texture = ExtResource("3_whc5x")
+
+[node name="Sprite2D4" type="Sprite2D" parent="." unique_id=611375600]
+position = Vector2(-3.4531993e-06, -78.99999)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D5" type="Sprite2D" parent="." unique_id=1813433910]
+position = Vector2(-55.86143, -55.86143)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D6" type="Sprite2D" parent="." unique_id=919331970]
+position = Vector2(-78.99999, 6.9063985e-06)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D7" type="Sprite2D" parent="." unique_id=1415803659]
+position = Vector2(-55.86142, 55.86144)
+scale = Vector2(0.20649573, 0.20649573)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D8" type="Sprite2D" parent="." unique_id=1451202049]
+position = Vector2(9.4206547e-07, 78.99999)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D9" type="Sprite2D" parent="." unique_id=740913383]
+position = Vector2(55.861446, 55.861412)
+scale = Vector2(0.20649573, 0.20649573)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D10" type="Sprite2D" parent="." unique_id=256813570]
+position = Vector2(78.99999, 0)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")
+
+[node name="Sprite2D11" type="Sprite2D" parent="." unique_id=838601900]
+position = Vector2(55.86143, -55.86143)
+scale = Vector2(0.20649575, 0.20649575)
+texture = ExtResource("4_tg6js")

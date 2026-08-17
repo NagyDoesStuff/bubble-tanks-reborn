@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://c3my8qkoa4syr"]
+[gd_scene format=3 uid="uid://cbloe7pjw2ja1"]
 
 [ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_fsd27"]
 [ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_q4sdu"]

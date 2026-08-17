@@ -12,6 +12,7 @@ class_name Part
 			return get_parent()
 		else:
 			return null
+var linked_via_editor: Part
 
 func _ready() -> void:
 	owner = user

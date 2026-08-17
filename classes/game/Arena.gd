@@ -20,10 +20,9 @@ func spawn_enemies() -> void:
 			enemy_names_spawned.append(rand_enemy.name)
 		
 		var min_enemy_amount: int = 0
-		var max_enemy_amount: int = 3
+		var max_enemy_amount: int = rand_enemy.max_spawn_amount
 		if rand_enemy.min_to_available == 0:
 			min_enemy_amount = 1
-			max_enemy_amount = 4
 		for x in randi_range(min_enemy_amount, max_enemy_amount):
 			if enemies_left_to_spawn == 0: return
 			var deployable_enemy: Cluster = rand_enemy.duplicate()

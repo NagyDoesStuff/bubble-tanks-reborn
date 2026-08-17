@@ -38,9 +38,11 @@ func shoot() -> void:
 	if !muted:
 		GlobalClass.play_sound("uid://dfx02l3ac3xjd")
 	
-	var prj: Projectile = load(prj_info["template"]).instantiate()
-	prj.global_position = global_position
-	prj.global_rotation = global_rotation
-	prj.prj_info = prj_info
-	prj.team = gun.user.team
-	GlobalClass.world.add_child(prj)
+	for x in range(gun.amount_per_salvo):
+		var prj: Projectile = load(prj_info["template"]).instantiate()
+		prj.global_position = global_position
+		prj.global_rotation = global_rotation + randf_range(-gun.spread, gun.spread)
+		prj.prj_info = prj_info
+		prj.team = gun.user.team
+		GlobalClass.world.add_child(prj)
+		await get_tree().create_timer(gun.salvo_interval).timeout
