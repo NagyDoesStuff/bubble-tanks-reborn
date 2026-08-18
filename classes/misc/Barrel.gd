@@ -1,11 +1,12 @@
 extends Node2D
 class_name GunBarrel
 
-var muted: bool = false
+@export var muted: bool = false
 
-# "template" is the projectile scene file.
+# "template" is the projectile scene file
 # "dmg_info" types: "dmg", "slowdown" and "jam"
 # "targ_mode" modes: "default" and "mouse"
+# "turn_mode" modes: "default" and "sin"
 
 @export var prj_info: Dictionary = {
 	# Normal attributes.
@@ -21,7 +22,10 @@ var muted: bool = false
 	# Homing attributes.
 	"homing": false,
 	"turn_rate": 10.0,
-	"targ_mode": "default"
+	"targ_mode": "default",
+	# Turning attributes.
+	"turn_mode": "default",
+	"sin_turn_mode_freq": 3.0
 }
 
 @onready var gun: GunPart = get_parent()
@@ -35,8 +39,8 @@ func _ready() -> void:
 func shoot() -> void:
 	if gun.user.is_jammed: return
 	
-	if !muted:
-		GlobalClass.play_sound("uid://dfx02l3ac3xjd")
+	if !muted and gun.salvo_interval == 0.0:
+		GlobalClass.play_sound(gun.shoot_fx)
 	
 	for x in range(gun.amount_per_salvo):
 		var prj: Projectile = load(prj_info["template"]).instantiate()
@@ -45,4 +49,8 @@ func shoot() -> void:
 		prj.prj_info = prj_info
 		prj.team = gun.user.team
 		GlobalClass.world.add_child(prj)
-		await get_tree().create_timer(gun.salvo_interval).timeout
+		
+		if gun.salvo_interval > 0.0:
+			if !muted:
+				GlobalClass.play_sound(gun.shoot_fx)
+			await get_tree().create_timer(gun.salvo_interval).timeout

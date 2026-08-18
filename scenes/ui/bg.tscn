@@ -16,7 +16,7 @@ scale = Vector2(0.3591958, 0.24948315)
 texture = ExtResource("1_2xehu")
 
 [node name="CPUParticles2D" type="CPUParticles2D" parent="." unique_id=1729752112]
-position = Vector2(1007, 540)
+position = Vector2(791, 540)
 amount = 40
 texture = ExtResource("2_psg4x")
 lifetime = 10.0

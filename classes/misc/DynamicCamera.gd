@@ -7,6 +7,7 @@ var free_cam: bool = false
 func _ready() -> void:
 	position_smoothing_speed = 20.0
 	position_smoothing_enabled = true
+	process_mode = Node.PROCESS_MODE_ALWAYS
 
 func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("freecam"):

@@ -1,0 +1,33 @@
+[gd_scene format=3 uid="uid://sd5qea1cnyxd"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_sca1b"]
+[ext_resource type="Texture2D" uid="uid://cyhs8n8we5vvn" path="res://img/bubbles/1796.png" id="2_d63sn"]
+[ext_resource type="Texture2D" uid="uid://bjce7goblie3y" path="res://img/bubbles/1716.png" id="3_q4j36"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 16.0
+
+[node name="StarBurstFragProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_sca1b")
+prj_info = {
+"dmg_info": {
+"amount": 4,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 1000.0
+}
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+scale = Vector2(0.2942147, 0.2942147)
+texture = ExtResource("2_d63sn")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+scale = Vector2(0.38491622, 0.38491622)
+texture = ExtResource("3_q4j36")

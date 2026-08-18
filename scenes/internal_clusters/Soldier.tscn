@@ -1,13 +1,13 @@
 [gd_scene format=3]
 
-[ext_resource type="Script" path="res://classes/game/Cluster.gd" id="1_g3q56"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="2_pr2gk"]
-[ext_resource type="Script" path="res://classes/parts/CollisionPart.gd" id="3_wvggs"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="4_s15rb"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="5_byn48"]
-[ext_resource type="PackedScene" path="res://scenes/parts/collisionpart/bubble01_light.tscn" id="6_kvqk4"]
-[ext_resource type="PackedScene" path="res://scenes/parts/pgunpart/MachineGun.tscn" id="7_qwttd"]
-[ext_resource type="Script" path="res://classes/parts/GunPart.gd" id="8_1fm53"]
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_g3q56"]
+[ext_resource type="PackedScene" uid="uid://dc1ruuaqakf21" path="res://scenes/parts/collisionpart/bubble02_dark.tscn" id="2_pr2gk"]
+[ext_resource type="Script" uid="uid://y2smhndmk7x3" path="res://classes/parts/CollisionPart.gd" id="3_wvggs"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="4_s15rb"]
+[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="5_byn48"]
+[ext_resource type="PackedScene" uid="uid://dlksa068y211m" path="res://scenes/parts/collisionpart/bubble01_light.tscn" id="6_kvqk4"]
+[ext_resource type="PackedScene" uid="uid://drs465sweieiu" path="res://scenes/parts/pgunpart/MachineGun.tscn" id="7_qwttd"]
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="8_1fm53"]
 
 [node name="Soldier" type="Area2D" unique_id=493591574]
 monitoring = false

@@ -7,7 +7,7 @@
 [node name="Enemy 360 Spread Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_kkjqo")
 cooldown = 2.0
-gp_usage = 2
+gp_usage = 4
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_8anst")]
@@ -49,7 +49,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -75,7 +75,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -101,7 +101,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -127,7 +127,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -153,7 +153,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -179,7 +179,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -205,7 +205,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -230,7 +230,7 @@ scale = Vector2(0.9999999, 0.9999999)
 script = ExtResource("3_ag0n7")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,

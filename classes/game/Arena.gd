@@ -3,6 +3,7 @@ class_name Arena
 
 func spawn_enemies() -> void:
 	var enemies_left_to_spawn: int = int(GlobalClass.DEFAULT_MAX_ENEMIES + (GlobalClass.world.arenas_travelled * GlobalClass.MAX_ENEMIES_INCREMENT_PER_ARENA))
+	var final_spawned_amount: int = 0
 	var enemy_names_spawned: Array[String] = []
 	
 	while enemies_left_to_spawn > 0:
@@ -32,4 +33,11 @@ func spawn_enemies() -> void:
 				p.editor_mode = false
 				p.disabled = false
 			enemies_left_to_spawn -= 1
+			final_spawned_amount += 1
 			GlobalClass.world.add_child(deployable_enemy)
+	
+	resize_arena(final_spawned_amount)
+
+func resize_arena(enemy_amount: int) -> void:
+	var targ_scale: Vector2 = GlobalClass.DEFAULT_ARENA_SCALE + Vector2.ONE * (GlobalClass.ARENA_RADIUS_GROW_PER_ENEMY * enemy_amount)
+	create_tween().tween_property(self, "scale", targ_scale, 2.0).set_trans(Tween.TRANS_SINE)

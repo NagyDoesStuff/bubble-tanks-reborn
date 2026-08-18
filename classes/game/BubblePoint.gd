@@ -5,12 +5,14 @@ class_name BubblePoint
 
 var velocity: Vector2 = Vector2.ZERO
 
-var min_spread_force: float = 20.0
-var max_spread_force: float = 30.0
-var follow_speed: float = 4.0
+var min_spread_force: float = 10.0
+var max_spread_force: float = 20.0
+var follow_speed: float = 3.0
 var dist_from_center: float = 0.0
-var accel: float = 0.9
+var accel: float = 0.92
 var add_value: float = 1.0
+
+var can_follow: bool = false
 
 func _ready() -> void:
 	scale = Vector2.ONE * (GlobalClass.MIN_BUBBLE_POINT_SIZE + (add_value * GlobalClass.BUBBLE_POINT_GROW_SIZE))
@@ -30,7 +32,10 @@ func _ready() -> void:
 	area_entered.connect(on_area_entered, ConnectFlags.CONNECT_DEFERRED)
 	
 func _process(_delta: float) -> void:
-	if GlobalClass.player_cluster and !GlobalClass.world.mid_battle and GlobalClass.player_cluster.enabled: velocity += (GlobalClass.player_cluster.global_position - global_position).normalized() * follow_speed
+	if GlobalClass.player_cluster and !GlobalClass.world.mid_battle and GlobalClass.player_cluster.enabled: 
+		can_follow = true
+	if can_follow: 
+		velocity += (GlobalClass.player_cluster.global_position - global_position).normalized() * follow_speed
 	global_position += velocity
 	velocity *= accel
 	if GlobalClass.current_arena and dist_from_center > GlobalClass.ESTIMATED_ARENA_RADIUS * GlobalClass.current_arena.scale.x:

@@ -10,7 +10,6 @@
 [ext_resource type="Texture2D" uid="uid://do2m1c8805n1c" path="res://img/ui/load_icon.png" id="5_fkm6v"]
 [ext_resource type="FontFile" uid="uid://dsidbosgdua0m" path="res://fonts/2457_Arial.ttf" id="6_oaaef"]
 [ext_resource type="Texture2D" uid="uid://rhfccj4ar03w" path="res://img/ui/load_icon_pressed.png" id="6_p70fw"]
-[ext_resource type="Texture2D" uid="uid://df721ch2y1e58" path="res://img/ui/816.png" id="8_s0ct7"]
 [ext_resource type="Texture2D" uid="uid://dyx2323qtmbfc" path="res://img/ui/trash_icon.png" id="9_5mn78"]
 [ext_resource type="Texture2D" uid="uid://b16yl4phfy1pa" path="res://img/ui/trash_icon_pressed.png" id="10_nf4ht"]
 [ext_resource type="Texture2D" uid="uid://k5y3g81me0r5" path="res://img/ui/exit_button.png" id="11_bvmyq"]
@@ -19,6 +18,11 @@
 [ext_resource type="Texture2D" uid="uid://53sencjl08cp" path="res://img/bg.png" id="13_hrj1y"]
 [ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="13_xbjxy"]
 [ext_resource type="Texture2D" uid="uid://3of6wli6kjpb" path="res://img/bubbles/1818.png" id="14_m77bv"]
+[ext_resource type="Texture2D" uid="uid://dv6m32fw2psqh" path="res://img/ui/6.png" id="14_p2r2s"]
+
+[sub_resource type="Curve" id="Curve_ymrjv"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, Vector2(0.6350515, 0.94), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
+point_count = 4
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x4mk5"]
 bg_color = Color(1, 1, 1, 0.2509804)
@@ -83,10 +87,6 @@ font_size = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ct7"]
 
-[sub_resource type="Curve" id="Curve_ymrjv"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, Vector2(0.6350515, 0.94), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
-point_count = 4
-
 [node name="Editor" type="Control" unique_id=1277885260]
 z_index = 1
 layout_mode = 3
@@ -97,6 +97,31 @@ grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
 script = ExtResource("1_b1cmn")
+
+[node name="BG" type="Control" parent="." unique_id=1048494692]
+anchors_preset = 0
+
+[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1901144759]
+position = Vector2(983, 558)
+scale = Vector2(0.3591958, 0.24948315)
+texture = ExtResource("13_hrj1y")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="BG" unique_id=1729752112]
+position = Vector2(791, 540)
+amount = 40
+texture = ExtResource("14_m77bv")
+lifetime = 10.0
+emission_shape = 3
+emission_rect_extents = Vector2(1000, 500)
+gravity = Vector2(0, 0)
+initial_velocity_min = 100.0
+initial_velocity_max = 100.0
+orbit_velocity_min = -0.04
+orbit_velocity_max = 0.04
+scale_amount_min = 0.03
+scale_amount_max = 0.06
+scale_amount_curve = SubResource("Curve_ymrjv")
+color = Color(1.8247963, 1.8247963, 1.8247963, 1)
 
 [node name="SelectIcon" type="Sprite2D" parent="." unique_id=99527726]
 z_index = 1
@@ -241,6 +266,7 @@ Class: 1"
 label_settings = SubResource("LabelSettings_bvmyq")
 
 [node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer/Display" unique_id=2095925782]
+modulate = Color(1, 1, 1, 0.6156863)
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -248,22 +274,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 mouse_filter = 2
-texture = ExtResource("8_s0ct7")
-expand_mode = 1
+texture = ExtResource("14_p2r2s")
+expand_mode = 2
 stretch_mode = 5
-
-[node name="Line2D" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=1232763946]
-position = Vector2(716, 461)
-points = PackedVector2Array(0, 100, 0, -100)
-width = 2.0
-default_color = Color(1, 1, 1, 0.22745098)
-
-[node name="Line2D2" type="Line2D" parent="HBoxContainer/VBoxContainer/Display" unique_id=2016576108]
-position = Vector2(716, 461)
-rotation = -1.5707964
-points = PackedVector2Array(0, 100, 0, -100)
-width = 2.0
-default_color = Color(1, 1, 1, 0.22745098)
 
 [node name="Options" type="Panel" parent="HBoxContainer/VBoxContainer" unique_id=1806113826]
 custom_minimum_size = Vector2(0, 100)
@@ -549,29 +562,3 @@ layout_mode = 2
 [node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer" unique_id=816124896]
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="BG" type="Control" parent="." unique_id=1739210535]
-z_index = -1
-anchors_preset = 0
-offset_right = 40.0
-offset_bottom = 40.0
-
-[node name="Sprite2D" type="Sprite2D" parent="BG" unique_id=1901144759]
-position = Vector2(983, 558)
-scale = Vector2(0.3591958, 0.24948315)
-texture = ExtResource("13_hrj1y")
-
-[node name="CPUParticles2D" type="CPUParticles2D" parent="BG" unique_id=1729752112]
-position = Vector2(1007, 540)
-amount = 20
-texture = ExtResource("14_m77bv")
-lifetime = 10.0
-emission_shape = 3
-emission_rect_extents = Vector2(1000, 500)
-gravity = Vector2(0, 0)
-initial_velocity_min = 100.0
-initial_velocity_max = 100.0
-scale_amount_min = 0.03
-scale_amount_max = 0.06
-scale_amount_curve = SubResource("Curve_ymrjv")
-color = Color(1.8247963, 1.8247963, 1.8247963, 1)

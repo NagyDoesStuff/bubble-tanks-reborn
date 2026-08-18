@@ -2,6 +2,7 @@ extends Part
 class_name GunPart
 
 @export var cooldown: float = 0.5
+@export var shoot_fx: String = "uid://dfx02l3ac3xjd"
 @export var spread: float = 0.0
 @export var amount_per_salvo: int = 1
 @export var salvo_interval: float = 0.0
@@ -11,6 +12,8 @@ class_name GunPart
 ) var keybind: String = "lmb"
 @export var fixed: bool = false
 var can_shoot: bool = true
+
+@export var full_turn_amount: int = 0
 
 var barrels: Array[GunBarrel]
 
@@ -43,3 +46,6 @@ func fire_all_barrels() -> void:
 		b.shoot()
 	can_shoot = false
 	get_tree().create_timer(cooldown).timeout.connect(set.bind("can_shoot", true))
+	for x in range(full_turn_amount):
+		await create_tween().tween_property(self, "rotation", TAU, amount_per_salvo * salvo_interval).finished
+		rotation = init_rotation

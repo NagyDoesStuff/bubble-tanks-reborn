@@ -5,7 +5,7 @@ var mid_battle: bool = false
 
 var arenas_travelled: int = 0
 var player_max_class: int = 1
-var player_max_gun_points: int = 1
+var player_max_gun_points: int = 0
 var player_progression_requirement: int = GlobalClass.PROGRESSION_REQUIREMENTS[0]
 var last_player_position: Vector2
 
@@ -118,7 +118,8 @@ func upgrade_player() -> void:
 	
 	player_max_class += 1
 	player_max_gun_points += 2
-	if len(GlobalClass.PROGRESSION_REQUIREMENTS) > player_max_class - 1:
+	if len(GlobalClass.PROGRESSION_REQUIREMENTS) >= player_max_class:
 		player_progression_requirement = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
+		GlobalClass.player_cluster.max_progress = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
 	GlobalClass.player_cluster.progress = 1
 	ui.editor_confirm_dialog.activate()

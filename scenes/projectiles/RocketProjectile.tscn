@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://23tpwv0jfucx"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_2a0oc"]
+[ext_resource type="Texture2D" uid="uid://cyhs8n8we5vvn" path="res://img/bubbles/1796.png" id="2_raeqy"]
+[ext_resource type="Texture2D" uid="uid://bjce7goblie3y" path="res://img/bubbles/1716.png" id="3_c2m4v"]
+[ext_resource type="Texture2D" uid="uid://b1ldhhaxvq86b" path="res://img/bubbles/1790.png" id="4_aqbs4"]
+[ext_resource type="Script" uid="uid://dn4klwtrblqam" path="res://classes/fx/Trail2D.gd" id="5_raeqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 16.0
+
+[sub_resource type="Curve" id="Curve_c2m4v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_raeqy"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5019608)
+
+[node name="RocketProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_2a0oc")
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+visible = false
+scale = Vector2(0.2942147, 0.2942147)
+texture = ExtResource("2_raeqy")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+visible = false
+scale = Vector2(0.38491622, 0.38491622)
+texture = ExtResource("3_c2m4v")
+
+[node name="Bubble2" type="Sprite2D" parent="." unique_id=370512564]
+position = Vector2(-24, 0)
+scale = Vector2(0.19806968, 0.19806968)
+texture = ExtResource("4_aqbs4")
+
+[node name="Bubble4" type="Sprite2D" parent="." unique_id=2086045338]
+position = Vector2(23.999996, 0)
+scale = Vector2(0.19806968, 0.19806968)
+texture = ExtResource("4_aqbs4")
+
+[node name="Bubble3" type="Sprite2D" parent="." unique_id=1616868458]
+position = Vector2(-2.3841858e-07, 0)
+scale = Vector2(0.38176164, 0.38176164)
+texture = ExtResource("4_aqbs4")
+
+[node name="Trail2D" type="Line2D" parent="." unique_id=1008197955]
+width_curve = SubResource("Curve_c2m4v")
+gradient = SubResource("Gradient_raeqy")
+script = ExtResource("5_raeqy")
+metadata/_custom_type_script = "uid://dn4klwtrblqam"

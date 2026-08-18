@@ -7,7 +7,7 @@
 [node name="Enemy 3 Spread Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_pbxls")
 cooldown = 2.0
-gp_usage = 2
+gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_x5no6")]
@@ -50,7 +50,7 @@ position = Vector2(43, 0)
 script = ExtResource("3_yrkj5")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -65,7 +65,7 @@ rotation = -0.7853982
 script = ExtResource("3_yrkj5")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,
@@ -80,7 +80,7 @@ rotation = 0.5235988
 script = ExtResource("3_yrkj5")
 prj_info = {
 "dmg_info": {
-"amount": 1,
+"amount": 2,
 "type": "dmg"
 },
 "size": 0.66,

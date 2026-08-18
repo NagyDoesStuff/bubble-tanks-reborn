@@ -1,0 +1,327 @@
+[gd_scene format=3 uid="uid://4kwb7aepkfyn"]
+
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1"]
+[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="2"]
+[ext_resource type="PackedScene" uid="uid://kgnto1iomfbn" path="res://scenes/parts/egunpart/StickySeekerLauncher.tscn" id="2_aex6i"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="6"]
+[ext_resource type="PackedScene" uid="uid://bvgp4akqc4brq" path="res://scenes/parts/collisionpart/bubble03_light.tscn" id="7"]
+[ext_resource type="PackedScene" uid="uid://ccpin2vkhphwq" path="res://scenes/parts/egunpart/HeavyGun.tscn" id="7_p0jby"]
+[ext_resource type="PackedScene" uid="uid://bxek8hxos1ywv" path="res://scenes/parts/collisionpart/bubble01_dark.tscn" id="8"]
+
+[node name="arachnid" type="Area2D" unique_id=1578585503]
+script = ExtResource("1")
+team = 1
+speed = 2.0
+turn_rate = 1.0
+drop_value = 15
+max_progress = 40
+min_to_available = 30
+max_spawn_amount = 2
+
+[node name="Enemy Seeker Launcher" parent="." unique_id=122091808 instance=ExtResource("2_aex6i")]
+position = Vector2(-31, 0)
+rotation = -3.1415925
+scale = Vector2(1.4009285, 1.4009285)
+
+[node name="Small Bubble" parent="." unique_id=878054447 instance=ExtResource("2")]
+position = Vector2(83.10162, -57.886116)
+scale = Vector2(0.83, 0.83)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5351" parent="." unique_id=266498770 instance=ExtResource("2")]
+position = Vector2(83.10162, 56.88611)
+scale = Vector2(0.83, 0.83)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5356" parent="." unique_id=2005220787 instance=ExtResource("2")]
+position = Vector2(-79.828064, -48.794464)
+scale = Vector2(0.78, 0.78)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5356" parent="." unique_id=178348311 instance=ExtResource("2")]
+position = Vector2(-79.828064, 47.794434)
+scale = Vector2(0.78, 0.78)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5363" parent="." unique_id=125849037 instance=ExtResource("2")]
+position = Vector2(-35.87494, -82.130554)
+scale = Vector2(0.76, 0.76)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5363" parent="." unique_id=1042917924 instance=ExtResource("2")]
+position = Vector2(-35.87494, 81.130554)
+scale = Vector2(0.76, 0.76)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5370" parent="." unique_id=1718384156 instance=ExtResource("2")]
+position = Vector2(33.086, -87.43405)
+scale = Vector2(0.75, 0.75)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5370" parent="." unique_id=1023639077 instance=ExtResource("2")]
+position = Vector2(33.086, 86.43408)
+scale = Vector2(0.75, 0.75)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5335" parent="." unique_id=1321298680 instance=ExtResource("6")]
+position = Vector2(22.476624, 62.57843)
+scale = Vector2(0.64, 0.64)
+disabled = true
+editor_mode = true
+
+[node name="Large Light Bubble" parent="." unique_id=1452540277 instance=ExtResource("7")]
+position = Vector2(-1.7733765, -0.5)
+scale = Vector2(0.91, 0.91)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5335" parent="." unique_id=1968122656 instance=ExtResource("6")]
+position = Vector2(22.476624, -63.57843)
+scale = Vector2(0.64, 0.64)
+disabled = true
+editor_mode = true
+
+[node name="Medium Bubble" parent="." unique_id=1412751367 instance=ExtResource("6")]
+position = Vector2(59.609436, 41.364563)
+scale = Vector2(0.78, 0.78)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5323" parent="." unique_id=1972114430 instance=ExtResource("6")]
+position = Vector2(59.609436, -42.364563)
+scale = Vector2(0.78, 0.78)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5328" parent="." unique_id=1897578260 instance=ExtResource("6")]
+position = Vector2(-23.749939, 60.305542)
+scale = Vector2(0.7, 0.7)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5328" parent="." unique_id=510358795 instance=ExtResource("6")]
+position = Vector2(-23.749939, -61.30555)
+scale = Vector2(0.7, 0.7)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5342" parent="." unique_id=1644884164 instance=ExtResource("6")]
+position = Vector2(-57.09368, 33.788208)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5342" parent="." unique_id=535617137 instance=ExtResource("6")]
+position = Vector2(-57.09368, -34.788208)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5382" parent="." unique_id=1737263222 instance=ExtResource("2")]
+position = Vector2(58.09381, -16.215973)
+scale = Vector2(0.61, 0.61)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5382" parent="." unique_id=1107613011 instance=ExtResource("2")]
+position = Vector2(58.09381, 15.215942)
+scale = Vector2(0.61, 0.61)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5402" parent="." unique_id=1501873549 instance=ExtResource("2")]
+position = Vector2(-59.367126, -12.059021)
+scale = Vector2(0.6, 0.6)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5402" parent="." unique_id=395591167 instance=ExtResource("2")]
+position = Vector2(-59.367126, 11.059021)
+scale = Vector2(0.6, 0.6)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5409" parent="." unique_id=37941199 instance=ExtResource("2")]
+position = Vector2(-35.117126, 37.576355)
+scale = Vector2(0.6, 0.6)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5409" parent="." unique_id=1855358730 instance=ExtResource("2")]
+position = Vector2(-35.117126, -38.576355)
+scale = Vector2(0.6, 0.6)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5416" parent="." unique_id=1247626342 instance=ExtResource("2")]
+position = Vector2(1.2578735, -54.09793)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5416" parent="." unique_id=245697711 instance=ExtResource("2")]
+position = Vector2(1.2578735, 53.0979)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5423" parent="." unique_id=1136788758 instance=ExtResource("2")]
+position = Vector2(33.84381, -44.248627)
+scale = Vector2(0.54, 0.54)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5423" parent="." unique_id=2005285959 instance=ExtResource("2")]
+position = Vector2(33.84381, 43.248657)
+scale = Vector2(0.54, 0.54)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5437" parent="." unique_id=372266375 instance=ExtResource("2")]
+position = Vector2(16.414124, -44.248627)
+scale = Vector2(0.65, 0.65)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5437" parent="." unique_id=683851545 instance=ExtResource("2")]
+position = Vector2(16.414124, 43.248657)
+scale = Vector2(0.65, 0.65)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5444" parent="." unique_id=1520126206 instance=ExtResource("2")]
+position = Vector2(44.453186, -29.853485)
+scale = Vector2(0.61, 0.61)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5444" parent="." unique_id=1740506233 instance=ExtResource("2")]
+position = Vector2(44.453186, 28.853516)
+scale = Vector2(0.61, 0.61)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5451" parent="." unique_id=1353782070 instance=ExtResource("2")]
+position = Vector2(-15.414001, -41.975708)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5451" parent="." unique_id=668953372 instance=ExtResource("2")]
+position = Vector2(-15.414001, 40.975708)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5458" parent="." unique_id=563305569 instance=ExtResource("2")]
+position = Vector2(-41.93744, -20.00418)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5458" parent="." unique_id=1019194409 instance=ExtResource("2")]
+position = Vector2(-41.93744, 19.00415)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5479" parent="." unique_id=328975330 instance=ExtResource("8")]
+position = Vector2(102.80475, -55.61319)
+scale = Vector2(0.56, 0.56)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5479" parent="." unique_id=1466690773 instance=ExtResource("8")]
+position = Vector2(102.80475, 54.61316)
+scale = Vector2(0.56, 0.56)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5486" parent="." unique_id=17754779 instance=ExtResource("8")]
+position = Vector2(-88.164, -63.947235)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5486" parent="." unique_id=1912422653 instance=ExtResource("8")]
+position = Vector2(-88.164, 62.947266)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5493" parent="." unique_id=575934173 instance=ExtResource("8")]
+position = Vector2(46.726624, -96.525696)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5493" parent="." unique_id=611455317 instance=ExtResource("8")]
+position = Vector2(46.726624, 95.525696)
+scale = Vector2(0.58, 0.58)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@5500" parent="." unique_id=1300711137 instance=ExtResource("8")]
+position = Vector2(-32.085876, -98.040985)
+scale = Vector2(0.56, 0.56)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_5500" parent="." unique_id=158275287 instance=ExtResource("8")]
+position = Vector2(-32.085876, 97.041016)
+scale = Vector2(0.56, 0.56)
+disabled = true
+editor_mode = true
+
+[node name="Small Dark Bubble" parent="." unique_id=1376759054 instance=ExtResource("8")]
+position = Vector2(104.32037, -24.938904)
+scale = Vector2(0.5, 0.5)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@190" parent="." unique_id=542882217 instance=ExtResource("8")]
+position = Vector2(104.32037, 23.938904)
+scale = Vector2(0.5, 0.5)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@202" parent="." unique_id=1468608879 instance=ExtResource("6")]
+position = Vector2(67.94537, -0.5)
+scale = Vector2(0.68, 0.68)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@210" parent="." unique_id=227478311 instance=ExtResource("8")]
+position = Vector2(92.953186, 25.454163)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_210" parent="." unique_id=1825015715 instance=ExtResource("8")]
+position = Vector2(92.953186, -26.454163)
+scale = Vector2(0.57, 0.57)
+disabled = true
+editor_mode = true
+
+[node name="@Node2D@217" parent="." unique_id=195654236 instance=ExtResource("8")]
+position = Vector2(83.859436, -18.120117)
+scale = Vector2(0.64, 0.64)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_217" parent="." unique_id=685275549 instance=ExtResource("8")]
+position = Vector2(83.859436, 17.120117)
+scale = Vector2(0.64, 0.64)
+disabled = true
+editor_mode = true
+
+[node name="Enemy Heavy Cannon" parent="." unique_id=999536323 instance=ExtResource("7_p0jby")]
+scale = Vector2(1.190823, 1.190823)

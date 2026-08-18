@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://cj1d1rxssxh8r"]
+
+[ext_resource type="Script" uid="uid://y2smhndmk7x3" path="res://classes/parts/CollisionPart.gd" id="1_rdnvi"]
+[ext_resource type="PackedScene" uid="uid://64ve7n6o0g1x" path="res://scenes/decorations/bubble13.tscn" id="2_rdnvi"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 64.070274
+
+[node name="Dark Yellow Bubble" type="Node2D" unique_id=878054447]
+script = ExtResource("1_rdnvi")
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320082955]
+scale = Vector2(0.25, 0.25)
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Bubble13" parent="." unique_id=1039353022 instance=ExtResource("2_rdnvi")]
+scale = Vector2(0.24378912, 0.24378912)

@@ -6,7 +6,7 @@
 
 [node name="Heavy Cannon" type="Node2D" unique_id=122091808]
 script = ExtResource("1_22nyj")
-cooldown = 0.65
+cooldown = 1.0
 gp_usage = 2
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

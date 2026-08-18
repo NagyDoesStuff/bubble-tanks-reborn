@@ -1,0 +1,80 @@
+[gd_scene format=3 uid="uid://bxukwprd3swr0"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_0i2fo"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_g7q20"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_ksvtr"]
+[ext_resource type="PackedScene" uid="uid://rikf2j1ak5v6" path="res://scenes/decorations/bubble12.tscn" id="4_ksvtr"]
+[ext_resource type="PackedScene" uid="uid://64ve7n6o0g1x" path="res://scenes/decorations/bubble13.tscn" id="5_wcw56"]
+
+[node name="Spurt Gun" type="Node2D" unique_id=122091808]
+script = ExtResource("1_0i2fo")
+cooldown = 1.0
+amount_per_salvo = 10
+gp_usage = 3
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble17" parent="." unique_id=1921344425 instance=ExtResource("5_wcw56")]
+position = Vector2(44.000004, 0)
+scale = Vector2(0.085163474, 0.085163474)
+
+[node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_g7q20")]
+scale = Vector2(0.35197365, 0.35197365)
+
+[node name="Bubble03" parent="." unique_id=1940564273 instance=ExtResource("2_g7q20")]
+position = Vector2(16.487728, -17.665424)
+scale = Vector2(0.12460409, 0.12460409)
+
+[node name="Bubble07" parent="." unique_id=928203269 instance=ExtResource("2_g7q20")]
+position = Vector2(28.264679, -15.310034)
+scale = Vector2(0.10083324, 0.10083324)
+
+[node name="Bubble13" parent="." unique_id=2006706393 instance=ExtResource("2_g7q20")]
+position = Vector2(39.041626, -11.776949)
+scale = Vector2(0.08835223, 0.08835223)
+
+[node name="Bubble14" parent="." unique_id=888497252 instance=ExtResource("2_g7q20")]
+position = Vector2(39.041626, 11.776949)
+scale = Vector2(0.08835223, 0.08835223)
+
+[node name="Bubble04" parent="." unique_id=2073259628 instance=ExtResource("2_g7q20")]
+position = Vector2(-10.599255, -20.020813)
+scale = Vector2(0.15310033, 0.15310033)
+
+[node name="Bubble12" parent="." unique_id=1507806253 instance=ExtResource("2_g7q20")]
+position = Vector2(-11.776949, 20.020813)
+scale = Vector2(0.15310033, 0.15310033)
+
+[node name="GunBarrel3" type="Node2D" parent="." unique_id=1579448371]
+position = Vector2(51.10778, 0)
+scale = Vector2(1.1776949, 1.1776949)
+script = ExtResource("3_ksvtr")
+prj_info = {
+"dmg_info": {
+"amount": 1,
+"type": "dmg"
+},
+"size": 0.66,
+"speed": 2000.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="Bubble10" parent="." unique_id=573505816 instance=ExtResource("2_g7q20")]
+position = Vector2(16.487728, 17.665424)
+scale = Vector2(0.12460409, 0.12460409)
+
+[node name="Bubble11" parent="." unique_id=749255371 instance=ExtResource("2_g7q20")]
+position = Vector2(28.264679, 15.310034)
+scale = Vector2(0.10083324, 0.10083324)
+
+[node name="Bubble15" parent="." unique_id=1287919251 instance=ExtResource("4_ksvtr")]
+position = Vector2(32.975456, 0)
+scale = Vector2(0.08788202, 0.08788202)
+
+[node name="Bubble16" parent="." unique_id=701122766 instance=ExtResource("4_ksvtr")]
+position = Vector2(21.19851, 0)
+scale = Vector2(0.12394094, 0.12394094)
+
+[node name="Bubble18" parent="." unique_id=1162693800 instance=ExtResource("4_ksvtr")]
+position = Vector2(-22.376204, 0)
+scale = Vector2(0.16723268, 0.16723268)

@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://c2x0014ymm4kx"]
+
+[ext_resource type="Script" uid="uid://chx5lwtp5vep7" path="res://classes/game/Explosion.gd" id="1_upnnq"]
+[ext_resource type="PackedScene" uid="uid://dxxqyds7wbtxp" path="res://scenes/fx/area_burst_boom.tscn" id="2_salst"]
+
+[node name="AreaBurstExplosion" type="Area2D" unique_id=476644725]
+script = ExtResource("1_upnnq")
+dmg_info = {
+"amount": 30,
+"duration": 0.0,
+"type": "dmg"
+}
+lifetime = 0.5
+radius = 300.0
+metadata/_custom_type_script = "uid://chx5lwtp5vep7"
+
+[node name="SeekerBoom" parent="." unique_id=800833179 instance=ExtResource("2_salst")]
+modulate = Color(1, 0.75, 0.75, 1)

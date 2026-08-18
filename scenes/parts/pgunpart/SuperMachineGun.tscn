@@ -8,7 +8,7 @@
 script = ExtResource("1_wmgo3")
 cooldown = 0.125
 spread = 0.15
-gp_usage = 1
+gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_msngw")]

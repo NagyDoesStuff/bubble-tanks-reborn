@@ -122,16 +122,27 @@ func kill() -> void:
 
 func drop_points() -> void:
 	var avaliable_value_to_convert: int = drop_value
+	var available_bubble_sizes: Array[int] = GlobalClass.FIXED_BUBBLE_SIZES.duplicate()
+	var values_to_erase: Array[int] = []
+	for size in available_bubble_sizes:
+		if size > drop_value:
+			values_to_erase.append(size)
+	for value in values_to_erase:
+		available_bubble_sizes.erase(value)
+	
+	print("Picked sizes: " + str(available_bubble_sizes) + " with total drop value of " + str(drop_value))
 	while avaliable_value_to_convert > 0:
-		var rand_pt_val: int = randi_range(1,100)
-		if rand_pt_val > avaliable_value_to_convert:
-			rand_pt_val = avaliable_value_to_convert
+		var bubble_value: int = available_bubble_sizes.pick_random()
+		
+		if bubble_value > avaliable_value_to_convert:
+			bubble_value = avaliable_value_to_convert
 		
 		var pt: BubblePoint = GlobalClass.BUBBLE_POINT.instantiate()
-		pt.add_value = rand_pt_val
+		pt.add_value = bubble_value
 		pt.global_position = global_position
 		
-		avaliable_value_to_convert -= rand_pt_val
+		avaliable_value_to_convert -= bubble_value
+		print("Created bubble with value of " + str(bubble_value))
 		GlobalClass.world.call_deferred("add_child", pt)
 
 func slow_down(mult: float, duration: float) -> void:

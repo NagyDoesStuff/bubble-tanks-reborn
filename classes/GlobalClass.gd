@@ -14,15 +14,16 @@ const SCREEN_FLASH: PackedScene = preload("uid://cays5co474q6y")
 
 # CONSTANTS
 const ARENA_PUSH_FORCE: int = 100
-const DISTANCE_BETWEEN_ARENAS: int = 200
+const DISTANCE_BETWEEN_ARENAS: int = 800
 const DEFAULT_MAX_ENEMIES: int = 3
 const MAX_CLASS: int = 6
 
 const CLUSTER_CHECK_DIST_FREQ: float = .25
 const ESTIMATED_ARENA_RADIUS: float = 8505.0 / 2.0
+const ARENA_RADIUS_GROW_PER_ENEMY: float = 0.01
 const LAND_ON_ARENA_DIST: float = 0.9
-const MIN_BUBBLE_POINT_SIZE: float = 0.5
-const BUBBLE_POINT_GROW_SIZE: float = 0.02
+const MIN_BUBBLE_POINT_SIZE: float = 0.33
+const BUBBLE_POINT_GROW_SIZE: float = 0.025
 const MAX_ENEMIES_INCREMENT_PER_ARENA: float = 0.2
 const HIT_BLINK_TIME: float = 0.1
 
@@ -37,12 +38,28 @@ const JAMMED_COLOR: Color = Color(0.8, 1.0, 0.833, 1.0)
 const DEFAULT_ARENA_SCALE: Vector2 = Vector2.ONE * 0.25
 
 const PROGRESSION_REQUIREMENTS: Array[int] = [
-	50, # CLASS 2
-	100, # CLASS 3
-	150, # CLASS 4 
-	250, # CLASS 5
-	400, # CLASS 6
-	1000 # MAX
+	100, # CLASS 2
+	150, # CLASS 3
+	250, # CLASS 4 
+	400, # CLASS 5
+	1000, # CLASS 6
+	3000 # MAX
+]
+
+const FIXED_BUBBLE_SIZES: Array[int] = [
+	1,
+	5,
+	10,
+	100
+]
+
+const CLASS_RADIUS: Array[int] = [
+	0, # CLASS 1
+	90, # CLASS 2
+	150, # CLASS 3
+	200, # CLASS 4
+	270, # CLASS 5
+	370 # CLASS 6
 ]
 
 const UNOVERWRITTABLE_TANK_NAMES: Array[String] = [
@@ -62,15 +79,24 @@ func _ready() -> void:
 	create_directories()
 	load_clusters()
 
-func get_closest(from: Node2D, list: Array) -> Node2D:
-	var dist: float
-	var best_dist: float = INF
+func get_closest_or_farthest(from: Node2D, list: Array, closest: bool) -> Node2D:
+	var distance: float
+	var best_distance: float = INF
 	var best: Node2D = null
-	for item: Node2D in list:
-		dist = from.global_position.distance_to(item.global_position)
-		if dist < best_dist:
-			best_dist = dist
-			best = item
+	if closest:
+		for item: Node2D in list:
+			distance = from.global_position.distance_to(item.global_position)
+			if distance < best_distance:
+				best_distance = distance
+				best = item
+	else:
+		distance = INF
+		best_distance = 0.0
+		for item: Node2D in list:
+			distance = from.global_position.distance_to(item.global_position)
+			if distance > best_distance:
+				best_distance = distance
+				best = item
 	return best
 
 func play_sound(

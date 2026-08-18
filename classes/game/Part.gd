@@ -13,9 +13,11 @@ class_name Part
 		else:
 			return null
 var linked_via_editor: Part
+var init_rotation: float = 0.0
 
 func _ready() -> void:
 	owner = user
+	init_rotation = rotation
 	
 	if editor_mode:
 		var e_area: Area2D = Area2D.new()

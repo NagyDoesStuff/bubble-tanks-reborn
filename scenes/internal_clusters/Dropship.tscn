@@ -16,8 +16,9 @@ script = ExtResource("1_jsqch")
 team = 1
 speed = 2.0
 turn_rate = 1.0
-max_progress = 30
-min_to_available = 20
+drop_value = 30
+max_progress = 60
+min_to_available = 40
 max_spawn_amount = 2
 
 [node name="Enemy Seeker Launcher" parent="." unique_id=122091808 instance=ExtResource("2_c5w4c")]

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://dxxqyds7wbtxp"]
+
+[ext_resource type="Script" uid="uid://bdqqcca4fd1l6" path="res://classes/fx/ExplosionFX.gd" id="1_fh36l"]
+[ext_resource type="Texture2D" uid="uid://c8qggx3dgaylq" path="res://img/fx/boom.png" id="2_fh36l"]
+
+[node name="AreaBurstBoom" type="Node2D" unique_id=800833179]
+scale = Vector2(1.3964803, 1.3964803)
+script = ExtResource("1_fh36l")
+grow_rate = 35.0
+lifetime = 0.5
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=329179966]
+scale = Vector2(0.018014416, 0.018014416)
+texture = ExtResource("2_fh36l")

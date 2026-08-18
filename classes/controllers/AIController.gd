@@ -36,4 +36,4 @@ func _process(_delta: float) -> void:
 	
 func turn(duration: float, dir: int) -> void:
 	turn_dir = dir
-	get_tree().create_timer(duration).timeout.connect(set.bind("turn_dir", 0))
+	if get_tree(): get_tree().create_timer(duration).timeout.connect(set.bind("turn_dir", 0))

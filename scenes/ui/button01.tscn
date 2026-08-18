@@ -2,28 +2,28 @@
 
 [ext_resource type="FontFile" uid="uid://bqmx4aseim6nf" path="res://fonts/369_GoldyRound.ttf" id="1_nhfkk"]
 
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhfkk"]
-content_margin_left = 4.0
-content_margin_top = 4.0
-content_margin_right = 4.0
-content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.2509804)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
-corner_detail = 5
-
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2jn68"]
 content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.5019608)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+bg_color = Color(0.35000002, 0.72916675, 1, 0.5019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nhfkk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.597, 0.38, 0.5058824)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 corner_detail = 5
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1y45o"]
@@ -31,16 +31,17 @@ content_margin_left = 4.0
 content_margin_top = 4.0
 content_margin_right = 4.0
 content_margin_bottom = 4.0
-bg_color = Color(1, 1, 1, 0.2509804)
-corner_radius_top_left = 3
-corner_radius_top_right = 3
-corner_radius_bottom_right = 3
-corner_radius_bottom_left = 3
+bg_color = Color(0.65, 0.85416675, 1, 0.5019608)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 corner_detail = 5
 
 [node name="Button01" type="Button" unique_id=556557092]
+theme_override_colors/font_color = Color(1, 1, 1, 1)
 theme_override_fonts/font = ExtResource("1_nhfkk")
-theme_override_styles/normal = SubResource("StyleBoxFlat_nhfkk")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2jn68")
+theme_override_styles/normal = SubResource("StyleBoxFlat_2jn68")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_nhfkk")
 theme_override_styles/hover = SubResource("StyleBoxFlat_1y45o")
 text = "TEST BUTTON"

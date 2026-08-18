@@ -4,10 +4,10 @@
 [ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_0giyu"]
 [ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_8rset"]
 
-[node name="3 Parallel Gun" type="Node2D" unique_id=122091808]
+[node name="5 Parallel Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_jk0l5")
-cooldown = 0.25
-gp_usage = 3
+cooldown = 2.0
+gp_usage = 4
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_0giyu")]

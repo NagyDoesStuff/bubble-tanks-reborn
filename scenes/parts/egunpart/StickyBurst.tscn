@@ -1,0 +1,419 @@
+[gd_scene format=3 uid="uid://0a6gb7gqylg6"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_2ghjt"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_5vb2h"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_tqr1r"]
+
+[node name="Sticky Burst" type="Node2D" unique_id=122091808]
+script = ExtResource("1_2ghjt")
+cooldown = 5.0
+keybind = "space"
+gp_usage = 2
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble01" parent="." unique_id=366202674 instance=ExtResource("2_5vb2h")]
+scale = Vector2(0.32119718, 0.32119718)
+
+[node name="Bubble03" parent="." unique_id=1290105226 instance=ExtResource("2_5vb2h")]
+position = Vector2(0, -27.000002)
+scale = Vector2(0.16106135, 0.16106135)
+
+[node name="Bubble04" parent="." unique_id=1039353022 instance=ExtResource("2_5vb2h")]
+position = Vector2(-27.000002, 1.1802076e-06)
+scale = Vector2(0.16106135, 0.16106135)
+
+[node name="Bubble05" parent="." unique_id=1546577793 instance=ExtResource("2_5vb2h")]
+position = Vector2(2.3604152e-06, 27.000002)
+scale = Vector2(0.16106135, 0.16106135)
+
+[node name="Bubble06" parent="." unique_id=769154003 instance=ExtResource("2_5vb2h")]
+position = Vector2(27.000002, -3.219718e-07)
+scale = Vector2(0.16106135, 0.16106135)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+script = ExtResource("3_tqr1r")
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel2" type="Node2D" parent="." unique_id=2051884705]
+rotation = -0.2617994
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel3" type="Node2D" parent="." unique_id=728716694]
+rotation = -0.5235988
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel4" type="Node2D" parent="." unique_id=1784626329]
+rotation = -0.7853982
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel5" type="Node2D" parent="." unique_id=517138876]
+rotation = -1.0471976
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel6" type="Node2D" parent="." unique_id=929630908]
+rotation = -1.3089969
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel7" type="Node2D" parent="." unique_id=1309467887]
+rotation = -1.5707964
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel8" type="Node2D" parent="." unique_id=1316833617]
+rotation = -1.8325958
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel9" type="Node2D" parent="." unique_id=1166477413]
+rotation = -2.0943952
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel10" type="Node2D" parent="." unique_id=898802640]
+rotation = -2.3561945
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel11" type="Node2D" parent="." unique_id=1656864663]
+rotation = -2.6179938
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel12" type="Node2D" parent="." unique_id=535003831]
+rotation = -2.8797934
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel13" type="Node2D" parent="." unique_id=1907784303]
+rotation = 3.1415925
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel14" type="Node2D" parent="." unique_id=91727876]
+rotation = 2.8797932
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel15" type="Node2D" parent="." unique_id=530360129]
+rotation = 2.6179936
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel16" type="Node2D" parent="." unique_id=817589733]
+rotation = 2.3561943
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel17" type="Node2D" parent="." unique_id=464018757]
+rotation = 2.094395
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel18" type="Node2D" parent="." unique_id=832803658]
+rotation = 1.8325956
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel19" type="Node2D" parent="." unique_id=2003540647]
+rotation = 1.5707964
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel20" type="Node2D" parent="." unique_id=2033934477]
+rotation = 1.3089969
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel21" type="Node2D" parent="." unique_id=850786764]
+rotation = 1.0471977
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel22" type="Node2D" parent="." unique_id=2132499527]
+rotation = 0.7853978
+scale = Vector2(0.99999994, 0.99999994)
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel23" type="Node2D" parent="." unique_id=1942935445]
+rotation = 0.5235985
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="GunBarrel24" type="Node2D" parent="." unique_id=1595778986]
+rotation = 0.2617992
+script = ExtResource("3_tqr1r")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 0.1,
+"duration": 4.0,
+"type": "slowdown"
+},
+"size": 1.5,
+"speed": 1000.0,
+"template": "uid://gq1lwpkox3ry"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

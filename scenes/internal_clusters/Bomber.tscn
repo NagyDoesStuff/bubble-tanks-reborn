@@ -13,7 +13,7 @@ script = ExtResource("1_vt1rv")
 team = 1
 speed = 2.0
 turn_rate = 1.0
-drop_value = 4
+drop_value = 8
 max_progress = 10
 min_to_available = 10
 

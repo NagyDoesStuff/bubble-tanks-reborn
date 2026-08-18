@@ -40,11 +40,11 @@ class_name Editor
 
 @export var debug: bool = true
 
-const MIRROR_Y: int = 515
-
 var enabled: bool = false
 var mid_transition: bool = false
 var symmetry: bool = true
+
+var available_gp: int = 0
 
 var selected_part_path: String:
 	set(value):
@@ -90,7 +90,7 @@ func _process(_delta: float) -> void:
 		dragged_part.global_position = get_global_mouse_position()
 		if symmetry and dragged_part.linked_via_editor:
 			dragged_part.linked_via_editor.global_position.x = dragged_part.global_position.x
-			dragged_part.linked_via_editor.global_position.y = MIRROR_Y * 2 - dragged_part.global_position.y
+			dragged_part.linked_via_editor.global_position.y = edited_cluster.global_position.y * 2.0 - dragged_part.global_position.y
 	
 	if last_dragged:
 		last_dragged_part_indicator.global_position = last_dragged.global_position
@@ -99,7 +99,7 @@ func _process(_delta: float) -> void:
 		attempt_to_drag()
 	
 	if Input.is_action_just_released("lmb"):
-		dragged_part = null
+		stop_dragging()
 	
 	if Input.is_action_just_pressed("enter") and !load_cluster_input.text.is_empty() and load_cluster_input.visible:
 		load_cluster_input.hide()
@@ -205,14 +205,21 @@ func create_edited_cluster(cluster: Cluster) -> void:
 	cluster_drop_edit.text = str(edited_cluster.drop_value)
 	cluster_min_available_edit.text = str(edited_cluster.min_to_available)
 	cluster_turn_rate_edit.text = str(edited_cluster.turn_rate)
+	update_tank_info()
 
 func load_cluster(text: String) -> void:
 	if !enabled: return
 	var full_path: String = GlobalClass.EDITOR_SAVES_DIRECTORY + "saved_tanks/" + text + ".tscn"
 	if FileAccess.file_exists(full_path):
-		create_edited_cluster(load(full_path).instantiate())
-		print("Loaded cluster from: " + full_path)
-		load_cluster_input.hide()
+		var loaded_cluster: Cluster = load(full_path).instantiate()
+		if GlobalClass.world and loaded_cluster.cluster_class <= GlobalClass.world.player_max_class and loaded_cluster.get_used_gp() <= GlobalClass.world.player_max_gun_points:
+			create_edited_cluster(loaded_cluster)
+			print("Loaded cluster from: " + full_path)
+			load_cluster_input.hide()
+		elif !debug:
+			print("Could not load cluster, either class or gp is insufficient.")
+		else:
+			create_edited_cluster(loaded_cluster)
 	if !debug and GlobalClass.player_cluster:
 		update_tank_info()
 
@@ -236,7 +243,7 @@ func configure_signals() -> void:
 	drag_button.button_down.connect(update_dragged_part_path)
 	save_button.pressed.connect(save_cluster)
 	load_button.pressed.connect(toggle_load_input)
-	clear_button.pressed.connect(create_template)
+	clear_button.pressed.connect(clear_cluster)
 	exit_button.pressed.connect(get_tree().change_scene_to_file.bind("uid://bkalqiq76isn0"))
 	
 	delete_button.pressed.connect(delete_last_dragged)
@@ -267,9 +274,9 @@ func configure_signals() -> void:
 func delete_last_dragged() -> void:
 	if !last_dragged: return
 	if symmetry and last_dragged.linked_via_editor: 
-		last_dragged.linked_via_editor.queue_free()
-	last_dragged.queue_free()
-
+		delete_part(last_dragged.linked_via_editor)
+	delete_part(last_dragged)
+	
 func move_last_dragged(value: int) -> void:
 	if !last_dragged: return
 	if symmetry and last_dragged.linked_via_editor: 
@@ -300,16 +307,67 @@ func toggle_symmetry() -> void:
 func center_last_dragged() -> void:
 	if !last_dragged: return
 	if symmetry and last_dragged.linked_via_editor: 
-		last_dragged.linked_via_editor.global_position.y = MIRROR_Y
-	last_dragged.global_position.y = MIRROR_Y
+		last_dragged.linked_via_editor.global_position.y = edited_cluster.global_position.y
+	last_dragged.global_position.y = edited_cluster.global_position.y
 
 func update_tank_info() -> void:
-	info_label.text = ""
-	info_label.text += "GP: " + str(GlobalClass.world.player_max_gun_points) + "\n"
-	info_label.text += "Max Class: " + str(GlobalClass.world.player_max_class) + "\n"
-	info_label.text += "Class: " + str(edited_cluster.cluster_class)
+	if !edited_cluster or edited_cluster.get_parts().is_empty(): return
+	await get_tree().process_frame
+	update_available_gp()
+	update_class()
+	update_info_ui()
+
+func clear_cluster() -> void:
+	for p in edited_cluster.get_parts():
+		delete_part(p)
+	create_template()
 
 func create_template() -> void:
 	var temp: Cluster = Cluster.new()
 	temp.name = "Tank"
 	create_edited_cluster(temp)
+
+func stop_dragging() -> void:
+	if !dragged_part: return
+	dragged_part = null
+	update_tank_info()
+
+func update_class() -> void:
+	var farthest_part: Part = GlobalClass.get_closest_or_farthest(edited_cluster, edited_cluster.get_parts(), false)
+	var farthest_part_distance: float
+	if farthest_part:
+		farthest_part_distance = abs(farthest_part.global_position.distance_to(edited_cluster.global_position))
+	else: return
+	
+	var determined_class: int
+	for requirement in GlobalClass.CLASS_RADIUS:
+		if requirement < farthest_part_distance:
+			determined_class = GlobalClass.CLASS_RADIUS.find(requirement) + 1
+			
+	if GlobalClass.world and GlobalClass.world.player_max_class >= determined_class or debug:
+		edited_cluster.cluster_class = determined_class
+	else:
+		delete_last_dragged()
+	print("Class: " + str(determined_class))
+
+func update_available_gp() -> void:
+	if !GlobalClass.world or debug: return
+	var calculated_value: int = GlobalClass.world.player_max_gun_points - edited_cluster.get_used_gp()
+	if calculated_value >= 0:
+		available_gp = calculated_value
+	else:
+		delete_last_dragged()
+	
+func delete_part(part: Part) -> void:
+	part.queue_free()
+	update_tank_info()
+
+func update_info_ui() -> void:
+	info_label.text = ""
+	if GlobalClass.world:
+		info_label.text += "GP: " + str(available_gp) + "\n"
+		info_label.text += "Max Class: " + str(GlobalClass.world.player_max_class) + "\n"
+	else:
+		info_label.text += "GP: INF" + "\n"
+		info_label.text += "Max Class: " + str(GlobalClass.MAX_CLASS) + "\n"
+	info_label.text += "Class: " + str(edited_cluster.cluster_class)

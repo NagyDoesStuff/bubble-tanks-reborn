@@ -1,0 +1,207 @@
+[gd_scene format=3 uid="uid://c1dmb8tflp2kj"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_qgynw"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_bwtxv"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_ehnos"]
+[ext_resource type="Texture2D" uid="uid://dqka5brpevihb" path="res://img/bubbles/161.png" id="4_bwtxv"]
+
+[sub_resource type="Animation" id="Animation_ehnos"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedBubbles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedBubbles:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedBubbles/161:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9163545, 0.9163545)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedBubbles/162:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.9163545, 0.9163545)]
+}
+
+[sub_resource type="Animation" id="Animation_fv0ww"]
+resource_name = "default"
+length = 0.5
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedBubbles:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(-75.61, 0), Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("AnimatedBubbles:z_index")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [-1, 0, 0]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("AnimatedBubbles/161:scale")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Vector2(0.671, 0.671), Vector2(0.9163545, 0.9163545), Vector2(0.9163545, 0.9163545)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("AnimatedBubbles/162:scale")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0, 0, 0),
+"update": 0,
+"values": [Vector2(0.671, 0.671), Vector2(0.9163545, 0.9163545), Vector2(0.9163545, 0.9163545)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_syj84"]
+_data = {
+&"RESET": SubResource("Animation_ehnos"),
+&"default": SubResource("Animation_fv0ww")
+}
+
+[node name="Mine Dropper" type="Node2D" unique_id=122091808]
+script = ExtResource("1_qgynw")
+cooldown = 1.0
+fixed = true
+gp_usage = 1
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble02" parent="." unique_id=1278923371 instance=ExtResource("2_bwtxv")]
+position = Vector2(0, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble03" parent="." unique_id=1594740448 instance=ExtResource("2_bwtxv")]
+position = Vector2(-15, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble04" parent="." unique_id=1407861424 instance=ExtResource("2_bwtxv")]
+position = Vector2(-30, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble05" parent="." unique_id=1704282642 instance=ExtResource("2_bwtxv")]
+position = Vector2(-45, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble06" parent="." unique_id=979750134 instance=ExtResource("2_bwtxv")]
+position = Vector2(-60, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble07" parent="." unique_id=1048481553 instance=ExtResource("2_bwtxv")]
+position = Vector2(-75, -20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble08" parent="." unique_id=1906792623 instance=ExtResource("2_bwtxv")]
+position = Vector2(0, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble09" parent="." unique_id=390330912 instance=ExtResource("2_bwtxv")]
+position = Vector2(-15, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble10" parent="." unique_id=752677107 instance=ExtResource("2_bwtxv")]
+position = Vector2(-30, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble11" parent="." unique_id=1065848800 instance=ExtResource("2_bwtxv")]
+position = Vector2(-45, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble12" parent="." unique_id=85637437 instance=ExtResource("2_bwtxv")]
+position = Vector2(-60, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="Bubble13" parent="." unique_id=749649712 instance=ExtResource("2_bwtxv")]
+position = Vector2(-75, 20)
+scale = Vector2(0.125, 0.125)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(-68, 0)
+script = ExtResource("3_ehnos")
+muted = true
+prj_info = {
+"dmg_info": {
+"amount": 10,
+"type": "dmg"
+},
+"hit_fx": "uid://dqbky1rhsnesm",
+"size": 0.77,
+"speed": 0.0,
+"template": "uid://lny0dmfixfna"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=590905005]
+libraries/ = SubResource("AnimationLibrary_syj84")
+autoplay = &"default"
+
+[node name="AnimatedBubbles" type="Node2D" parent="." unique_id=253186329]
+scale = Vector2(0.20634395, 0.20634395)
+
+[node name="161" type="Sprite2D" parent="AnimatedBubbles" unique_id=1069292926]
+position = Vector2(0, -96.925545)
+scale = Vector2(0.9163545, 0.9163545)
+texture = ExtResource("4_bwtxv")
+
+[node name="162" type="Sprite2D" parent="AnimatedBubbles" unique_id=760990155]
+position = Vector2(0, 96.92563)
+scale = Vector2(0.9163545, 0.9163545)
+texture = ExtResource("4_bwtxv")
+
+[node name="Bubble01" parent="." unique_id=1388683002 instance=ExtResource("2_bwtxv")]
+scale = Vector2(0.28184378, 0.28184378)

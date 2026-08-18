@@ -1,0 +1,63 @@
+[gd_scene format=3 uid="uid://dmv0m2e5u7tmn"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_hymxa"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_1nhn6"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_0qehn"]
+
+[node name="Rocket Launcher" type="Node2D" unique_id=122091808]
+script = ExtResource("1_hymxa")
+cooldown = 3.0
+spread = 0.1
+amount_per_salvo = 10
+salvo_interval = 0.1
+keybind = "space"
+gp_usage = 3
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble08" parent="." unique_id=1039353022 instance=ExtResource("2_1nhn6")]
+position = Vector2(-12.000001, 9.536743e-07)
+scale = Vector2(0.24262312, 0.24262312)
+
+[node name="Bubble01" parent="." unique_id=1116412547 instance=ExtResource("2_1nhn6")]
+scale = Vector2(0.29797313, 0.29797313)
+is_static = true
+
+[node name="Bubble04" parent="." unique_id=42120644 instance=ExtResource("2_1nhn6")]
+position = Vector2(-10, -13)
+scale = Vector2(0.1398534, 0.1398534)
+
+[node name="Bubble05" parent="." unique_id=551431306 instance=ExtResource("2_1nhn6")]
+position = Vector2(-10, 13)
+scale = Vector2(0.1398534, 0.1398534)
+
+[node name="Bubble03" parent="." unique_id=757062882 instance=ExtResource("2_1nhn6")]
+position = Vector2(-10, 0)
+scale = Vector2(0.14802736, 0.14802736)
+
+[node name="Bubble06" parent="." unique_id=1464974266 instance=ExtResource("2_1nhn6")]
+position = Vector2(0, 23)
+scale = Vector2(0.1398534, 0.1398534)
+
+[node name="Bubble07" parent="." unique_id=1360268082 instance=ExtResource("2_1nhn6")]
+position = Vector2(0, -23)
+scale = Vector2(0.1398534, 0.1398534)
+
+[node name="Bubble02" parent="." unique_id=1278923371 instance=ExtResource("2_1nhn6")]
+scale = Vector2(0.14880478, 0.14880478)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(28, 0)
+script = ExtResource("3_0qehn")
+prj_info = {
+"dmg_info": {
+"amount": 5,
+"type": "dmg"
+},
+"sin_turn_mode_freq": 15.0,
+"size": 0.66,
+"speed": 1500.0,
+"template": "uid://23tpwv0jfucx",
+"turn_mode": "sin",
+"turn_rate": 0.6
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

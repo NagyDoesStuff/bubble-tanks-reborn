@@ -6,11 +6,11 @@
 
 [node name="Enemy Machine Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_7qbt5")
-cooldown = 4.0
+cooldown = 5.0
 spread = 0.15
 amount_per_salvo = 20
 salvo_interval = 0.1
-gp_usage = 2
+gp_usage = 6
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_cwj13")]

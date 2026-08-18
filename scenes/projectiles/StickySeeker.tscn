@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://cec7i8xqn7w3q"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_7r10l"]
+[ext_resource type="Texture2D" uid="uid://doxw5tx0aky58" path="res://img/prj/pseeker.png" id="2_hq63t"]
+[ext_resource type="Texture2D" uid="uid://bl7y3c64b0umh" path="res://img/prj/eseeker.png" id="3_02cmo"]
+[ext_resource type="Texture2D" uid="uid://tfwp1lsx0kiu" path="res://img/bubbles/1.png" id="4_hq63t"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 16.0
+
+[node name="StickySeekerProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_7r10l")
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+visible = false
+scale = Vector2(0.6964186, 0.6964186)
+texture = ExtResource("2_hq63t")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+position = Vector2(-8, 0)
+scale = Vector2(0.5037909, 0.5037909)
+texture = ExtResource("3_02cmo")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=598047537]
+scale = Vector2(0.45390105, 0.45390105)
+texture = ExtResource("4_hq63t")
+
+[node name="Sprite2D2" type="Sprite2D" parent="." unique_id=1269337761]
+position = Vector2(-19, -12)
+scale = Vector2(0.21236514, 0.21236514)
+texture = ExtResource("4_hq63t")
+
+[node name="Sprite2D3" type="Sprite2D" parent="." unique_id=604033815]
+position = Vector2(-19, 12)
+scale = Vector2(0.21236514, 0.21236514)
+texture = ExtResource("4_hq63t")

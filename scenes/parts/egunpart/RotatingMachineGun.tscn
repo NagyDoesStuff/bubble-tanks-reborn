@@ -1,0 +1,59 @@
+[gd_scene format=3 uid="uid://4fsuq8fretcg"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_eo08g"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_6mi7o"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_onfv3"]
+
+[node name="Enemy Machine Gun" type="Node2D" unique_id=122091808]
+script = ExtResource("1_eo08g")
+cooldown = 12.0
+amount_per_salvo = 40
+salvo_interval = 0.1
+full_turn_amount = 1
+gp_usage = 7
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble02" parent="." unique_id=1039353022 instance=ExtResource("2_6mi7o")]
+position = Vector2(16, -15.000002)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble03" parent="." unique_id=555878066 instance=ExtResource("2_6mi7o")]
+position = Vector2(16, 14.999999)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble04" parent="." unique_id=1236736568 instance=ExtResource("2_6mi7o")]
+position = Vector2(29, 10.999997)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble05" parent="." unique_id=773687794 instance=ExtResource("2_6mi7o")]
+position = Vector2(29, -12.000002)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble06" parent="." unique_id=554003442 instance=ExtResource("2_6mi7o")]
+position = Vector2(41.000004, -7.000002)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble07" parent="." unique_id=1138910896 instance=ExtResource("2_6mi7o")]
+position = Vector2(41.000004, 6.999999)
+scale = Vector2(0.1123129, 0.1123129)
+
+[node name="Bubble08" parent="." unique_id=1953326734 instance=ExtResource("2_6mi7o")]
+position = Vector2(51.000004, 1.7881395e-07)
+scale = Vector2(0.17495732, 0.17495732)
+
+[node name="Bubble01" parent="." unique_id=15082858 instance=ExtResource("2_6mi7o")]
+scale = Vector2(0.34458026, 0.34458026)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(69, 0)
+script = ExtResource("3_onfv3")
+prj_info = {
+"dmg_info": {
+"amount": 4,
+"type": "dmg"
+},
+"size": 0.77,
+"speed": 1000.0,
+"template": "uid://cnlneqp8i4qud"
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

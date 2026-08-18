@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://dbpn7ab4m18jm"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_lf8xw"]
+[ext_resource type="PackedScene" uid="uid://yf2nomx5e6uo" path="res://scenes/projectiles/explosions/AreaBurstExplosion.tscn" id="2_lf8xw"]
+[ext_resource type="Texture2D" uid="uid://cyhs8n8we5vvn" path="res://img/bubbles/1796.png" id="3_j332m"]
+[ext_resource type="Texture2D" uid="uid://bjce7goblie3y" path="res://img/bubbles/1716.png" id="4_6mbne"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 5.0990195
+
+[node name="AreaBurstProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_lf8xw")
+lifetime = 0.001
+split_into = ExtResource("2_lf8xw")
+split_radius = 0.0
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+visible = false
+scale = Vector2(0.57448286, 0.29800507)
+texture = ExtResource("3_j332m")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+visible = false
+scale = Vector2(0.7515863, 0.3898751)
+texture = ExtResource("4_6mbne")
