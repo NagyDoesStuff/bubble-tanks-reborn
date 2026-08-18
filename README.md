@@ -2,6 +2,8 @@
 
 ## An open-source recreation and extension of the discontinued Flash game "Bubble Tanks 3" on Godot Engine.
 
+<img width="1876" height="825" alt="openbt_banner" src="https://github.com/user-attachments/assets/cc4c0375-51ea-4cb2-b1ff-b067bf0a6f85" />
+
 Controls:
 - WASD or arrow keys to move.
 - LMB to shoot (or Space for secondaries).
