@@ -20,6 +20,10 @@ Notes:
   - "Users/(user)/%APPDATA%/Godot/app_userdata/Bubble Tanks- Reborn/editor/saved_tanks/" on Windows
 - Upon downloading a new release, please delete backup your creations and delete the "editor/" folder to trigger the game into updating the vanilla tanks.
 
+Credits:
+- Bubble Tanks was made by Hero Interactive (https://www.herointeractive.com)
+- Sound design and soundtrack was made by Brian Hall (https://www.polyphonemusic.com)
+
 Trivia: This project was originally made because I got mad at the fact that the Bubble Tanks 3 Parts Packs were lost media... Thus I recreated the game on my own and will continue to support it for a while! Expect some inaccurate reconstructions of parts from the parts pack since reference material is extremely limited.
 
 Feel free to contact me (nagydoesstuff) on discord for part and tank suggestions.
