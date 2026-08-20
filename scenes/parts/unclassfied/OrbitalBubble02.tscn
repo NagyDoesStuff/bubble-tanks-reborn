@@ -1,0 +1,90 @@
+[gd_scene format=3 uid="uid://due7x2x7f71ow"]
+
+[ext_resource type="Script" uid="uid://dkkf0mw5rq7mr" path="res://classes/game/Part.gd" id="1_klc7n"]
+[ext_resource type="PackedScene" uid="uid://bpt8d2aua6sje" path="res://scenes/decorations/bubble01.tscn" id="2_7r45i"]
+[ext_resource type="PackedScene" uid="uid://dsc3anm0wx63x" path="res://scenes/decorations/bubble31.tscn" id="3_wbu2p"]
+
+[sub_resource type="Animation" id="Animation_fsqqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_x8s67"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, -12.564625285107178]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot2:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.0, 6.281439977927592]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsqqk"]
+_data = {
+&"RESET": SubResource("Animation_fsqqk"),
+&"default": SubResource("Animation_x8s67")
+}
+
+[node name="Orbital Bubble (var 2)" type="Node2D" unique_id=320907701]
+script = ExtResource("1_klc7n")
+metadata/_custom_type_script = "uid://dkkf0mw5rq7mr"
+
+[node name="Bubble01" parent="." unique_id=1039353022 instance=ExtResource("2_7r45i")]
+scale = Vector2(0.2, 0.2)
+
+[node name="Pivot" type="Node2D" parent="." unique_id=1822912094]
+
+[node name="Bubble33" parent="Pivot" unique_id=1832245818 instance=ExtResource("3_wbu2p")]
+position = Vector2(0, 30)
+scale = Vector2(0.075, 0.075)
+
+[node name="Pivot2" type="Node2D" parent="." unique_id=199662221]
+rotation = 4.080274
+
+[node name="Bubble33" parent="Pivot2" unique_id=466379093 instance=ExtResource("3_wbu2p")]
+position = Vector2(0, 60)
+scale = Vector2(0.1, 0.1)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=479595449]
+libraries/ = SubResource("AnimationLibrary_fsqqk")
+autoplay = &"default"

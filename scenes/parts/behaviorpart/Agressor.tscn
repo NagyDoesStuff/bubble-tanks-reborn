@@ -1,0 +1,36 @@
+[gd_scene format=3 uid="uid://c112j1bagf5s3"]
+
+[ext_resource type="Script" uid="uid://dny073s7n1p00" path="res://classes/parts/BehaviorPart.gd" id="1_t3fnu"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_lhx7o"]
+
+[node name="Agressor" type="Node2D" unique_id=1961699606]
+script = ExtResource("1_t3fnu")
+category = "Enemy Behaviors"
+metadata/_custom_type_script = "uid://dny073s7n1p00"
+
+[node name="Bubble11" parent="." unique_id=1039353022 instance=ExtResource("2_lhx7o")]
+scale = Vector2(0.17079456, 0.17079456)
+
+[node name="Bubble12" parent="." unique_id=1733102440 instance=ExtResource("2_lhx7o")]
+position = Vector2(0, -14.684448)
+scale = Vector2(0.074755736, 0.074755736)
+
+[node name="Bubble13" parent="." unique_id=1031728583 instance=ExtResource("2_lhx7o")]
+position = Vector2(0, 14.684442)
+scale = Vector2(0.074755736, 0.074755736)
+
+[node name="Bubble14" parent="." unique_id=1667332415 instance=ExtResource("2_lhx7o")]
+position = Vector2(10.679598, 17.354342)
+scale = Vector2(0.11342788, 0.11342788)
+
+[node name="Bubble15" parent="." unique_id=599958325 instance=ExtResource("2_lhx7o")]
+position = Vector2(21.359196, 14.684442)
+scale = Vector2(0.074755736, 0.074755736)
+
+[node name="Bubble16" parent="." unique_id=1016406042 instance=ExtResource("2_lhx7o")]
+position = Vector2(21.359196, -14.684451)
+scale = Vector2(0.074755736, 0.074755736)
+
+[node name="Bubble17" parent="." unique_id=552034779 instance=ExtResource("2_lhx7o")]
+position = Vector2(10.679598, -17.354351)
+scale = Vector2(0.11342788, 0.11342788)

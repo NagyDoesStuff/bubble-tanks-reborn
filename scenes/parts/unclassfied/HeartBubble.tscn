@@ -1,0 +1,53 @@
+[gd_scene format=3 uid="uid://did0hp00u524f"]
+
+[ext_resource type="Script" uid="uid://dkkf0mw5rq7mr" path="res://classes/game/Part.gd" id="1_gfdrl"]
+[ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="2_fd7kn"]
+
+[sub_resource type="Animation" id="Animation_fsqqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0.45149603, 0.45149603)]
+}
+
+[sub_resource type="Animation" id="Animation_x8s67"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:scale")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5),
+"transitions": PackedFloat32Array(0.1, 0.1, 1),
+"update": 0,
+"values": [Vector2(0.4, 0.4), Vector2(0.3, 0.3), Vector2(0.4, 0.4)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsqqk"]
+_data = {
+&"RESET": SubResource("Animation_fsqqk"),
+&"default": SubResource("Animation_x8s67")
+}
+
+[node name="Heart Bubble" type="Node2D" unique_id=320907701]
+script = ExtResource("1_gfdrl")
+metadata/_custom_type_script = "uid://dkkf0mw5rq7mr"
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1212222611]
+scale = Vector2(0.45149603, 0.45149603)
+texture = ExtResource("2_fd7kn")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=479595449]
+libraries/ = SubResource("AnimationLibrary_fsqqk")
+autoplay = &"default"

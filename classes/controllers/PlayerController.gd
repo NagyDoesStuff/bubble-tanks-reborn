@@ -2,7 +2,7 @@ extends Controller
 class_name PlayerController
 
 func _process(_delta: float) -> void:
-	if !user.enabled: return
+	if !user or !user.enabled: return
 	user.velocity = lerp(
 		user.velocity, 
 		Input.get_vector("mleft", "mright", "mup", "mdown").normalized() * user.speed, 

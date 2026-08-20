@@ -10,6 +10,7 @@ script = ExtResource("1_wmf06")
 cooldown = 3.0
 keybind = "space"
 fixed = true
+category = "Enemy Weapons"
 gp_usage = 2
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

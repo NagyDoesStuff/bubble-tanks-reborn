@@ -66,11 +66,22 @@ const UNOVERWRITTABLE_TANK_NAMES: Array[String] = [
 	"Basic"
 ]
 
+const PART_CATEGORIES: Array[String] = [
+	"Collision",
+	"Player Primaries",
+	"Player Secondaries",
+	"Player Passives",
+	"Enemy Weapons",
+	"Enemy Behaviors",
+	"Other"
+]
+
 # NODES
 var world: World
 var player_cluster: Cluster
 var loaded_clusters: Array[Cluster]
 var current_arena: Arena
+var can_pause: bool = true
 
 # VARIABLE
 var player_cluster_filename: String = "Basic"

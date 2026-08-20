@@ -4,17 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://cyhs8n8we5vvn" path="res://img/bubbles/1796.png" id="2_raeqy"]
 [ext_resource type="Texture2D" uid="uid://bjce7goblie3y" path="res://img/bubbles/1716.png" id="3_c2m4v"]
 [ext_resource type="Texture2D" uid="uid://b1ldhhaxvq86b" path="res://img/bubbles/1790.png" id="4_aqbs4"]
-[ext_resource type="Script" uid="uid://dn4klwtrblqam" path="res://classes/fx/Trail2D.gd" id="5_raeqy"]
+[ext_resource type="PackedScene" uid="uid://cm81e7v4x7vwl" path="res://scenes/fx/trail.tscn" id="5_raeqy"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
 radius = 16.0
-
-[sub_resource type="Curve" id="Curve_c2m4v"]
-_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
-point_count = 2
-
-[sub_resource type="Gradient" id="Gradient_raeqy"]
-colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5019608)
 
 [node name="RocketProjectile" type="Node2D" unique_id=1253201984]
 script = ExtResource("1_2a0oc")
@@ -50,8 +43,4 @@ position = Vector2(-2.3841858e-07, 0)
 scale = Vector2(0.38176164, 0.38176164)
 texture = ExtResource("4_aqbs4")
 
-[node name="Trail2D" type="Line2D" parent="." unique_id=1008197955]
-width_curve = SubResource("Curve_c2m4v")
-gradient = SubResource("Gradient_raeqy")
-script = ExtResource("5_raeqy")
-metadata/_custom_type_script = "uid://dn4klwtrblqam"
+[node name="Trail2D" parent="." unique_id=897987515 instance=ExtResource("5_raeqy")]

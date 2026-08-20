@@ -16,8 +16,8 @@ script = ExtResource("1_jsqch")
 team = 1
 speed = 2.0
 turn_rate = 1.0
-drop_value = 30
-max_progress = 60
+drop_value = 35
+max_progress = 100
 min_to_available = 40
 max_spawn_amount = 2
 

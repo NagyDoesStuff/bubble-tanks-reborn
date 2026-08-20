@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://db4bd30vcss3x"]
+
+[ext_resource type="Script" uid="uid://chx5lwtp5vep7" path="res://classes/game/Explosion.gd" id="1_5rhj2"]
+[ext_resource type="PackedScene" uid="uid://dxxqyds7wbtxp" path="res://scenes/fx/area_burst_boom.tscn" id="2_x1oyq"]
+
+[node name="AreaBurstExplosion" type="Area2D" unique_id=476644725]
+script = ExtResource("1_5rhj2")
+dmg_info = {
+"amount": 20,
+"duration": 0.0,
+"type": "dmg"
+}
+lifetime = 0.5
+radius = 150.0
+metadata/_custom_type_script = "uid://chx5lwtp5vep7"
+
+[node name="RailgunBoom" parent="." unique_id=800833179 instance=ExtResource("2_x1oyq")]
+modulate = Color(0.62, 0.86700004, 1, 1)

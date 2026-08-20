@@ -1,0 +1,85 @@
+[gd_scene format=3 uid="uid://dbtk8x4f8y0q0"]
+
+[ext_resource type="Script" uid="uid://dkkf0mw5rq7mr" path="res://classes/game/Part.gd" id="1_dsm3c"]
+[ext_resource type="PackedScene" uid="uid://c6wess785oki8" path="res://scenes/decorations/bubble21.tscn" id="2_dsm3c"]
+
+[sub_resource type="Animation" id="Animation_fsqqk"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Pivot2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [0.0]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(),
+"transitions": PackedFloat32Array(),
+"update": 0,
+"values": []
+}
+
+[sub_resource type="Animation" id="Animation_x8s67"]
+resource_name = "default"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Pivot2:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.6981317007977318, -0.6981317007977318]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot:rotation")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [0.7853981633974483, -0.7853981633974483]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_fsqqk"]
+_data = {
+&"RESET": SubResource("Animation_fsqqk"),
+&"default": SubResource("Animation_x8s67")
+}
+
+[node name="Wiggle Cluster" type="Node2D" unique_id=320907701]
+script = ExtResource("1_dsm3c")
+metadata/_custom_type_script = "uid://dkkf0mw5rq7mr"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=479595449]
+libraries/ = SubResource("AnimationLibrary_fsqqk")
+autoplay = &"default"
+
+[node name="Pivot" parent="." unique_id=274026440 instance=ExtResource("2_dsm3c")]
+rotation = 0.5750567
+scale = Vector2(0.16332945, 0.16332945)
+
+[node name="Pivot2" parent="Pivot" unique_id=1039353022 instance=ExtResource("2_dsm3c")]
+position = Vector2(-103.90386, 0)
+scale = Vector2(0.72908175, 0.72908175)
+
+[node name="Bubble23" parent="Pivot/Pivot2" unique_id=299055262 instance=ExtResource("2_dsm3c")]
+position = Vector2(-100, 0)
+scale = Vector2(0.7163987, 0.7163987)

@@ -7,6 +7,7 @@
 [node name="3 Spread Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_76e0o")
 cooldown = 0.25
+category = "Player Primaries"
 gp_usage = 2
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

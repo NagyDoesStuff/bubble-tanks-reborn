@@ -11,6 +11,7 @@ spread = 0.1
 amount_per_salvo = 10
 salvo_interval = 0.1
 keybind = "space"
+category = "Player Secondaries"
 gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

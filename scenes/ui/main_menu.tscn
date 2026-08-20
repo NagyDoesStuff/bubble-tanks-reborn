@@ -8,7 +8,6 @@
 [ext_resource type="Texture2D" uid="uid://bb7jtvevhvfds" path="res://img/ui/play_button.png" id="5_x2yvf"]
 [ext_resource type="Texture2D" uid="uid://cjkl8chdx3r1a" path="res://img/ui/editor_button.png" id="6_uhagc"]
 [ext_resource type="Texture2D" uid="uid://k5y3g81me0r5" path="res://img/ui/exit_button.png" id="7_wb0q5"]
-[ext_resource type="Texture2D" uid="uid://b6y4ekborjb13" path="res://img/ui/credits_button.png" id="8_q85j6"]
 
 [sub_resource type="LabelSettings" id="LabelSettings_ymrjv"]
 font = ExtResource("3_1g8jr")
@@ -16,7 +15,7 @@ font_size = 100
 
 [sub_resource type="LabelSettings" id="LabelSettings_8g5eo"]
 font = ExtResource("4_q85j6")
-font_size = 32
+font_size = 24
 
 [node name="MainMenu" type="Control" unique_id=1014022432]
 layout_mode = 3
@@ -57,7 +56,7 @@ offset_bottom = 11.0
 grow_horizontal = 2
 grow_vertical = 0
 pivot_offset_ratio = Vector2(0.5, 0.5)
-text = "v1.0 beta"
+text = "v1.0 release"
 label_settings = SubResource("LabelSettings_8g5eo")
 
 [node name="Music" type="AudioStreamPlayer2D" parent="." unique_id=1661090512]
@@ -122,13 +121,5 @@ custom_minimum_size = Vector2(75, 0)
 layout_mode = 2
 size_flags_horizontal = 0
 texture_normal = ExtResource("7_wb0q5")
-ignore_texture_size = true
-stretch_mode = 5
-
-[node name="CreditsButton" type="TextureButton" parent="Buttons/HBoxContainer" unique_id=890417537]
-custom_minimum_size = Vector2(75, 0)
-layout_mode = 2
-size_flags_horizontal = 0
-texture_normal = ExtResource("8_q85j6")
 ignore_texture_size = true
 stretch_mode = 5

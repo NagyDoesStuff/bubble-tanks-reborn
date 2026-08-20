@@ -14,7 +14,7 @@ team = 1
 speed = 2.0
 turn_rate = 1.0
 drop_value = 15
-max_progress = 40
+max_progress = 60
 min_to_available = 30
 max_spawn_amount = 2
 

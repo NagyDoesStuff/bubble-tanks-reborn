@@ -6,9 +6,10 @@
 
 [node name="Star Burst" type="Node2D" unique_id=122091808]
 script = ExtResource("1_erlvs")
-cooldown = 2.0
+cooldown = 3.0
 keybind = "space"
 fixed = true
+category = "Player Secondaries"
 gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

@@ -123,3 +123,4 @@ func upgrade_player() -> void:
 		GlobalClass.player_cluster.max_progress = GlobalClass.PROGRESSION_REQUIREMENTS[player_max_class - 1]
 	GlobalClass.player_cluster.progress = 1
 	ui.editor_confirm_dialog.activate()
+	GlobalClass.can_pause = false

@@ -1,6 +1,16 @@
 extends Node2D
 class_name Part
 
+@export_enum(
+	"Collision",
+	"Player Primaries",
+	"Player Secondaries",
+	"Player Passives",
+	"Enemy Weapons",
+	"Enemy Behaviors",
+	"Other"
+) var category: String = "Other"
+
 @export var disabled: bool = false
 @export var editor_mode: bool = false
 @export var is_hovered: bool = false

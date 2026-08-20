@@ -9,7 +9,9 @@ script = ExtResource("1_eo08g")
 cooldown = 12.0
 amount_per_salvo = 40
 salvo_interval = 0.1
+fixed = true
 full_turn_amount = 1
+category = "Enemy Weapons"
 gp_usage = 7
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

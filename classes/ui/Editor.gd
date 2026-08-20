@@ -3,10 +3,7 @@ class_name Editor
 
 @onready var last_dragged_part_indicator: Sprite2D = $SelectIcon
 
-@onready var part_list_display_container: VBoxContainer = $HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer/VBoxContainer
-
-@onready var drag_and_drop_container: MarginContainer = $HBoxContainer/VBoxContainer2/DragAndDrop/MarginContainer
-
+@onready var drag_and_drop_container: Panel = $HBoxContainer/VBoxContainer2/DragAndDrop
 @onready var cluster_display_container: Panel = $HBoxContainer/VBoxContainer/Display
 @onready var tank_info_container: Panel = $HBoxContainer/VBoxContainer2/TankInfo
 
@@ -30,6 +27,7 @@ class_name Editor
 @onready var cluster_speed_edit: LineEdit = $HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer/SpeedEdit
 @onready var cluster_min_available_edit: LineEdit = $HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer/MinAvailableEdit
 @onready var cluster_turn_rate_edit: LineEdit = $HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer/TurnRateEdit
+@onready var cluster_max_spawn_edit: LineEdit = $HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer/MaxSpawnEdit
 
 @onready var scale_slider: HSlider = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer/ScaleSlider
 @onready var rotation_slider: HSlider = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/VBoxContainer2/RotationSlider
@@ -37,6 +35,9 @@ class_name Editor
 @onready var symmetry_button: CheckButton = $HBoxContainer/VBoxContainer/Options/MarginContainer/HBoxContainer/SymmetryButton
 
 @onready var info_label: Label = $HBoxContainer/VBoxContainer/Display/MarginContainer/Label
+@onready var gp_usage_count: Label = $HBoxContainer/VBoxContainer2/DragAndDrop/GPUsageCount
+
+@onready var category_tab_container: TabContainer = $HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer/TabContainer
 
 @export var debug: bool = true
 
@@ -75,6 +76,8 @@ func _ready() -> void:
 		tank_info_container.hide()
 		exit_button.hide()
 	
+	make_category_containers()
+	
 	retrieve_avaliable_parts(GlobalClass.PARTS_DIRECTORY)
 	
 	create_template()
@@ -104,19 +107,22 @@ func _process(_delta: float) -> void:
 	if Input.is_action_just_pressed("enter") and !load_cluster_input.text.is_empty() and load_cluster_input.visible:
 		load_cluster_input.hide()
 		load_cluster(load_cluster_input.text)
+	
+	if Input.is_action_just_pressed("del"):
+		delete_last_dragged()
 
 func retrieve_avaliable_parts(dir: String) -> void:
 	for subdir in ResourceLoader.list_directory(dir):
 		for file in ResourceLoader.list_directory(dir + subdir):
 			var full_path: String = dir + subdir + file
-			make_part_select_button(full_path, part_list_display_container)
+			make_part_select_button(full_path)
 
-func make_part_select_button(part_path: String, parent: Control) -> void:
+func make_part_select_button(part_path: String) -> void:
 	var button: Button = GlobalClass.BUTTON_01.instantiate()
 	var unpacked_part: Part = load(part_path).instantiate()
 	button.text = unpacked_part.name
 	button.pressed.connect(set.bind("selected_part_path", part_path))
-	parent.add_child(button)
+	category_tab_container.get_node(unpacked_part.category).add_child(button)
 	unpacked_part.queue_free()
 	print("Loaded path from: " + part_path)
 
@@ -128,6 +134,12 @@ func display_selected_part(part: Part) -> void:
 	part.global_position = drag_and_drop_container.global_position + drag_and_drop_container.size / 2
 	selected_part_type = part
 	add_child(part)
+	
+	if part.gp_usage > 0:
+		gp_usage_count.text = "Uses: " + str(part.gp_usage) + " GP"
+	else:
+		gp_usage_count.text = "Doesn't use GP."
+	
 	print("Displayed new part: " + part.name)
 
 func create_dragged_part(part_path: String) -> Part:
@@ -182,6 +194,7 @@ func save_cluster() -> void:
 		GlobalClass.world.ui.toggle_editor(false)
 		GlobalClass.world.ui.hud.show()
 		GlobalClass.world.transform_player_into(load(full_path).instantiate())
+		GlobalClass.can_pause = true
 
 func update_cluster_name(text: String) -> void:
 	edited_cluster.name = text
@@ -205,6 +218,7 @@ func create_edited_cluster(cluster: Cluster) -> void:
 	cluster_drop_edit.text = str(edited_cluster.drop_value)
 	cluster_min_available_edit.text = str(edited_cluster.min_to_available)
 	cluster_turn_rate_edit.text = str(edited_cluster.turn_rate)
+	cluster_max_spawn_edit.text = str(edited_cluster.max_spawn_amount)
 	update_tank_info()
 
 func load_cluster(text: String) -> void:
@@ -265,6 +279,8 @@ func configure_signals() -> void:
 		update_cluster_float_with_line_edit.bind("min_to_available", cluster_min_available_edit))
 	cluster_turn_rate_edit.text_changed.connect(
 		update_cluster_float_with_line_edit.bind("turn_rate", cluster_turn_rate_edit))
+	cluster_max_spawn_edit.text_changed.connect(
+		update_cluster_float_with_line_edit.bind("max_spawn_amount", cluster_max_spawn_edit))
 	
 	scale_slider.value_changed.connect(scale_last_dragged)
 	rotation_slider.value_changed.connect(rotate_last_dragged)
@@ -299,7 +315,7 @@ func rotate_last_dragged(value: float) -> void:
 	if !last_dragged: return
 	if symmetry and last_dragged.linked_via_editor: 
 		last_dragged.linked_via_editor.rotation_degrees = value
-	last_dragged.rotation_degrees = value
+	last_dragged.rotation_degrees = -value
 
 func toggle_symmetry() -> void:
 	symmetry = !symmetry
@@ -371,3 +387,10 @@ func update_info_ui() -> void:
 		info_label.text += "GP: INF" + "\n"
 		info_label.text += "Max Class: " + str(GlobalClass.MAX_CLASS) + "\n"
 	info_label.text += "Class: " + str(edited_cluster.cluster_class)
+
+func make_category_containers() -> void:
+	for cat in GlobalClass.PART_CATEGORIES:
+		var container: VBoxContainer = VBoxContainer.new()
+		container.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+		container.name = cat
+		category_tab_container.add_child(container, true)

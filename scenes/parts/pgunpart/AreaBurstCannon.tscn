@@ -6,9 +6,10 @@
 
 [node name="Area Burst Cannon" type="Node2D" unique_id=122091808]
 script = ExtResource("1_usfr5")
-cooldown = 3.0
+cooldown = 3.5
 keybind = "space"
 fixed = true
+category = "Player Secondaries"
 gp_usage = 4
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

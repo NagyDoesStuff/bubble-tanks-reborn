@@ -33,8 +33,6 @@ func _ready() -> void:
 	
 func _process(_delta: float) -> void:
 	if GlobalClass.player_cluster and !GlobalClass.world.mid_battle and GlobalClass.player_cluster.enabled: 
-		can_follow = true
-	if can_follow: 
 		velocity += (GlobalClass.player_cluster.global_position - global_position).normalized() * follow_speed
 	global_position += velocity
 	velocity *= accel

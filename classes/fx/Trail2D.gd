@@ -14,6 +14,12 @@ func _ready() -> void:
 	timer.wait_time = point_freq
 	timer.timeout.connect(place_point)
 	add_child(timer)
+	
+	await get_tree().process_frame
+	
+	reparent(get_tree().root)
+	
+	z_index = user.z_index - 1
 
 func _process(_delta: float) -> void:
 	# Lock position and rotation.
@@ -21,6 +27,10 @@ func _process(_delta: float) -> void:
 	global_rotation = 0.0
 
 func place_point() -> void:
-	add_point(to_local(user.global_position))
+	if user: 
+		add_point(to_local(user.global_position))
+	else: 
+		remove_point(0)
 	while get_point_count() > max_point_count:
 		remove_point(0)
+	if points.is_empty(): queue_free()

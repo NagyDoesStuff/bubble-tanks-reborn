@@ -13,6 +13,7 @@ script = ExtResource("1_v03ob")
 split_into = ExtResource("2_tg6js")
 split_radius = 40.0
 split_amount = 12
+category = "Enemy Weapons"
 gp_usage = 2
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1551408143]

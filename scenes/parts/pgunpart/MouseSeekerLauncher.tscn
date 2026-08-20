@@ -10,6 +10,7 @@ script = ExtResource("1_xv705")
 cooldown = 1.5
 keybind = "space"
 fixed = true
+category = "Player Secondaries"
 gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

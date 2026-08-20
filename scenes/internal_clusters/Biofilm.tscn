@@ -11,7 +11,7 @@ script = ExtResource("1_3jgro")
 team = 1
 speed = 3.0
 drop_value = 8
-max_progress = 15
+max_progress = 20
 min_to_available = 15
 max_spawn_amount = 2
 

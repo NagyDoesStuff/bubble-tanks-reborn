@@ -1,0 +1,111 @@
+[gd_scene format=3 uid="uid://qra3ieariwsu"]
+
+[ext_resource type="Script" uid="uid://bth81h4ilr7w4" path="res://classes/game/Projectile.gd" id="1_piye3"]
+[ext_resource type="PackedScene" uid="uid://yr3xmtj11jle" path="res://scenes/projectiles/ClusterSeekerSmallProjectile.tscn" id="2_hg6d8"]
+[ext_resource type="Texture2D" uid="uid://doxw5tx0aky58" path="res://img/prj/pseeker.png" id="2_nituq"]
+[ext_resource type="Texture2D" uid="uid://bl7y3c64b0umh" path="res://img/prj/eseeker.png" id="3_hg6d8"]
+[ext_resource type="Texture2D" uid="uid://b1ldhhaxvq86b" path="res://img/bubbles/1790.png" id="4_usc4j"]
+[ext_resource type="Script" uid="uid://dn4klwtrblqam" path="res://classes/fx/Trail2D.gd" id="6_hg6d8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 16.0
+
+[sub_resource type="Curve" id="Curve_usc4j"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_f4d6c"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5019608)
+
+[node name="ClusterSeekerProjectile" type="Node2D" unique_id=1253201984]
+script = ExtResource("1_piye3")
+lifetime = 10.0
+split_into = ExtResource("2_hg6d8")
+split_radius = 0.0
+split_amount = 5
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1817978696]
+scale = Vector2(1.1, 1.1)
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="PLAYER" type="Sprite2D" parent="." unique_id=930781987]
+visible = false
+scale = Vector2(0.6964186, 0.6964186)
+texture = ExtResource("2_nituq")
+
+[node name="OTHER" type="Sprite2D" parent="." unique_id=1558002201]
+visible = false
+position = Vector2(-8, 0)
+scale = Vector2(0.5037909, 0.5037909)
+texture = ExtResource("3_hg6d8")
+
+[node name="sprite2D2" type="Sprite2D" parent="." unique_id=750614576]
+position = Vector2(13, 0)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D12" type="Sprite2D" parent="." unique_id=103058964]
+position = Vector2(12.999999, 9)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D13" type="Sprite2D" parent="." unique_id=814641374]
+position = Vector2(13.000001, -9.000001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D10" type="Sprite2D" parent="." unique_id=685811701]
+position = Vector2(6.000004, -13)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D11" type="Sprite2D" parent="." unique_id=1769486447]
+position = Vector2(6, 13)
+scale = Vector2(0.15, 0.15)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D7" type="Sprite2D" parent="." unique_id=2125251138]
+position = Vector2(-17.000002, -5.000002)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D8" type="Sprite2D" parent="." unique_id=847145988]
+position = Vector2(-2, -14.000001)
+scale = Vector2(0.099999994, 0.099999994)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D6" type="Sprite2D" parent="." unique_id=1929087536]
+position = Vector2(-2, 14.000001)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D9" type="Sprite2D" parent="." unique_id=511715072]
+position = Vector2(-17.000006, 5.000002)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D4" type="Sprite2D" parent="." unique_id=1526895552]
+position = Vector2(-8.999998, -8.999998)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D5" type="Sprite2D" parent="." unique_id=1300316314]
+position = Vector2(-9.000002, 9)
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("4_usc4j")
+
+[node name="sprite2D" type="Sprite2D" parent="." unique_id=153740252]
+position = Vector2(1, 0)
+scale = Vector2(0.25, 0.25)
+texture = ExtResource("4_usc4j")
+
+[node name="Trail2D" type="Line2D" parent="." unique_id=815052689]
+position = Vector2(-9, 0)
+width = 15.0
+width_curve = SubResource("Curve_usc4j")
+gradient = SubResource("Gradient_f4d6c")
+script = ExtResource("6_hg6d8")
+metadata/_custom_type_script = "uid://dn4klwtrblqam"

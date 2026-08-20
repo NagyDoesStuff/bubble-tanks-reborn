@@ -8,6 +8,7 @@ radius = 64.070274
 
 [node name="Large Bubble" type="Node2D" unique_id=878054447]
 script = ExtResource("1_1k0ep")
+category = "Collision"
 metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
 [node name="Bubble03" parent="." unique_id=1039353022 instance=ExtResource("2_1k0ep")]

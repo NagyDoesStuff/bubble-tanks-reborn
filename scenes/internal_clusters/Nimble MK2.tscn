@@ -1,53 +1,64 @@
-[gd_scene format=3 uid="uid://boyhjh84ff5i5"]
+[gd_scene format=3 uid="uid://oiy26u322kgc"]
 
-[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_t27qs"]
-[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="2_fq50g"]
-[ext_resource type="PackedScene" uid="uid://cfbkygbgyls84" path="res://scenes/parts/collisionpart/bubble01_normal.tscn" id="3_s8jtk"]
-[ext_resource type="PackedScene" uid="uid://c8dvqqcb4fpq4" path="res://scenes/parts/egunpart/BasicGun.tscn" id="4_uvfpi"]
+[ext_resource type="Script" uid="uid://d15g5l4y55yvw" path="res://classes/game/Cluster.gd" id="1_k3cq2"]
+[ext_resource type="PackedScene" uid="uid://bxek8hxos1ywv" path="res://scenes/parts/collisionpart/bubble01_dark.tscn" id="2_1tvmu"]
+[ext_resource type="PackedScene" uid="uid://ngmf4knbngye" path="res://scenes/parts/collisionpart/bubble02_normal.tscn" id="3_lsa26"]
+[ext_resource type="PackedScene" uid="uid://c8dvqqcb4fpq4" path="res://scenes/parts/egunpart/BasicGun.tscn" id="4_uxyp3"]
 
-[node name="Nimble MK2" type="Area2D" unique_id=406105084]
-script = ExtResource("1_t27qs")
+[node name="Nimble" type="Area2D" unique_id=406105084]
+script = ExtResource("1_k3cq2")
 team = 1
-cluster_class = 15
-speed = 12.0
-turn_rate = 10.0
-drop_value = 15
-min_to_available = 15
+speed = 5.0
+turn_rate = 5.0
+drop_value = 7
 max_progress = 16
+min_to_available = 10
 
-[node name="Bubble02Normal" parent="." unique_id=878054447 instance=ExtResource("2_fq50g")]
+[node name="@Node2D@702" parent="." unique_id=878054447 instance=ExtResource("2_1tvmu")]
+position = Vector2(-43.71869, -31.570343)
+disabled = true
+editor_mode = true
+
+[node name="_Node2D_702" parent="." unique_id=668259049 instance=ExtResource("2_1tvmu")]
+position = Vector2(-43.71869, 31.570313)
+disabled = true
+editor_mode = true
+
+[node name="Bubble02Normal" parent="." unique_id=873848017 instance=ExtResource("3_lsa26")]
+position = Vector2(-27.552006, 0)
 scale = Vector2(0.99438155, 0.99438155)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal3" parent="." unique_id=1612306394 instance=ExtResource("3_s8jtk")]
-position = Vector2(-11, -31)
-scale = Vector2(0.81543106, 0.81543106)
+[node name="Small Dark Bubble" parent="." unique_id=1423032132 instance=ExtResource("2_1tvmu")]
+position = Vector2(-62.916626, 0)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal5" parent="." unique_id=655333125 instance=ExtResource("3_s8jtk")]
-position = Vector2(-54.999996, -14.000002)
-scale = Vector2(0.81543106, 0.81543106)
+[node name="_Node2D_703" parent="." unique_id=1784008304 instance=ExtResource("2_1tvmu")]
+position = Vector2(12.281311, -31.570343)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal6" parent="." unique_id=595298194 instance=ExtResource("3_s8jtk")]
-position = Vector2(-56.000004, 13.999998)
-scale = Vector2(0.81543106, 0.81543106)
+[node name="_Node2D_704" parent="." unique_id=1481137191 instance=ExtResource("2_1tvmu")]
+position = Vector2(12.281311, 31.570313)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal7" parent="." unique_id=1887635200 instance=ExtResource("3_s8jtk")]
-position = Vector2(26.999996, -18.999994)
-scale = Vector2(0.81543106, 0.81543106)
+[node name="Bubble02Normal2" parent="." unique_id=1416604783 instance=ExtResource("3_lsa26")]
+position = Vector2(28.447987, 0)
+scale = Vector2(0.99438155, 0.99438155)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal8" parent="." unique_id=1370361246 instance=ExtResource("3_s8jtk")]
-position = Vector2(29.000002, 17.999994)
-scale = Vector2(0.81543106, 0.81543106)
+[node name="BasicGun" parent="." unique_id=122091808 instance=ExtResource("4_uxyp3")]
+position = Vector2(-27, 0)
+scale = Vector2(0.89029276, 0.89029276)
+disabled = true
+editor_mode = true
 
-[node name="Bubble01Normal4" parent="." unique_id=2082312182 instance=ExtResource("3_s8jtk")]
-position = Vector2(-12, 31)
-scale = Vector2(0.81543106, 0.81543106)
-
-[node name="Bubble01Normal2" parent="." unique_id=1157247565 instance=ExtResource("3_s8jtk")]
-position = Vector2(-38, 0)
-scale = Vector2(1.3165779, 1.3165779)
-
-[node name="BasicGun" parent="." unique_id=122091808 instance=ExtResource("4_uvfpi")]
-
-[node name="BasicGun2" parent="." unique_id=472507814 instance=ExtResource("4_uvfpi")]
-position = Vector2(-38, 0)
-scale = Vector2(0.5485513, 0.5485513)
+[node name="BasicGun2" parent="." unique_id=1411898533 instance=ExtResource("4_uxyp3")]
+position = Vector2(29, 0)
+scale = Vector2(0.89029276, 0.89029276)
+disabled = true
+editor_mode = true

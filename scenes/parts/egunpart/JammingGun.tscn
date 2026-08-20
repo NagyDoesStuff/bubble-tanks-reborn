@@ -7,6 +7,7 @@
 [node name="Jamming Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_60rbh")
 cooldown = 2.6
+category = "Enemy Weapons"
 gp_usage = 2
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

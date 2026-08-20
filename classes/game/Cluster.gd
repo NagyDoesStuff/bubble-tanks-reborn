@@ -27,6 +27,7 @@ var mid_blinking: bool = false
 var enabled: bool = true
 var is_slown_down: bool = false
 var is_jammed: bool = false
+var dead: bool = false
 
 ## For player tanks, this serves as the progression variable for unlocking the next class.
 ## For enemy tanks, this serves as the health variable.
@@ -37,6 +38,14 @@ var progress: int = 1:
 		check_progress()
 
 var parts: Array[Part] = []
+
+var controller: Controller:
+	set(value):
+		if !value: return
+		if controller: controller.queue_free()
+		controller = value
+		controller.enabled = true
+		add_child(controller)
 
 func _ready() -> void:
 	modulate.a = 0.0
@@ -52,11 +61,11 @@ func _ready() -> void:
 	if team == 0:
 		GlobalClass.player_cluster = self
 		progress_changed.connect(GlobalClass.world.ui.hud.update_progression_bar)
-		add_child(PlayerController.new())
+		controller = PlayerController.new()
 		max_progress = GlobalClass.world.player_progression_requirement
 	else:
 		progress = max_progress
-		add_child(AIController.new())
+		search_and_apply_behavior_parts()
 	
 	killed.connect(GlobalClass.world.check_battle_state)
 	
@@ -113,6 +122,9 @@ func check_progress() -> void:
 			kill()
 
 func kill() -> void:
+	if dead: return
+	dead = true
+	
 	GlobalClass.play_sound("uid://dq4v7w25xntxg")
 	killed.emit()
 	drop_points()
@@ -181,3 +193,11 @@ func get_used_gp() -> int:
 	for p in get_parts():
 		gp += p.gp_usage
 	return gp
+
+func search_and_apply_behavior_parts() -> void:
+	for p in get_parts():
+		if p is BehaviorPart:
+			match p.type:
+				"Agressive": controller = AgressorAI.new()
+			return
+	controller = WanderAI.new()

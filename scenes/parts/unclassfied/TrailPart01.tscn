@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://d0c5tgbwttb2t"]
+
+[ext_resource type="Script" uid="uid://dkkf0mw5rq7mr" path="res://classes/game/Part.gd" id="1_knx86"]
+[ext_resource type="PackedScene" uid="uid://rikf2j1ak5v6" path="res://scenes/decorations/bubble12.tscn" id="2_7hmvc"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="3_1vhhd"]
+[ext_resource type="PackedScene" uid="uid://cm81e7v4x7vwl" path="res://scenes/fx/trail.tscn" id="4_1vhhd"]
+
+[node name="Trail Part" type="Node2D" unique_id=320907701]
+script = ExtResource("1_knx86")
+metadata/_custom_type_script = "uid://dkkf0mw5rq7mr"
+
+[node name="Bubble12" parent="." unique_id=1039353022 instance=ExtResource("2_7hmvc")]
+position = Vector2(-8.999999, 0)
+scale = Vector2(0.09002134, 0.09002134)
+
+[node name="Bubble11" parent="." unique_id=1787361925 instance=ExtResource("3_1vhhd")]
+scale = Vector2(0.1340341, 0.1340341)
+
+[node name="Trail2D" parent="." unique_id=897987515 instance=ExtResource("4_1vhhd")]
+position = Vector2(-14, 0)

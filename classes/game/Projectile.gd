@@ -16,6 +16,10 @@ var targ: Cluster
 @export var split_into: PackedScene
 @export var split_radius: float = 10.0
 @export var split_amount: int = 1
+## does nothing for now
+@export_enum("destroyed", "expired") var split_on: String = "destroyed"
+
+@export var muted: bool = false
 
 func _ready() -> void:
 	if !prj_area and $Area2D: prj_area = $Area2D
@@ -65,7 +69,7 @@ func _process(delta: float) -> void:
 func on_hit(area: Area2D) -> void:
 	if area is Cluster and area.team != team: 
 		area.recieve_hit(prj_info["dmg_info"])
-		GlobalClass.play_sound("uid://br055er0cj176")
+		if !muted: GlobalClass.play_sound("uid://br055er0cj176")
 		if prj_info.has("pierce") and !prj_info["pierce"]: return
 		destroy()
 	if area.get_parent() is Projectile and area.get_parent().team != team and area.get_parent().prj_info.has("homing") and area.get_parent().prj_info["homing"]:

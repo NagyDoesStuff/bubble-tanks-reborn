@@ -1,0 +1,68 @@
+[gd_scene format=3 uid="uid://cbwlipfn6dbew"]
+
+[ext_resource type="Script" uid="uid://cnks88tcy6mbk" path="res://classes/parts/GunPart.gd" id="1_o55vh"]
+[ext_resource type="PackedScene" uid="uid://rikf2j1ak5v6" path="res://scenes/decorations/bubble12.tscn" id="2_45xa5"]
+[ext_resource type="PackedScene" uid="uid://ccjvfmlp5emvv" path="res://scenes/decorations/bubble11.tscn" id="2_qeir7"]
+[ext_resource type="Script" uid="uid://o0m4f66riwtm" path="res://classes/misc/Barrel.gd" id="3_45xa5"]
+
+[node name="Cluster Seeker Launcher" type="Node2D" unique_id=122091808]
+script = ExtResource("1_o55vh")
+cooldown = 2.5
+keybind = "space"
+fixed = true
+category = "Player Secondaries"
+gp_usage = 3
+metadata/_custom_type_script = "uid://cnks88tcy6mbk"
+
+[node name="Bubble13" parent="." unique_id=1039353022 instance=ExtResource("2_45xa5")]
+position = Vector2(-8.000003, -11.999999)
+scale = Vector2(0.2, 0.2)
+
+[node name="Bubble17" parent="." unique_id=774819537 instance=ExtResource("2_45xa5")]
+position = Vector2(-19.000002, -27.999996)
+scale = Vector2(0.109462515, 0.109462515)
+
+[node name="Bubble14" parent="." unique_id=564973197 instance=ExtResource("2_45xa5")]
+position = Vector2(-8.000003, 12.000001)
+scale = Vector2(0.2, 0.2)
+
+[node name="Bubble16" parent="." unique_id=1025957536 instance=ExtResource("2_45xa5")]
+position = Vector2(-19.000002, 28.000002)
+scale = Vector2(0.109462515, 0.109462515)
+
+[node name="Bubble02" parent="." unique_id=107637638 instance=ExtResource("2_qeir7")]
+position = Vector2(8, -22.999998)
+scale = Vector2(0.113286585, 0.113286585)
+
+[node name="Bubble03" parent="." unique_id=1176472043 instance=ExtResource("2_qeir7")]
+position = Vector2(8, 23.999998)
+scale = Vector2(0.113286585, 0.113286585)
+
+[node name="Bubble04" parent="." unique_id=179823899 instance=ExtResource("2_qeir7")]
+position = Vector2(-6, -25)
+scale = Vector2(0.16059458, 0.16059458)
+
+[node name="Bubble05" parent="." unique_id=238601288 instance=ExtResource("2_qeir7")]
+position = Vector2(-5.999998, 25.000002)
+scale = Vector2(0.16059458, 0.16059458)
+
+[node name="Bubble15" parent="." unique_id=176425521 instance=ExtResource("2_qeir7")]
+position = Vector2(-7, 0)
+scale = Vector2(0.15, 0.15)
+
+[node name="GunBarrel" type="Node2D" parent="." unique_id=756519995]
+position = Vector2(17, 0)
+script = ExtResource("3_45xa5")
+prj_info = {
+"dmg_info": {
+"amount": 9,
+"type": "dmg"
+},
+"hit_fx": "uid://dqbky1rhsnesm",
+"homing": true,
+"size": 1.5,
+"speed": 750.0,
+"template": "uid://qra3ieariwsu",
+"turn_rate": 5.0
+}
+metadata/_custom_type_script = "uid://o0m4f66riwtm"

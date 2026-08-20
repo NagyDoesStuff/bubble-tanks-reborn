@@ -8,6 +8,7 @@
 script = ExtResource("1_wmgo3")
 cooldown = 0.125
 spread = 0.15
+category = "Player Primaries"
 gp_usage = 3
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

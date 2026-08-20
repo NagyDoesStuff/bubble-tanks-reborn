@@ -13,9 +13,9 @@ script = ExtResource("1_bfxo3")
 team = 1
 speed = 4.0
 turn_rate = 3.0
-drop_value = 9
-max_progress = 11
-min_to_available = 25
+drop_value = 11
+max_progress = 25
+min_to_available = 35
 
 [node name="Medium Dark Bubble" parent="." unique_id=878054447 instance=ExtResource("2_kt2fi")]
 position = Vector2(-15.854126, -23.488865)

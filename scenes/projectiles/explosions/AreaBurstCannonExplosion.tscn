@@ -11,7 +11,7 @@ dmg_info = {
 "type": "dmg"
 }
 lifetime = 0.5
-radius = 300.0
+radius = 250.0
 metadata/_custom_type_script = "uid://chx5lwtp5vep7"
 
 [node name="SeekerBoom" parent="." unique_id=800833179 instance=ExtResource("2_salst")]

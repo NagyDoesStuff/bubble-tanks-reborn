@@ -9,6 +9,7 @@
 script = ExtResource("1_kylhg")
 cooldown = 0.1
 spread = 0.05
+category = "Player Primaries"
 gp_usage = 4
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

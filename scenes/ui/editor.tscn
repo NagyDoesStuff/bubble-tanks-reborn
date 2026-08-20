@@ -19,6 +19,8 @@
 [ext_resource type="Texture2D" uid="uid://dpveh2ekbujkj" path="res://img/bubbles/2246.png" id="13_xbjxy"]
 [ext_resource type="Texture2D" uid="uid://3of6wli6kjpb" path="res://img/bubbles/1818.png" id="14_m77bv"]
 [ext_resource type="Texture2D" uid="uid://dv6m32fw2psqh" path="res://img/ui/6.png" id="14_p2r2s"]
+[ext_resource type="FontFile" uid="uid://cfenaod55v0rd" path="res://fonts/741_GoldyRound_8pt_st.ttf" id="20_cdtuk"]
+[ext_resource type="FontFile" uid="uid://cw7h0rxl357ph" path="res://fonts/156_Arial_10pt_st.ttf" id="20_kv4ft"]
 
 [sub_resource type="Curve" id="Curve_ymrjv"]
 _data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(0.12783504, 1), 0.0, 0.0, 0, 0, Vector2(0.6350515, 0.94), 0.0, 0.0, 0, 0, Vector2(1, 0), 0.0, 0.0, 0, 0]
@@ -86,6 +88,46 @@ font = ExtResource("2_6d1h4")
 font_size = 24
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s0ct7"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_74iyh"]
+font = ExtResource("20_cdtuk")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_p2r2s"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+draw_center = false
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cdtuk"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(0.20999998, 0.67083347, 1, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_74iyh"]
+content_margin_left = 4.0
+content_margin_top = 4.0
+content_margin_right = 4.0
+content_margin_bottom = 4.0
+bg_color = Color(1, 0.50600004, 0.24000001, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+corner_detail = 5
 
 [node name="Editor" type="Control" unique_id=1277885260]
 z_index = 1
@@ -433,10 +475,10 @@ horizontal_alignment = 1
 
 [node name="TeamEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=563232303]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
-placeholder_text = "Insert team (0 is player, 1 is enemy)"
+placeholder_text = "Insert team... (0: player, 1: enemy)"
 alignment = 1
 
 [node name="Spacer" type="Label" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1847625126]
@@ -452,7 +494,7 @@ horizontal_alignment = 1
 
 [node name="HPEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=605069671]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Enemy max health..."
@@ -460,7 +502,7 @@ alignment = 1
 
 [node name="DropEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1943258716]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Enemy drop amount..."
@@ -468,7 +510,7 @@ alignment = 1
 
 [node name="SpeedEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=753261379]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Enemy speed..."
@@ -476,7 +518,7 @@ alignment = 1
 
 [node name="TurnRateEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1197637285]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Turn rate..."
@@ -484,10 +526,18 @@ alignment = 1
 
 [node name="MinAvailableEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1285807492]
 layout_mode = 2
-theme_override_fonts/font = ExtResource("6_oaaef")
+theme_override_fonts/font = ExtResource("11_p70fw")
 theme_override_styles/normal = ExtResource("2_x4mk5")
 theme_override_styles/focus = ExtResource("2_x4mk5")
 placeholder_text = "Minimum amount of arenas to appear..."
+alignment = 1
+
+[node name="MaxSpawnEdit" type="LineEdit" parent="HBoxContainer/VBoxContainer2/TankInfo/MarginContainer/VBoxContainer" unique_id=1792996667]
+layout_mode = 2
+theme_override_fonts/font = ExtResource("11_p70fw")
+theme_override_styles/normal = ExtResource("2_x4mk5")
+theme_override_styles/focus = ExtResource("2_x4mk5")
+placeholder_text = "Maximum spawn count..."
 alignment = 1
 
 [node name="DragAndDrop" type="Panel" parent="HBoxContainer/VBoxContainer2" unique_id=1690421690]
@@ -511,24 +561,34 @@ text = "
 "
 flat = true
 
-[node name="MarginContainer" type="MarginContainer" parent="HBoxContainer/VBoxContainer2/DragAndDrop" unique_id=161767016]
+[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/DragAndDrop" unique_id=880063885]
 layout_mode = 1
-anchors_preset = 15
-anchor_right = 1.0
-anchor_bottom = 1.0
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -170.0
+offset_top = -121.0
+offset_right = 170.0
+offset_bottom = 119.0
 grow_horizontal = 2
 grow_vertical = 2
-mouse_filter = 2
-theme_override_constants/margin_left = 30
-theme_override_constants/margin_top = 30
-theme_override_constants/margin_right = 30
-theme_override_constants/margin_bottom = 30
-
-[node name="Label" type="Label" parent="HBoxContainer/VBoxContainer2/DragAndDrop/MarginContainer" unique_id=880063885]
-layout_mode = 2
 size_flags_vertical = 1
 text = "DRAG & DROP"
 label_settings = ExtResource("3_coh7o")
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="GPUsageCount" type="Label" parent="HBoxContainer/VBoxContainer2/DragAndDrop" unique_id=2122493190]
+layout_mode = 0
+offset_left = 30.0
+offset_top = 52.0
+offset_right = 370.0
+offset_bottom = 292.0
+size_flags_vertical = 1
+text = "Uses: ... GP"
+label_settings = SubResource("LabelSettings_74iyh")
 horizontal_alignment = 1
 vertical_alignment = 2
 
@@ -559,6 +619,15 @@ theme_override_constants/margin_bottom = 30
 [node name="ScrollContainer" type="ScrollContainer" parent="HBoxContainer/VBoxContainer2/List/MarginContainer" unique_id=1835802272]
 layout_mode = 2
 
-[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer" unique_id=816124896]
+[node name="TabContainer" type="TabContainer" parent="HBoxContainer/VBoxContainer2/List/MarginContainer/ScrollContainer" unique_id=1341316830]
 layout_mode = 2
 size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_colors/font_unselected_color = Color(1, 1, 1, 1)
+theme_override_colors/font_disabled_color = Color(16.737032, 16.737032, 16.737032, 0.5019608)
+theme_override_constants/side_margin = 0
+theme_override_constants/tab_separation = 4
+theme_override_fonts/font = ExtResource("20_kv4ft")
+theme_override_styles/panel = SubResource("StyleBoxFlat_p2r2s")
+theme_override_styles/tab_unselected = SubResource("StyleBoxFlat_cdtuk")
+theme_override_styles/tab_selected = SubResource("StyleBoxFlat_74iyh")

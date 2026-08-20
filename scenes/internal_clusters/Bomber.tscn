@@ -14,7 +14,7 @@ team = 1
 speed = 2.0
 turn_rate = 1.0
 drop_value = 8
-max_progress = 10
+max_progress = 25
 min_to_available = 10
 
 [node name="Enemy Seeker Launcher" parent="." unique_id=122091808 instance=ExtResource("2_cpwiq")]

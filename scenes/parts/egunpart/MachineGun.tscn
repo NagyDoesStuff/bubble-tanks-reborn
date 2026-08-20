@@ -10,6 +10,7 @@ cooldown = 5.0
 spread = 0.15
 amount_per_salvo = 20
 salvo_interval = 0.1
+category = "Enemy Weapons"
 gp_usage = 6
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

@@ -8,6 +8,7 @@ radius = 64.070274
 
 [node name="Small Light Bubble" type="Node2D" unique_id=878054447]
 script = ExtResource("1_sf0rn")
+category = "Collision"
 metadata/_custom_type_script = "uid://y2smhndmk7x3"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320082955]

@@ -8,7 +8,6 @@ class_name MainMenu
 @onready var play_button: TextureButton = $Buttons/PlayButton
 @onready var debug_editor_button: TextureButton = $Buttons/HBoxContainer/DebugEditorButton
 @onready var exit_button: TextureButton = $Buttons/HBoxContainer/ExitButton
-@onready var credits_button: TextureButton = $Buttons/HBoxContainer/CreditsButton
 
 func _ready() -> void:
 	buttons_container.hide()

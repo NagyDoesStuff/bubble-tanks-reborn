@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://cm81e7v4x7vwl"]
+
+[ext_resource type="Script" uid="uid://dn4klwtrblqam" path="res://classes/fx/Trail2D.gd" id="1_h04ae"]
+
+[sub_resource type="Curve" id="Curve_c2m4v"]
+_data = [Vector2(0, 0), 0.0, 0.0, 0, 0, Vector2(1, 1), 0.0, 0.0, 0, 0]
+point_count = 2
+
+[sub_resource type="Gradient" id="Gradient_raeqy"]
+colors = PackedColorArray(1, 1, 1, 0, 1, 1, 1, 0.5019608)
+
+[node name="Trail2D" type="Line2D" unique_id=897987515]
+width_curve = SubResource("Curve_c2m4v")
+gradient = SubResource("Gradient_raeqy")
+script = ExtResource("1_h04ae")
+metadata/_custom_type_script = "uid://dn4klwtrblqam"

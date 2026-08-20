@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://b32cfsjgp2kna"]
+
+[ext_resource type="Script" uid="uid://y2smhndmk7x3" path="res://classes/parts/CollisionPart.gd" id="1_a1ja8"]
+[ext_resource type="PackedScene" uid="uid://3n8ikubpwp7k" path="res://scenes/decorations/bubble24.tscn" id="2_a1ja8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ymrjv"]
+radius = 94.08507
+
+[node name="Huge Dark Bubble" type="Node2D" unique_id=878054447]
+script = ExtResource("1_a1ja8")
+category = "Collision"
+metadata/_custom_type_script = "uid://y2smhndmk7x3"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1320082955]
+shape = SubResource("CircleShape2D_ymrjv")
+
+[node name="Bubble24" parent="." unique_id=1039353022 instance=ExtResource("2_a1ja8")]
+scale = Vector2(1.465626, 1.465626)

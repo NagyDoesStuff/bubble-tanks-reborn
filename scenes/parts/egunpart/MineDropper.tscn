@@ -119,6 +119,7 @@ _data = {
 script = ExtResource("1_qgynw")
 cooldown = 1.0
 fixed = true
+category = "Enemy Weapons"
 gp_usage = 1
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

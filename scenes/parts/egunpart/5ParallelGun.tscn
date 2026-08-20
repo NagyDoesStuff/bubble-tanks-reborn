@@ -7,6 +7,7 @@
 [node name="5 Parallel Gun" type="Node2D" unique_id=122091808]
 script = ExtResource("1_jk0l5")
 cooldown = 2.0
+category = "Enemy Weapons"
 gp_usage = 4
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 

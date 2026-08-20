@@ -17,6 +17,7 @@ prj_info = {
 "size": 0.66,
 "speed": 1000.0
 }
+muted = true
 metadata/_custom_type_script = "uid://cnks88tcy6mbk"
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1261310356]
